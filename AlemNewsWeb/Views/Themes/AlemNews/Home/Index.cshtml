@@ -1,0 +1,525 @@
+@{
+    Layout = $"~/Views/Themes/{CurrentTheme}/_HomeLayout.cshtml";
+    var latestArticleList = QarList<Article>("latestArticleList");
+    var menuList = QarList<Articlecategory>("menuList");
+    var pinnedArticle = QarModel<Article>("pinnedArticle");
+    var focusArticleList = QarList<Article>("focusArticleList");
+    var block1Title = (ViewData["block1Title"] ?? string.Empty) as string;
+    var block1Url = (ViewData["block1Url"] ?? string.Empty) as string;
+    var block1ArticleList = QarList<Article>("block1ArticleList");
+    var block2Title = (ViewData["block2Title"] ?? string.Empty) as string;
+    var block2Url = (ViewData["block2Url"] ?? string.Empty) as string;
+    var block2ArticleList = QarList<Article>("block2ArticleList");
+    var block3Title = (ViewData["block3Title"] ?? string.Empty) as string;
+    var block3Url = (ViewData["block3Url"] ?? string.Empty) as string;
+    var block3ArticleList = QarList<Article>("block3ArticleList");
+    var block4Title = (ViewData["block4Title"] ?? string.Empty) as string;
+    var block4Url = (ViewData["block4Url"] ?? string.Empty) as string;
+    var block4ArticleList = QarList<Article>("block4ArticleList");
+}
+<!--================= news =================-->
+<section class="rts-single-news-section section-gap">
+    <div class="container">
+        <div class="section-inner">
+            <div class="rts-featureSlider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+
+                    </div>
+                </div>
+                @if (latestArticleList != null || latestArticleList.Count > 0)
+                {
+                     <div class="row">
+                    @foreach (var item in latestArticleList.Take(4))
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="item">
+                                <a href="/@CurrentLanguage/article/@(item.LatynUrl).html" class="gallery-picture">
+                                    <img
+                                        src="@GetUrl(item.ThumbnailUrl.Replace("_big.", "_middle."))" style="height: 382px" alt=""></a>
+                                <div class="contents-wrapper">
+                                    <div class="contents text-start">
+                                        <div class="d-block">
+                                            <div class="heading d-flex">
+                                                @foreach (var menu in menuList)
+                                                {
+                                                    if (item.CategoryId == menu.Id)
+                                                    {
+                                                        <p class="tag">@menu?.Title</p>
+                                                    }
+                                                }
+                                                }
+                                                <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(item.AddTime,
+                                                                            CurrentLanguage)</span>
+                                            </div>
+                                            <div class="gallery-title">
+                                                <a href="/@CurrentLanguage/article/@(item.LatynUrl).html" class="ulytitle">@item?.Title</a>
+                                            </div>
+                                        </div>
+                                        <div class="author-info">
+                                            <div class="content">
+                                                <a href="/@CurrentLanguage/article/@(item.LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                }
+               
+            </div>
+        </div>
+    </div>
+</section>
+<!--================= focus news =================-->
+<section class="rts-trending-news-section">
+ @if (focusArticleList.Count > 0)
+ {
+      <div class="container">
+        <div class="section-title-area section-ttile-area2">
+            <h1 class="section-title">@T("ls_Focusnews")</h1>
+        </div>
+    </div>
+    <div class="container">
+             <div class="row">
+
+            <div class="col-lg-6 col-md-12">
+                <div class="item">
+                    <a href="/@CurrentLanguage/article/@(focusArticleList[0].LatynUrl).html" class="gallery-picture">
+                        <img
+                            src="@GetUrl(focusArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" style="height: 338px" alt="@focusArticleList[0]?.Title"></a>
+                    <div class="contents-wrapper">
+                        <div class="contents text-start">
+                            <div class="d-block">
+                                <div class="heading d-flex">
+                                    @foreach (var menu in menuList)
+                                    {
+                                        if (focusArticleList[0].CategoryId == menu.Id)
+                                        {
+                                            <p class="tag">@menu?.Title</p>
+                                        }
+                                    }
+                                    <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(focusArticleList[0].AddTime,
+                                                                CurrentLanguage)</span>
+                                </div>
+                                <div class="gallery-title">
+                                    <a href="/@CurrentLanguage/article/@(focusArticleList[0].LatynUrl).html" class="ulytitle">@focusArticleList[0]?.Title</a>
+                                </div>
+                            </div>
+                            <div class="author-info">
+                                <div class="content">
+                                    <a href="/@CurrentLanguage/article/@(focusArticleList[0].LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (focusArticleList.Count > 1)
+            {
+                for (int i = 1; i < focusArticleList.Count && i <= 4; i++)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                            <a href="/@CurrentLanguage/article/@(focusArticleList[i].LatynUrl).html" class="gallery-picture">
+                                <img style="height: 338px" src="@GetUrl(focusArticleList[i].ThumbnailUrl.Replace("_big.", "_middle."))" alt="@focusArticleList[i]?.Title">
+                            </a>
+                            <div class="contents-wrapper">
+                                <div class="contents text-start">
+                                    <div class="d-block">
+                                        <div class="heading d-flex">
+                                            @foreach (var menu in menuList)
+                                            {
+                                                if (focusArticleList[i].CategoryId == menu.Id)
+                                                {
+                                                    <p class="tag">@menu?.Title</p>
+                                                }
+                                            }
+                                            <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(focusArticleList[i].AddTime, CurrentLanguage)</span>
+                                        </div>
+                                        <div class="gallery-title">
+                                            <a href="/@CurrentLanguage/article/@(focusArticleList[i].LatynUrl).html" class="ulytitle">@focusArticleList[i]?.Title</a>
+                                        </div>
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="content">
+                                            <a href="/@CurrentLanguage/article/@(focusArticleList[i].LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (focusArticleList.Count > 5)
+            {
+                <div class="col-lg-6 col-md-12">
+                    <div class="item">
+                        <a href="/@CurrentLanguage/article/@(focusArticleList[5].LatynUrl).html" class="gallery-picture">
+                            <img
+                                src="@GetUrl(focusArticleList[5].ThumbnailUrl.Replace("_big.", "_middle."))" style="height: 338px" alt="@focusArticleList[5]?.Title"></a>
+                        <div class="contents-wrapper">
+                            <div class="contents text-start">
+                                <div class="d-block">
+                                    <div class="heading d-flex">
+                                        @foreach (var menu in menuList)
+                                        {
+                                            if (focusArticleList[5].CategoryId == menu.Id)
+                                            {
+                                                <p class="tag">@menu?.Title</p>
+                                            }
+                                        }
+                                        <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(focusArticleList[5].AddTime,
+                                                                    CurrentLanguage)</span>
+                                    </div>
+                                    <div class="gallery-title">
+                                        <a href="/@CurrentLanguage/article/@(focusArticleList[5].LatynUrl).html" class="ulytitle">@focusArticleList[5]?.Title</a>
+                                    </div>
+                                </div>
+                                <div class="author-info">
+                                    <div class="content">
+                                        <a href="/@CurrentLanguage/article/@(focusArticleList[5].LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+        
+       
+    </div>
+ }
+   
+</section>
+<!--================= block1 =================-->
+<section class="rts-trending-news-section2 pb--100">
+    <div class="container">
+         @if (block1ArticleList.Count > 0)
+         {
+           <div class="section-inner">
+            <div class="section-title-area section-ttile-area2 block1-mt">
+                @if (!string.IsNullOrEmpty(block1Title))
+                {
+                    <h1 class="section-title">@block1Title</h1>
+                }
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="item">
+                        <a href="/@CurrentLanguage/article/@(block1ArticleList[0].LatynUrl).html" class="gallery-picture">
+                            <img
+                                src="@GetUrl(block1ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" class="block1left-img" alt="@block1ArticleList[0]?.Title"></a>
+                        <div class="contents-wrapper">
+                            <div class="contents text-start">
+                                <div class="d-block">
+                                    <div class="heading d-flex">
+                                        @foreach (var menu in menuList)
+                                        {
+                                            if (block1ArticleList[0].CategoryId == menu.Id)
+                                            {
+                                                <p class="tag">@menu?.Title</p>
+                                            }
+                                        }
+                                        <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleList[0].AddTime,
+                                                                    CurrentLanguage)</span>
+                                    </div>
+                                    <div class="gallery-title">
+                                        <a href="/@CurrentLanguage/article/@(block1ArticleList[0].LatynUrl).html" class="ulytitle">@block1ArticleList[0]?.Title</a>
+                                    </div>
+                                </div>
+                                <div class="author-info">
+                                    <div class="content">
+                                        <a href="/@CurrentLanguage/article/@(block1ArticleList[0].LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <a href="/@CurrentLanguage/article/@(block1ArticleList[1].LatynUrl).html" class="gallery-picture">
+                            <img
+                                src="@GetUrl(block1ArticleList[1]?.ThumbnailUrl.Replace("_big.", "_middle."))" class="block1left-img" alt="@block1ArticleList[1]?.Title"></a>
+                        <div class="contents-wrapper">
+                            <div class="contents text-start">
+                                <div class="d-block">
+                                    <div class="heading d-flex">
+                                        @foreach (var menu in menuList)
+                                        {
+                                            if (block1ArticleList[1].CategoryId == menu.Id)
+                                            {
+                                                <p class="tag">@menu?.Title</p>
+                                            }
+                                        }
+                                        <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleList[1].AddTime,
+                                                                    CurrentLanguage)</span>
+                                    </div>
+                                    <div class="gallery-title">
+                                        <a href="/@CurrentLanguage/article/@(block1ArticleList[1].LatynUrl).html" class="ulytitle">@block1ArticleList[1]?.Title</a>
+                                    </div>
+                                </div>
+                                <div class="author-info">
+                                    <div class="content">
+                                        <a href="/@CurrentLanguage/article/@(block1ArticleList[1].LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    @if (block1ArticleList.Count > 1)
+                    {
+                        for (int i = 2; i < block1ArticleList.Count && i <= 5; i++)
+                        {
+                            <div class="rts-post-small">
+                                <a href="/@CurrentLanguage/article/@(block1ArticleList[i].LatynUrl).html" class="gallery-picture">
+                                    <img
+                                        src="@GetUrl(block1ArticleList[i].ThumbnailUrl.Replace("_big.", "_middle."))" style="height:121px" alt="@block1ArticleList[i]?.Title"></a>
+                                <div class="contents-wrapper">
+                                    <div class="contents text-start">
+                                        <div class="d-block">
+                                            <div class="heading align-items-center d-flex">
+                                                @foreach (var menu in menuList)
+                                                {
+                                                    if (block1ArticleList[i].CategoryId == menu.Id)
+                                                    {
+                                                        <p class="tag">@menu?.Title</p>
+                                                    }
+                                                }
+                                                <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleList[i].AddTime, CurrentLanguage)</span>
+                                            </div>
+                                            <div class="gallery-title">
+                                                <a href="/@CurrentLanguage/article/@(block1ArticleList[i].LatynUrl).html" class="ulytitle">@block1ArticleList[i]?.Title</a>
+                                            </div>
+                                        </div>
+                                        <div class="author-info">
+                                            <div class="content">
+                                                <a href="/@CurrentLanguage/article/@(block1ArticleList[i].LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="premier-league-area side-table-item side-item">
+                        <div class="side-item-inner">
+                            <h3 class="side-content-title"><img src="/images/qfl-logo.png" alt=""> QFL</h3>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr class="head-tr">
+                                    <th scope="col">@T("ls_Ranking")</th>
+                                    <th scope="col">Команда</th>
+                                    <th scope="col">@T("ls_Score1")</th>
+                                    <th scope="col">@T("ls_Competition")</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                               
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+         }
+
+    </div>
+</section>
+<!--================= block2 =================-->
+<section class="rts-match-highlights-section pt--100 pb--100">
+    <div class="container">
+        @if(block2ArticleList.Count > 0)
+        {
+            <div class="section-title-area section-ttile-area2">
+            <h1 class="section-title">@block2Title</h1>
+        </div>
+        <div class="match-highlights-inner">
+            <div class="row">
+                @foreach(var block2 in block2ArticleList)
+                {
+                     <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="section-wraper">
+                            <div class="video-area">
+                                <div class="image"><a href="/@CurrentLanguage/article/@(block2.LatynUrl).html"><img
+                                           src="@GetUrl(block2.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2?.Title"></a>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <a href="/@CurrentLanguage/article/@(block2.LatynUrl).html" class="">@block2?.Title</a>
+                                </div>
+                                <p class="date">@UnixTimeHelper.UnixTimeToLocalString(block2.AddTime,CurrentLanguage)</p>
+                            </div>
+                    </div>
+                </div>
+
+                }
+               
+            </div>
+        </div>
+
+        }
+        
+    </div>
+</section>
+<!--================= block3 =================-->
+<section class="rts-blog-section2 section-gap">
+    <div class="container">
+       
+        <div class="blog-area">
+            <div class="row">
+                <div class="col-xl-8 col-lg-7">
+                    @if(block3ArticleList.Count > 0)
+                    {
+                        <div class="section-title-area section-title-area2">
+                            <h1 class="section-title">@block3Title</h1>
+                        </div>
+                        <div class="rts-post-area">
+                            @foreach(var block3 in block3ArticleList.Take(6))
+                            {
+                                <div class="rts-post rts-post-wide mb--35">
+                                    <a href="/@CurrentLanguage/article/@(block3.LatynUrl).html" class="gallery-picture"><img
+                                                                                                                            src="@GetUrl(block3.ThumbnailUrl.Replace("_big.", "_middle."))" class="block3-img" alt="@block3?.Title"></a>
+                                    <div class="contents-wrapper">
+                                        <div class="contents text-start">
+                                            <div class="d-block">
+                                                <div class="heading d-flex">
+                                                    @foreach (var menu in menuList)
+                                                    {
+                                                        if (block3.CategoryId == menu.Id)
+                                                        {
+                                                            <p class="tag">@menu?.Title</p>
+                                                        }
+                                                    }
+                                                    <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(block3.AddTime,CurrentLanguage)</span>
+                                                </div>
+                                                <div class="gallery-title">
+                                                    <a href="/@CurrentLanguage/article/@(block3.LatynUrl).html" class="ulyblok3title">@block3?.Title</a>
+                                                </div>
+                                            </div>
+                                            <div class="author-info">
+                                                <div class="content">
+                                                    <a href="/@CurrentLanguage/article/@(block3.LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                       
+                        </div>
+                    }
+                </div>
+                @* жарнама *@
+                <div class="col-xl-4 col-lg-5">
+                    <div class="side-content">
+                        <div class="side-content-inner">
+                            <div class="next-match-area side-item">
+                                <img src="/images/advertise.jpg" class="w-100" alt="advertise">
+                            </div>
+                            <div class="premier-league-area side-table-item side-item">
+                                <img src="/images/advertise.jpg" class="w-100" alt="advertise">
+                            </div>
+                            <div class="subscription-area side-item">
+                                <div class="area-inner">
+                                    <img src="/images/advertise.jpg" class="w-100" alt="advertise">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </div>
+</section>
+@if (pinnedArticle != null)
+{
+    <div class="rts-video-section video-section-2" style="background: url(@GetUrl(pinnedArticle.ThumbnailUrl.Replace("_big.", "_middle."))); background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 150px 0;" >
+        <div class="container">
+            <div class="video-section-inner text-center">
+                <h3 class="title">@pinnedArticle?.Title</h3>
+                <a href="/@CurrentLanguage/article/@(pinnedArticle.LatynUrl).html" class="btn">@T("ls_Readmore") <i class="far fa-long-arrow-right ml--5"></i></a>
+            </div>
+        </div>
+    </div>
+}
+<!--================= pinnedArticle =================-->
+
+<!--================= block4ArticleList =================-->
+<section class="rts-blog-section3 section-gap">
+    <div class="container">
+        @if(block4ArticleList.Count > 0)
+        {
+            <div class="section-inner">
+            <div class="section-title-area section-ttile-area2">
+                <h1 class="section-title">@block4Title</h1>
+            </div>
+            <div class="blog-area">
+                <div class="row">
+                    @foreach(var block4 in block4ArticleList.Take(3))
+                    {
+                         <div class="col-xl-4 col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-picture"><img src="@GetUrl(block4.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                    alt="@block4?.Title"></div>
+                            <div class="contents-wrapper">
+                                <div class="contents text-start">
+                                    <div class="d-block">
+                                        <div class="heading d-flex">
+                                            @foreach (var menu in menuList)
+                                            {
+                                                if (block4.CategoryId == menu.Id)
+                                                {
+                                                    <p class="tag">@menu?.Title</p>
+                                                }
+                                            }
+                                            <span class="blog-date">@UnixTimeHelper.UnixTimeToLocalString(block4.AddTime,CurrentLanguage)</span>
+                                        </div>
+                                        <div class="gallery-title">
+                                            <a href="/@CurrentLanguage/article/@(block4.LatynUrl).html">@block4?.Title</a>
+                                        </div>
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="content">
+                                            <a href="/@CurrentLanguage/article/@(block4.LatynUrl).html" class="read-more">@T("ls_Readmore")</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                   
+                    
+                </div>
+            </div>
+        </div>
+        }
+        
+    </div>
+</section>

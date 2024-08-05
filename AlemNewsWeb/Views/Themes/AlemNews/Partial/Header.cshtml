@@ -1,0 +1,167 @@
+﻿@{
+    var menuList = QarList<Articlecategory>("menuList");
+    var latynUrl = (ViewData["latynUrl"] ?? string.Empty) as string;
+    var acWelcome = GetAC("Welcome");
+}
+<header id="rtsHeader" class="rts-header1">
+    <div class="navbar-sticky">
+        <div class="navbar-part navbar-part1">
+            <div class="container">
+                <div class="navbar-inner">
+                    <a href="/@CurrentLanguage" class="logo"><img
+                            src="@GetUrl(SiteSetting?.LightLogo)" alt="@SiteSetting?.Title" class="logo-uly"></a>
+                    <a href="/@CurrentLanguage" class="logo-sticky"><img
+                            src="@GetUrl(SiteSetting?.LightLogo)" class="logo-uly" alt="@SiteSetting?.Title"></a>
+                    <div class="rts-menu">
+                        <nav class="menus menu-toggle">
+                            <ul class="nav__menu">
+                                <li><a class="menu-item" href="/@CurrentLanguage">@T("ls_Home")</a></li>
+                                <li class="has-dropdown"><a class="menu-item" href="#">Спорт</a>
+                                    <ul class="dropdown-ul">
+                                        @foreach (var menu in menuList.Where(x => x.QStatus == 0))
+                                        {
+                                            <li class=""><a class="dropdown-link active"
+                                                            href="/@CurrentLanguage/category/@(menu.LatynUrl).html">@menu?.Title</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li><a class="menu-item"
+                                       href="/@CurrentLanguage/category/paris-2024.html">Париж-2024</a></li>
+                                <li><a class="menu-item" href="/@CurrentLanguage/ac/aboutus.html">@T("ls_About")</a></li>
+                                <li><a class="menu-item" href="/@CurrentLanguage/ac/contactus.html">@T("ls_Contacts")</a></li>
+                                <li><a class="menu-item" href="/@CurrentLanguage/ac/advertise.html">@T("ls_Aboutadvertise")</a></li>
+                                <li class="has-dropdown"><a class="menu-item" href="javascaript:void(0);"><i class="fa fa-globe fa-xl" style="    font-size: 20px;"></i></a>
+                                    <ul class="dropdown-ul">
+                                        @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
+                                        {
+                                            <li class="">
+                                                
+                                                <a href="javascaript:void(0);" data-language="@item.LanguageCulture" data-static="qar"
+                                                   class="dropdown-link @(item.LanguageCulture.Equals(CurrentLanguage) ? "active" : "")">
+                                                    <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
+                                                    <span>@item.FullName</span>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                
+                                @* <li class="nav-item "> *@
+                                @*     <a class="btn btn-icon btn-light-dark" data-bs-toggle="dropdown" href="javascript:void(0)" *@
+                                @*        role="button" aria-haspopup="false" aria-expanded="false"> *@
+                                @*         <i class="fa-duotone fa-globe"></i> *@
+                                @*     </a> *@
+                                @*     <div class="dropdown-menu dropdown-menu-end pc-h-dropdown"> *@
+                                @*         @foreach (var item in LanguageList.Where(x => x.BackendDisplay == 1).ToList()) *@
+                                @*         { *@
+                                @*             <a href="javascaript:void(0);" data-language="@item.LanguageCulture" data-static="qar" *@
+                                @*                class="dropdown-item @(item.LanguageCulture.Equals(CurrentLanguage) ? "active" : "")"> *@
+                                @*                 <img src="@item.LanguageFlagImageUrl" alt="" /> &nbsp; *@
+                                @*                 <span>@item.FullName</span> *@
+                                @*             </a> *@
+                                @*         } *@
+                                @*     </div> *@
+                                @* </li> *@
+                                
+                            </ul>
+                        </nav>
+                       
+                        
+                    </div>
+                    <div class="header-action-items header-action-items1">
+                        <div class="search-part">
+                            <div class="search-icon action-item icon"><i class="rt-search"></i></div>
+                            <div class="search-input-area">
+                                <div class="container">
+                                    <form class="search-input-inner uly-search" id="" method="post" action="/@CurrentLanguage/article/list">
+                                        <div class="input-div">
+                                            <div class="search-input-icon"><i class="rt-search mr--10"></i></div>
+                                            <input id="searchInput1" class="search-input uly-input-search" type="text"
+                                                placeholder="@T("ls_Searchbywebsite")">
+                                        </div>
+                                        <div class="search-close-icon"><i class="rt-xmark"></i></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="hamburger-menu aitem">
+                        <div class="hamburger-menu-inner">
+                            <span></span>
+                            <span class=""></span>
+                            <span></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="slide-bar">
+        <div class="offset-sidebar">
+            <button class="slide-bar-close ml--30"><i class="fal fa-times"></i></button>
+            <div class="offset-widget offset-logo mb-30">
+                <a href="/@CurrentLanguage">
+                    <img src="@GetUrl(SiteSetting?.LightLogo)" alt="@SiteSetting?.Title" class="logo-uly">
+                </a>
+            </div>
+        </div>
+        <!-- side-mobile-menu start -->
+        <nav class="side-mobile-menu side-mobile-menu1">
+            <ul id="mobile-menu-active">
+                  <li><a class="mm-link" href="/@CurrentLanguage">@T("ls_Home")</a></li>
+                <li class="has-dropdown firstlvl">
+                    <a class="mm-link" href="javascript:void(0)">Спорт <i class="rt-angle-down"></i></a>
+                    <ul class="sub-menu">
+                         @foreach (var menu in menuList.Where(x => x.QStatus == 0))
+                        {
+                            <li><a href="/@CurrentLanguage/category/@(menu.LatynUrl).html">@menu?.Title</a></li>
+                        }
+                    </ul>
+                </li>
+                <li><a class="mm-link" href="/@CurrentLanguage/category/paris-2024.html">Париж-2024</a></li>
+                <li><a class="mm-link" href="/@CurrentLanguage/category/aboutus.html">@T("ls_About")</a></li>
+                <li><a class="mm-link" href="/@CurrentLanguage/ac/contact.html">@T("ls_Contacts")</a></li>
+                <li><a class="mm-link" href="/@CurrentLanguage/ac/advertise.html">@T("ls_Aboutadvertise")</a></li>
+                <li class="has-dropdown firstlvl"><a class="mm-link" href="javascaript:void(0);">@T("ls_Selectlanguage")<i class="fa fa-globe fa-xl" style="    font-size: 20px;"></i></a>
+                    <ul class="sub-menu">
+                        @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
+                        {
+                            <li class="">
+                                                                
+                                <a href="javascaript:void(0);" data-language="@item.LanguageCulture" data-static="qar">
+                                    <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
+                                    @item.FullName
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+                
+                
+            </ul>
+        </nav>
+        <!-- side-mobile-menu end -->
+        <div class="side-bar-social-links">
+            <a href="@SiteSetting?.Facebook" target="_blank" class="platform"><i class="fab fa-facebook-f"></i></a>
+            <a href="@SiteSetting?.Twitter" target="_blank" class="platform"><i class="fab fa-twitter"></i></a>
+            <a href="@SiteSetting?.Whatsapp" target="_blank" class="platform"><i class="fab fa-whatsapp"></i></a>
+            <a href="@SiteSetting?.Youtube" target="_blank" class="platform"><i class="fab fa-youtube"></i></a>
+        </div>
+    </aside>
+    <!--================= Banner Section Start Here =================-->
+    <div class="banner banner1">
+       <div class="inner-page-banner banner-bg" style="background-image: url(@acWelcome?.BackgroundImageUrl);">
+            <div class="container">
+                <div class="banner-content">
+                    <div class="page-path">
+                        <span class="welcome-span">@acWelcome?.ShortDescription</span>
+                    </div>
+                    <h1 class="banner-heading">@acWelcome?.Title</h1>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!--================= Banner Section End Here =================-->
+</header>

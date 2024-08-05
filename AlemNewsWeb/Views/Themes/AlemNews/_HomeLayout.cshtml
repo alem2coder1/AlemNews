@@ -1,0 +1,92 @@
+﻿@{
+    var host = (ViewData["host"] ?? string.Empty) as string;
+    var siteUrl = (ViewData["siteUrl"] ?? string.Empty) as string;
+    var ogTitle = (ViewData["og_title"] ?? SiteSetting?.Title) as string;
+    var ogKeywords = (ViewData["og_keywords"] ?? SiteSetting?.Keywords) as string;
+    var ogDescription = (ViewData["og_description"] ?? SiteSetting?.Description) as string;
+    var ogImage = (ViewData["og_image"] ?? SiteSetting?.DarkLogo) as string;
+    ogImage = host + ogImage;
+    var ogUrl = host + (ViewData["og_url"] ?? string.Empty);
+    var ogType = (ViewData["og_type"] ?? "website") as string;
+}
+<!DOCTYPE html>
+<html lang="@ViewData["uniqueSeoCode"]"
+    dir="@(CurrentLanguage.Equals("tote",StringComparison.OrdinalIgnoreCase) ? "rtl" : "ltr")">
+
+<head>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="@SiteSetting?.Favicon" type="image/png">
+    <link rel="icon" href="@SiteSetting?.Favicon" type="image/png">
+    <title>@ogTitle</title>
+    <meta name="keywords" content="@ogKeywords">
+    <meta name="description" content="@ogDescription">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="@ogTitle">
+    <meta name="twitter:description" content="@ogDescription">
+    <meta name="twitter:image" content="@ogImage">
+    <meta name="twitter:image:src" content="@ogImage">
+    <meta name="twitter:domain" content="@host">
+    <meta name="twitter:site" content="@@@SiteSetting?.Title">
+
+    <meta property="og:title" content="@ogTitle">
+    <meta property="og:description" content="@ogDescription">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="@ogImage">
+    <meta property="og:type" content="@ogType">
+    <meta property="og:url" content="@(string.IsNullOrWhiteSpace(ogUrl) ? SiteUrl : ogUrl)">
+    <meta property="og:site_name" content="@SiteSetting?.Title">
+    <link rel="apple-touch-icon" href="~/themes/@(CurrentTheme.ToLower())/images/fav.png">
+    <link rel="shortcut icon" href="~/themes/@(CurrentTheme.ToLower())/images/fav.png">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/all.min.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/rt-icons.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/animate.min.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/magnific.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/animate.min.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/metisMenu.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/rtsmenu.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/variables/variable1.css">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/simplePagination.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/main.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/themes.css" asp-append-version="true">
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body>
+    @{
+        var header = $"~/Views/Themes/{CurrentTheme}/Partial/Header.cshtml";
+        var footer = $"~/Views/Themes/{CurrentTheme}/Partial/Footer.cshtml";
+    }
+    <div>
+        <partial name="@header" />
+        @RenderBody()
+    </div>
+    <partial name="@footer" />
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/bootstrap.min.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/wow.min.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/swiper-bundle.min.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/zoom.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/metisMenu.min.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/rtsmenu.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/metisMenu.min.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/isotope.pkgd.min.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/vendors/jquery.magnific-popup.min.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/main.js"></script>
+<script src="~/themes/@(CurrentTheme.ToLower())/js/jquery.simplePagination.js"></script>
+<script src="~/themes/@(CurrentTheme.ToLower())/js/common.js"></script>
+ <script src="~/themes/@(CurrentTheme.ToLower())/js/themes.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $('#menu').metisMenu();
+        });
+    </script>
+</body>
+
+</html>

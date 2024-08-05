@@ -1,0 +1,111 @@
+@{
+    Partner partner = ViewData["partner"] != null ? ViewData["partner"] as Partner : null;
+}
+<section class="pc-container">
+    <div class="pc-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#!">@T("ls_Catalog")</a></li>
+                            <li class="breadcrumb-item" aria-current="page">@ViewData["title"]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <form class="card qar-form" action="/@CurrentLanguage/@ControllerName/@(ActionName)" method="post"
+                    enctype="multipart/form-data">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5>@ViewData["title"]</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <input type="hidden" name="id" value="@partner?.Id" />
+                        <div class="form-group">
+                            <label class="form-label" for="title">@T("ls_Logo")<span
+                                    class="text-danger">*</span></label>
+                            <input type="file" name="thumbnailImage" hidden accept="image/*" />
+                            <input type="hidden" name="thumbnailUrl" value="@partner?.ThumbnailUrl" />
+                            <div>
+                                <div class="d-inline-block p-2 ">
+                                    <img class="d-block" id="thumbnailImage" style="max-height: 50px;"
+                                        src="@(string.IsNullOrEmpty(partner?.ThumbnailUrl)?$"/{CurrentLanguage}/QarBase/GenerateRatioImage?w=150&h=60":partner?.ThumbnailUrl)" />
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs mb-3" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="nav-language-default-tab" data-bs-toggle="tab"
+                                    href="#nav-language-default" role="tab" aria-selected="true">@T("ls_Default")</a>
+                            </li>
+                            @if (LanguageList.Count(x => x.IsSubLanguage == 0 && x.FrontendDisplay == 1) > 1)
+                            {
+                                foreach (MODEL.Language item in LanguageList.Where(x => x.IsSubLanguage == 0 &&
+                                x.FrontendDisplay == 1).ToList())
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="nav-language-@item.LanguageCulture-tab"
+                                            href="#nav-language-@item.LanguageCulture" data-bs-toggle="tab" role="tab"
+                                            aria-selected="false">@item.FullName</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane show active" id="nav-language-default" role="tabpanel"
+                                aria-labelledby="nav-language-default-tab">
+                                <div class="form-group">
+                                    <label class="form-label" for="title">@T("ls_Title")<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="title" name="title"
+                                        value="@partner?.Title">
+                                </div>
+                            </div>
+                            @foreach (MODEL.Language item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
+                            {
+                                string title = MultiLanguageList.FirstOrDefault(x => x.ColumnName.Equals("title",
+                                StringComparison.OrdinalIgnoreCase) && x.Language.Equals(item.LanguageCulture,
+                                StringComparison.OrdinalIgnoreCase))?.ColumnValue;
+                                <div class="tab-pane" id="nav-language-@item.LanguageCulture" role="tabpanel"
+                                    aria-labelledby="nav-language-@item.LanguageCulture-tab">
+                                    <div class="form-group">
+                                        <label class="form-label" for="title_@item.LanguageCulture">@T("ls_Title")</label>
+                                        <input type="text" name="title_@item.LanguageCulture" data-multilanguage="input"
+                                            class="form-control" id="title_@item.LanguageCulture" value="@title">
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="linkUrl">@T("ls_Link")<span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="linkUrl" name="linkUrl"
+                                value="@partner?.LinkUrl">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="displayOrder">@T("ls_Displayorder")<span
+                                    class="text-danger">*</span></label>
+                            <input type="number" min="0" step="1" class="form-control" id="displayOrder"
+                                name="displayOrder" value="@partner?.DisplayOrder">
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button type="reset" class="btn btn-outline-secondary">
+                            <i class="fa-duotone fa-rotate-right me-1"></i>@T("ls_Reset")
+                        </button>
+                        <button type="submit" class="btn btn-primary me-2" data-loading-text="@T("ls_Loading")">
+                            <i class="fa-duotone fa-floppy-disk me-1"></i> @T("ls_Save")
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

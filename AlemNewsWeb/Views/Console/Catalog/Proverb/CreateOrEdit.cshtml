@@ -1,0 +1,74 @@
+@{
+    var proverb = QarModel<Proverb>("proverb");
+    var tagList = (ViewData["tagList"] ?? new List<string>()) as List<string>;
+}
+<section class="pc-container">
+    <div class="pc-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="javascript:void(0)">@T("ls_Catalog")</a>
+                            </li>
+                            <li class="breadcrumb-item" aria-current="page">@ViewData["title"]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <form class="card qar-form"
+                      action="/@CurrentLanguage/@ControllerName/@ActionName"
+                      method="post" enctype="multipart/form-data">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-4">
+                                <h5>@ViewData["title"]</h5>
+                            </div>
+                            @if (proverb?.Id > 0 && CanCreate)
+                            {
+                                <div class="col-8">
+                                    <div class="d-flex flex-wrap gap-2 justify-content-end">
+                                        <a href="/@CurrentLanguage/@ControllerName.ToLower()/@ActionName.ToLower()/create"
+                                           class="btn btn-outline-primary d-inline-flex">
+                                            <i class="fa-duotone fa-circle-plus me-1"></i> @T("ls_Create")
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <input type="hidden" name="id" value="@proverb?.Id"/>
+
+                        <div class="form-group">
+                            <label class="form-label" for="title">
+                                @T("ls_Title")<span class="text-danger">*</span>
+                            </label>
+                            <textarea class="form-control" name="title" id="title"
+                                      rows="3">@proverb?.Title</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="author">
+                                @T("ls_Author")<span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="author" name="author" value="@proverb?.Author">
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button type="reset" class="btn btn-outline-secondary">
+                            <i class="fa-duotone fa-rotate-right"></i> @T("ls_Reset")
+                        </button>
+                        <button type="submit" class="btn btn-primary" data-loading-text="@T("ls_Loading") ...">
+                            <i class="fa-duotone fa-floppy-disk"></i> @T("ls_Save")
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

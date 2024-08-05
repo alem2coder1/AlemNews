@@ -1,0 +1,21 @@
+@{
+    Layout = $"~/Views/Themes/{CurrentTheme}/_HomeLayout.cshtml";
+    var ac = QarModel<Additionalcontent>("ac");
+}
+<div class="rts-about-section  about section-gap">
+    <div class="container">
+        <div class="about-inner">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="contents">
+                        <div class="section-title-area section-title-area1 text-start">
+                            <h1 class="section-title">@ac?.Title</h1>
+                            <p> @Html.Raw(@ac?.FullDescription)</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

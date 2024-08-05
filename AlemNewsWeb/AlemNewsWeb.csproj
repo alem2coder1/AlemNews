@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+    <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+    <ItemGroup>
+        <ProjectReference Include="../COMMON/COMMON.csproj" />
+        <ProjectReference Include="../MODEL/MODEL.csproj" />
+        <ProjectReference Include="../DBHelper/DBHelper.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+        <PackageReference Include="SkiaSharp" Version="2.88.8" />
+        <PackageReference Include="Hangfire" Version="1.8.12" />
+        <PackageReference Include="Hangfire.MemoryStorage" Version="1.8.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="Hangfire\" />
+        <None Remove="Views\Console\" />
+        <None Remove="Views\Console\Admin\" />
+        <None Remove="Views\Console\Catalog\" />
+        <None Remove="Views\Console\Modal\" />
+        <None Remove="Views\Console\QarBase\" />
+        <None Remove="Views\Console\Site\" />
+        <None Remove="Views\Shared\" />
+        <None Remove="Views\Themes\" />
+        <None Remove="Views\Themes\QarSolutions\Home\" />
+        <None Remove="Views\Console\Admin\Person\" />
+        <None Remove="Views\Console\Admin\Role\" />
+        <None Remove="Views\Console\Partial\" />
+        <None Remove="Attributes\" />
+        <None Remove="Views\Console\Catalog\Article\" />
+        <None Remove="Views\Console\Catalog\Category\" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Hangfire\" />
+        <Folder Include="wwwroot\console\js\plugins\tinymce\" />
+        <Folder Include="wwwroot\console\js\plugins\uppy\" />
+        <Folder Include="wwwroot\console\js\plugins\uppy\langs\" />
+        <Folder Include="Views\Console\" />
+        <Folder Include="Views\Console\Admin\" />
+        <Folder Include="Views\Console\Modal\" />
+        <Folder Include="Views\Console\QarBase\" />
+        <Folder Include="Views\Console\Site\" />
+        <Folder Include="Views\Shared\" />
+        <Folder Include="Views\Themes\" />
+        <Folder Include="wwwroot\themes\" />
+        <Folder Include="Views\Console\Admin\Person\" />
+        <Folder Include="Views\Console\Admin\Role\" />
+        <Folder Include="Views\Console\Partial\" />
+        <Folder Include="Attributes\" />
+        <Folder Include="Views\Console\Catalog\Article\" />
+        <Folder Include="Views\Console\Catalog\Category\" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Remove="wwwroot\admin\js\plugins\tinymce\" />
+        <Content Remove="wwwroot\admin\js\plugins\uppy\" />
+        <Content Remove="wwwroot\admin\js\plugins\uppy\langs\" />
+        <Content Remove="wwwroot\themes\" />
+        <Content Remove="wwwroot\themes\almatyakshamy\" />
+    </ItemGroup>
+    <ItemGroup>
+        <AdditionalFiles Include="Views\Console\Catalog\Proverb\CreateOrEdit.cshtml" />
+        <AdditionalFiles Include="Views\Console\Catalog\Proverb\CreateOrEditScripts.cshtml" />
+        <AdditionalFiles Include="Views\Console\Catalog\Proverb\List.cshtml" />
+        <AdditionalFiles Include="Views\Console\Catalog\Proverb\ListScripts.cshtml" />
+    </ItemGroup>
+</Project>

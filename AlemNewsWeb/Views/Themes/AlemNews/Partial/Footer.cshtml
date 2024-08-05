@@ -1,0 +1,113 @@
+﻿@{
+    var menuList = QarList<Articlecategory>("menuList");
+    var partnerList = QarList<Partner>("partnerList");
+}
+<section class="footer footer1 footer3">
+    <div class="container">
+        <div class="footer-topbar">
+            <div class="footer-logo"><img src="@GetUrl(SiteSetting?.MobileLightLogo)" class="logo-uly" alt="footer-logo">
+            </div>
+            <ul class="social-links">
+                <li><a href="@SiteSetting?.Facebook" target="_blank" class="platform"><i
+                            class="fab fa-facebook-f"></i></a></li>
+                <li><a href="@SiteSetting?.Twitter" target="_blank" class="platform"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li><a href="@SiteSetting?.Whatsapp" target="_blank" class="platform"><i
+                            class="fab fa-whatsapp"></i></a>
+                </li>
+                <li><a href="@SiteSetting?.Youtube" target="_blank" class="platform"><i class="fab fa-youtube"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-inner">
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title"><span class="decorator"></span> @SiteSetting?.Title</h3>
+                    </div>
+                    <p class="footer-text">@SiteSetting?.Description</p>
+                </div>
+                <div class="col-xl-3 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title"><span class="decorator"></span> @T("ls_Articlecategory")</h3>
+                        <ul class="widget-items cata-widget">
+                            @foreach (var menu in menuList.Where(x => x.QStatus == 0))
+                            {
+                                <li class="widget-list-item"><a class=""
+                                        href="/@CurrentLanguage/category/@(menu.LatynUrl).html">@menu?.Title</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="footer-widget address-widget">
+                        <h3 class="footer-widget-title"><span class="decorator"></span>@T("ls_Contacts")</h3>
+                        <ul>
+                            <li class="widget-list-item"><i class="fas fa-envelope-open"></i><a
+                                                                                                 href="mailto:@SiteSetting?.Email">@SiteSetting?.Email</a></li>
+                            <li class="widget-list-item"><i class="fas fa-phone"></i><a
+                                                                                         href="tel:@SiteSetting?.Phone">@SiteSetting?.Phone</a></li>
+                            <li class="widget-list-item"><i class="fas fa-map-marker-alt"></i>
+                                <span>@SiteSetting?.Address</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="footer-widget news-widget">
+                        <h3 class="footer-widget-title"><span class="decorator"></span> @T("ls_Ourpartners")</h3>
+                        <div class="recent-post">
+                            @if (partnerList.Count > 0)
+                            {
+                                @for (int i = 0; i < partnerList.Count && i <= 2; i++)
+                                {
+                                    <div class="picture" style="width: 80px;height: 80px;padding: 10px">
+                                        <a href="@partnerList[i]?.LinkUrl" target="_blank">
+                                            <img src="@GetUrl(partnerList[i]?.ThumbnailUrl)"  alt="@partnerList[i]?.Title">
+                                        </a>
+                                    </div>
+                                }
+                            }
+                           
+
+                        </div>
+                        <div class="recent-post post2">
+                          @if (partnerList.Count > 3)
+                          {
+                              @for (int i = 3; i < partnerList.Count && i <= 6; i++)
+                              {
+                                  <div class="picture" style="width: 80px;height: 80px;padding: 10px">
+                                      <a href="@partnerList[i]?.LinkUrl" target="_blank">
+                                          <img src="@GetUrl(partnerList[i]?.ThumbnailUrl)" style="" alt="@partnerList[i]?.Title">
+                                      </a>
+                                  </div>
+                              }
+                          }
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="bottom-area-inner">
+                <span class="copyright">@SiteSetting?.Copyright</span>
+                <div class="footer-bottom-links">
+                    <p>
+                        © Design &amp; Development by
+                        <a href="https://qar.kz" target="_blank">QAR Solutions</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================= Footer End Here =================-->
+
+
+<!--================= Scroll to Top Start =================-->
+<div class="scroll-top-btn scroll-top-btn1"><i class="fas fa-angle-up arrow-up"></i><i class="fas fa-circle-notch"></i>
+</div>
