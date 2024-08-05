@@ -1,0 +1,11 @@
+/AlemNewsWeb/bin
+/AlemNewsWeb/logs
+/AlemNewsWeb/obj
+/COMMON/bin
+/COMMON/obj
+/DBHelper/bin
+/DBHelper/obj
+/MODEL/bin
+/MODEL/obj
+.vs/
+.DS_Store
