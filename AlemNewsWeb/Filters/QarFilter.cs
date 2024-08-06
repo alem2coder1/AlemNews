@@ -28,6 +28,7 @@ public class QarFilter : IActionFilter
             controller.ViewData["allCategoryList"] = QarCache.GetCategoryList(memoryCache, language);
             controller.ViewData["adminList"] = QarCache.GetAllAdminList(memoryCache);
             controller.ViewData["partnerList"] = QarCache.GetPartnerList(memoryCache);
+            controller.ViewData["weatherList"] = QarCache.GetWeatherList(memoryCache);
             controller.ViewData["topArticleList"] = QarCache.GetTopArticleList(memoryCache, language, 3, 4);
             var fileInputLanguage = string.Empty;
             var tinyMceLanguage = string.Empty;

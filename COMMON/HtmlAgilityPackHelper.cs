@@ -778,4 +778,64 @@ public class HtmlAgilityPackHelper
     }
     #endregion
 
+
+    #region golos-naroda тен қазіргі Weather оқу +GetgolosWeatherRateList(List<Weather> weatherList)
+    public static List<Weather> GetgolosWeatherRateList(List<Weather> weatherList)
+    {
+        if (weatherList == null) return new List<Weather>();
+        try
+        {
+            string html = GetHtmlWebAsync("https://golos-naroda.kz/").Result;
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(html);
+            var liNodes = document.DocumentNode.SelectNodes("//div[contains(@class, 'weather')]//ul[contains(@class, 'dropdown-menu')]/li");
+            if (liNodes != null && liNodes.Count > 0)
+            {
+                foreach (var liNode in liNodes)
+                {
+                    var aNode = liNode.SelectSingleNode(".//a");
+                    var spanNode = liNode.SelectSingleNode(".//span");
+
+                    if (aNode != null && spanNode != null)
+                    {
+                        string tempCityName = aNode.InnerText.Trim();
+                        string cityName = tempCityName.Substring(0, tempCityName.IndexOf('\n')).Trim();
+
+                        string temperatureText = spanNode.InnerText.Trim();
+
+                        if (string.IsNullOrEmpty(cityName))
+                        {
+                            Console.WriteLine("no city name: " + liNode.OuterHtml);
+                            continue;
+                        }
+
+                        cityName = cityName.Replace("\n", "").Replace(" ", "");
+
+                        var currentWeather = weatherList.FirstOrDefault(x => x.CityName.Equals(cityName, StringComparison.OrdinalIgnoreCase));
+                        if (currentWeather != null)
+                        {
+                            currentWeather.Temperature = temperatureText;
+                        }
+                        else
+                        {
+                            currentWeather = new Weather
+                            {
+                                Temperature = temperatureText,
+                                CityName = cityName
+                            };
+                            weatherList.Add(currentWeather);
+                        }
+                    }
+                }
+            }
+            return weatherList;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("error: " + ex.Message);
+            return weatherList;
+        }
+    }
+    #endregion
+
 }

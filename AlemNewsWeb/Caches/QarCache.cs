@@ -705,6 +705,23 @@ public class QarCache
 
     #endregion
 
+    #region Валюта тізімін алу +GetCurrencyList(IMemoryCache _memoryCache)
+
+    public static List<Weather> GetWeatherList(IMemoryCache memoryCache)
+    {
+        var cacheName = $"{MethodBase.GetCurrentMethod().Name}";
+        if (!memoryCache.TryGetValue(cacheName, out List<Weather> list))
+            using (var connection = Utilities.GetOpenConnection())
+            {
+                list = connection.GetList<Weather>("where qStatus = 0 ").ToList();
+                memoryCache.Set(cacheName, list, TimeSpan.FromMinutes(1));
+            }
+
+        return list;
+    }
+
+    #endregion
+
     #region Get Proverb List +GetProverbList(IMemoryCache _memoryCache)
 
     public static List<Proverb> GetProverbList(IMemoryCache memoryCache)
