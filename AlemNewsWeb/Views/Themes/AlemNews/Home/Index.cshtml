@@ -24,241 +24,125 @@
     <div class="row">
       <!-- top section -->
       <div class="col-12 mt-05">
-        <!--Slider ticker-->
-        <div class="row py-2">
-          <!--Breaking box-->
-          <div class="col-2 col-sm-1 col-md-3 col-lg-2 py-1 pe-md-0 mb-md-1">
-            <div class="d-inline-block d-md-block bg-primary text-white text-center breaking-caret py-1 px-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor"
-                class="bi bi-lightning-fill" viewBox="0 0 16 16">
-                <path
-                  d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z" />
-              </svg>
-              <span class="d-none d-md-inline-block">@T("ls_Focusnews")</span>
+        <!--focusarticle-->
+        @if (focusArticleList != null && focusArticleList.Count > 0)
+        {
+          <div class="row py-2">
+            <!--Breaking box-->
+            <div class="col-2 col-sm-1 col-md-3 col-lg-2 py-1 pe-md-0 mb-md-1">
+              <div class="d-inline-block d-md-block bg-primary text-white text-center breaking-caret py-1 px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor"
+                     class="bi bi-lightning-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                </svg>
+                <span class="d-none d-md-inline-block">@T("ls_Focusnews")</span>
+              </div>
+            </div>
+
+            <!--Breaking content-->
+            <div class="col-10 col-sm-11 col-md-9 col-lg-10 ps-1 ps-md-2">
+              <div class="breaking-box position-relative py-2">
+                <div class="box-carousel"
+                     data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "autoPlay": 5000, "pageDots": false, "imagesLoaded": true }'>
+                  <!--list post-->
+                  @foreach (var focus in focusArticleList)
+                  {
+                    <div class="col-12 aribudin">
+                      <a class="h6 fw-normal" href="/@CurrentLanguage/article/@(focus?.LatynUrl).html">@focus?.Title</a>
+                    </div>
+                  }
+
+                </div><!--end breaking news-->
+              </div>
             </div>
           </div>
-
-          <!--Breaking content-->
-          <div class="col-10 col-sm-11 col-md-9 col-lg-10 ps-1 ps-md-2">
-            <div class="breaking-box position-relative py-2">
-              <div class="box-carousel"
-                data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "autoPlay": 5000, "pageDots": false, "imagesLoaded": true }'>
-                <!--list post-->
-                @foreach (var focus in focusArticleList)
-                {
-                  <div class="col-12 aribudin">
-                    <a class="h6 fw-normal" href="/@CurrentLanguage/article/@(focus.LatynUrl).html">@focus?.Title</a>
-                  </div>
-                }
-               
-              </div><!--end breaking news-->
-            </div>
-          </div>
-        </div>
-        <!--End slider ticker-->
-
-        <!-- Big grid slider 1 -->
-        <div class="row featured-1 mb-5">
+        }
+        <!--last news-->
+        @if (latestArticleList.Count > 0)
+        {
+           <div class="row featured-1 mb-5">
           <!--Start left cover-->
           <div class="col-md-6 pb-05 pt-05 pe-md-05">
             <div class="position-relative overflow-hidden">
               <div class="nav-slider-hover nav-dots-top-right light-dots"
                 data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'>
                 <!--Item slider-->
-                <article class="col-12">
-                  <div class="card card-full text-light overflow zoom">
-                    <!--thumbnail-->
-                    <div class="height-ratio image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/568x484/img1.jpg" alt="Image description">
-                      </a>
-                      <div class="position-absolute p-3 b-0 w-100 bg-lg-shadow">
-                        <!--title-->
-                        <a href="#">
-                          <h2
-                            class="h1-sm h2-md display-4-lg fw-bold text-capitalize heading-letter-spacing text-white">
-                            Superstar calls for football clean up amid series of shocking allegations</h2>
-                        </a>
-                        <!-- meta title -->
-                        <div class="news-meta">
-                          <span class="news-author">by <a class="text-white fw-bold" href="#">John Doe</a></span>
-                          <time class="news-date" datetime="2019-10-22">Oct 22, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <!--Item slider-->
-                <article class="col-12">
-                  <div class="card card-full text-light overflow zoom">
-                    <!--thumbnail-->
-                    <div class="height-ratio image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/568x484/img2.jpg" alt="Image description">
-                      </a>
-                      <div class="position-absolute p-3 b-0 w-100 bg-lg-shadow">
-                        <!--title-->
-                        <a href="#">
-                          <h2
-                            class="h1-sm h2-md display-4-lg fw-bold text-capitalize heading-letter-spacing text-white">
-                            Walmart shares up 10% on online sales lift</h2>
-                        </a>
-                        <!-- meta title -->
-                        <div class="news-meta">
-                          <span class="news-author">by <a class="text-white fw-bold" href="#">John Doe</a></span>
-                          <time class="news-date" datetime="2019-10-22">Oct 22, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <!--Item slider-->
-                <article class="col-12">
-                  <div class="card card-full text-light overflow zoom">
-                    <!--thumbnail-->
-                    <div class="height-ratio image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/568x484/img3.jpg" alt="Image description">
-                      </a>
-                      <div class="position-absolute p-3 b-0 w-100 bg-lg-shadow">
-                        <!--title-->
-                        <a href="#">
-                          <h2
-                            class="h1-sm h2-md display-4-lg fw-bold text-capitalize heading-letter-spacing text-white">
-                            Bank chief warns on Brexit staff moves</h2>
-                        </a>
-                        <!-- meta title -->
-                        <div class="news-meta">
-                          <span class="news-author">by <a class="text-white fw-bold" href="#">John Doe</a></span>
-                          <time class="news-date" datetime="2019-10-22">Oct 22, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <!--Item slider-->
-                <article class="col-12">
-                  <div class="card card-full text-light overflow zoom">
-                    <!--thumbnail-->
-                    <div class="height-ratio image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/568x484/img4.jpg" alt="Image description">
-                      </a>
-                      <div class="position-absolute p-3 b-0 w-100 bg-lg-shadow">
-                        <!--title-->
-                        <a href="#">
-                          <h2
-                            class="h1-sm h2-md display-4-lg fw-bold text-capitalize heading-letter-spacing text-white">
-                            The world's first floating farm making waves in Rotterdam</h2>
-                        </a>
-                        <!-- meta title -->
-                        <div class="news-meta">
-                          <span class="news-author">by <a class="text-white fw-bold" href="#">John Doe</a></span>
-                          <time class="news-date" datetime="2019-10-22">Oct 22, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <!--end item slider-->
+                @for (int i = 0; i < 4 && i < latestArticleList.Count; i++)
+                {
+                   <article class="col-12">
+                                    <div class="card card-full text-light overflow zoom">
+                                      <!--thumbnail-->
+                                      <div class="height-ratio image-wrapper">
+                                        <a href="/@CurrentLanguage/article/@(latestArticleList[i].LatynUrl).html">
+                                          <img class="img-fluid lazy last-img-height" src="@GetUrl(latestArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                            data-src="@GetUrl(latestArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@latestArticleList[i]?.Title">
+                                        </a>
+                                        <div class="position-absolute p-3 b-0 w-100 bg-lg-shadow">
+                                          <!--title-->
+                                          <a href="#">
+                                            <h2
+                                              class="h1-sm h2-md display-4-lg fw-bold text-capitalize heading-letter-spacing text-white">
+                                              @latestArticleList[i]?.Title</h2>
+                                          </a>
+                                          <!-- meta title -->
+                                          <div class="news-meta">
+                                            <time class="news-date" datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(latestArticleList[i].AddTime,
+                                                                                                                                                          CurrentLanguage)</time>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </article>
+                }
+               
               </div>
             </div>
           </div>
-          <!--End left cover-->
-
-          <!--Start box news-->
+         
           <div class="col-md-6 pt-05 ps-md-05">
-            <div class="row newsbox">
-              <!--news box-->
-              <article class="col-6">
-                <div class="card card-full text-white overflow zoom">
-                  <div class="height-ratio image-wrapper">
-                    <!--thumbnail-->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/282x240/img1.jpg" alt="Image description">
-                    </a>
-                    <!-- category & title -->
-                    <div class="position-absolute px-3 pb-3 pt-0 b-0 w-100 bg-shadow">
-                      <a class="p-1 badge bg-primary text-white" href="#">Business</a>
-                      <a href="#">
-                        <h2 class="h6 h4-sm h6-md h5-lg text-white my-1">Should you see the Fantastic Beasts sequel?
-                        </h2>
-                      </a>
+            @if (latestArticleList.Count > 4)
+            {
+              <div class="row newsbox">
+                @for (int j = 4; j < 8 && j < latestArticleList.Count; j++)
+                {
+                  <article class="col-6">
+                    <div class="card card-full text-white overflow zoom">
+                      <div class="height-ratio image-wrapper">
+                        <!--thumbnail-->
+                        <a href="/@CurrentLanguage/article/@(latestArticleList[j].LatynUrl).html">
+                          <img class="img-fluid lazy last-left-img-height" src="@GetUrl(latestArticleList[j]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                               data-src="@GetUrl(latestArticleList[j]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@latestArticleList[j]?.Title">
+                        </a>
+                        <!-- category & title -->
+                        <div class="position-absolute px-3 pb-3 pt-0 b-0 w-100 bg-shadow">
+                          @foreach (var menu in menuList)
+                          {
+                            if (latestArticleList[0].CategoryId == menu.Id)
+                            {
+                              <a class="p-1 badge bg-primary text-white" href="/@CurrentLanguage/category/@(menu.LatynUrl).html">@menu?.Title</a>
+                            }
+                          }
+                          <a href="#">
+                            <h2 class="h6 h4-sm h6-md h5-lg text-white my-1">@latestArticleList[j]?.Title
+                            </h2>
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </article>
-              <!--news box-->
-              <article class="col-6">
-                <div class="card card-full text-white overflow zoom">
-                  <div class="height-ratio image-wrapper">
-                    <!--thumbnail-->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/282x240/img2.jpg" alt="Image description">
-                    </a>
-                    <!-- category & title -->
-                    <div class="position-absolute px-3 pb-3 pt-0 b-0 w-100 bg-shadow">
-                      <a class="p-1 badge bg-primary text-white" href="#">Science</a>
-                      <a href="#">
-                        <h2 class="h6 h4-sm h6-md h5-lg text-white my-1">Three myths about Florida elections recount
-                        </h2>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--news box-->
-              <article class="col-6">
-                <div class="card card-full text-white overflow zoom">
-                  <div class="height-ratio image-wrapper">
-                    <!--thumbnail-->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/282x240/img3.jpg" alt="Image description">
-                    </a>
-                    <!-- category & title -->
-                    <div class="position-absolute px-3 pb-3 pt-0 b-0 w-100 bg-shadow">
-                      <a class="p-1 badge bg-primary text-white" href="#">Travel</a>
-                      <a href="#">
-                        <h2 class="h6 h4-sm h6-md h5-lg text-white my-1">Finding Empowerment in Two Wheels and a Helmet
-                        </h2>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--news box-->
-              <article class="col-6">
-                <div class="card card-full text-white overflow zoom">
-                  <div class="height-ratio image-wrapper">
-                    <!--thumbnail-->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/282x240/img4.jpg" alt="Image description">
-                    </a>
-                    <!-- category & title -->
-                    <div class="position-absolute px-3 pb-3 pt-0 b-0 w-100 bg-shadow">
-                      <a class="p-1 badge bg-primary text-white" href="#">Lifestyle</a>
-                      <a href="#">
-                        <h2 class="h6 h4-sm h6-md h5-lg text-white my-1">Ditch receipts and four other tips to be a
-                          green shopper</h2>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--end news box-->
-            </div>
+                  </article>
+                }
+
+
+              </div>
+            }
+          
           </div>
           <!--End box news-->
         </div>
-        <!--End Big grid slider 1-->
+        }
+       
+       
       </div>
 
       <!--start left column-->
