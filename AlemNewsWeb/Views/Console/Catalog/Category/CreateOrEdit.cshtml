@@ -75,7 +75,7 @@
                                     <option value="">@T("ls_Default")</option>
                                 }
 
-                                @foreach (var parent in categoryList.Where(x => x.Id != category?.Id))
+                                @foreach (var parent in categoryList.Where(x => x.Id != category?.Id && x.ParentId == 0))
                                 {
                                     if (parent.Id == category?.ParentId)
                                     {

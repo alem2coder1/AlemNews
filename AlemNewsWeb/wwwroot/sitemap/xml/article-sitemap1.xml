@@ -2,393 +2,63 @@
 <?xml-stylesheet type="text/xsl" href="/sitemap/templates/xml-sitemap.xsl"?>
 <urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:7501/kz/article/ademi-soileitinderdi-tyndama-eshkimge-kerek-bolmai-qalasyn-golovkin-smetovke-agalyq-aqylyn-aitty.html</loc>
-    <lastmod>2024-07-29T10:27:20.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/kz/article/katonqaragai-audany.html</loc>
+    <lastmod>2024-08-07T16:10:01.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240729102009645_big.webp</image:loc>
-      <image:title>«Әдемі сөйлейтіндерді тыңдама, ешкімге керек болмай қаласың»: Головкин Сметовке ағалық ақылын айтты </image:title>
+      <image:loc>http://localhost:7501</image:loc>
+      <image:title>Катонқарағай ауданы </image:title>
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/latyn/article/ademi-soileitinderdi-tyndama-eshkimge-kerek-bolmai-qalasyn-golovkin-smetovke-agalyq-aqylyn-aitty.html</loc>
-    <lastmod>2024-07-29T10:27:20.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/latyn/article/katonqaragai-audany.html</loc>
+    <lastmod>2024-08-07T16:10:01.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240729102009645_big.webp</image:loc>
-      <image:title>«ادەمى سويلەيتىندەردى تىڭداما، ەشكىمگە كەرەك بولماي قالاسىڭ»: گولوۆكين سمەتوۆكە اعالىق اقىلىن ايتتى </image:title>
+      <image:loc>http://localhost:7501</image:loc>
+      <image:title>كاتونقاراعاي اۋدانى </image:title>
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/tote/article/ademi-soileitinderdi-tyndama-eshkimge-kerek-bolmai-qalasyn-golovkin-smetovke-agalyq-aqylyn-aitty.html</loc>
-    <lastmod>2024-07-29T10:27:20.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/tote/article/katonqaragai-audany.html</loc>
+    <lastmod>2024-08-07T16:10:01.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240729102009645_big.webp</image:loc>
-      <image:title>«Ádemi sóıleıtinderdi tyńdama, eshkimge kerek bolmaı qalasyń»: Golovkın Smetovke aǵalyq aqylyn aıtty </image:title>
+      <image:loc>http://localhost:7501</image:loc>
+      <image:title>Katonqaraǵaı aýdany </image:title>
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/kz/article/boksshy-nurbek-oralbai-parij-olimpiadasynyn-shirek-finalyna-otti.html</loc>
-    <lastmod>2024-07-31T14:44:24.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/kz/article/araldy-suga-toltyru-amaly-jai-soz-be-naqty-is-pe.html</loc>
+    <lastmod>2024-08-07T16:09:14.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240731144322592_big.webp</image:loc>
-      <image:title>Боксшы Нұрбек Оралбай Париж Олимпиадасының ширек финалына өтті</image:title>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807160826075_big.webp</image:loc>
+      <image:title>Аралды суға толтыру амалы: Жай сөз бе, нақты іс пе?</image:title>
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/latyn/article/boksshy-nurbek-oralbai-parij-olimpiadasynyn-shirek-finalyna-otti.html</loc>
-    <lastmod>2024-07-31T14:44:24.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/latyn/article/araldy-suga-toltyru-amaly-jai-soz-be-naqty-is-pe.html</loc>
+    <lastmod>2024-08-07T16:09:14.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240731144322592_big.webp</image:loc>
-      <image:title>بوكسشى نۇربەك ورالباي پاريج وليمپياداسىنىڭ شيرەك فينالىنا ءوتتى</image:title>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807160826075_big.webp</image:loc>
+      <image:title>ارالدى سۋعا تولتىرۋ امالى: جاي ءسوز بە، ناقتى ءىس پە؟</image:title>
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/tote/article/boksshy-nurbek-oralbai-parij-olimpiadasynyn-shirek-finalyna-otti.html</loc>
-    <lastmod>2024-07-31T14:44:24.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/tote/article/araldy-suga-toltyru-amaly-jai-soz-be-naqty-is-pe.html</loc>
+    <lastmod>2024-08-07T16:09:14.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240731144322592_big.webp</image:loc>
-      <image:title>Boksshy Nurbek Oralbaı Parıj Olımpıadasynyń shırek fınalyna ótti</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/ordabasy-prezidenti-oiynshylardy-igere-almaidy-futbol-aqtobelikterdin-jureginde.html</loc>
-    <lastmod>2024-08-02T19:30:31.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801135710165_big.webp</image:loc>
-      <image:title>«Ордабасы» президенті ойыншыларды игере алмайды. Футбол – ақтөбеліктердің жүрегінде</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/ordabasy-prezidenti-oiynshylardy-igere-almaidy-futbol-aqtobelikterdin-jureginde.html</loc>
-    <lastmod>2024-08-02T19:30:31.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801135710165_big.webp</image:loc>
-      <image:title>«ورداباسى» پرەزيدەنتى ويىنشىلاردى يگەرە المايدى. فۋتبول – اقتوبەلىكتەردىڭ جۇرەگىندە</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/ordabasy-prezidenti-oiynshylardy-igere-almaidy-futbol-aqtobelikterdin-jureginde.html</loc>
-    <lastmod>2024-08-02T19:30:31.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801135710165_big.webp</image:loc>
-      <image:title>«Ordabasy» prezıdenti oıynshylardy ıgere almaıdy. Fýtbol – aqtóbelikterdiń júreginde</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/differdanj-fk-oiynshylary-shymkentke-kelu-ushin-negizgi-jumysynan-surangan.html</loc>
-    <lastmod>2024-08-01T14:08:32.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801140711494_big.webp</image:loc>
-      <image:title>«Дифферданж» ФК ойыншылары Шымкентке келу үшін негізгі жұмысынан сұранған</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/differdanj-fk-oiynshylary-shymkentke-kelu-ushin-negizgi-jumysynan-surangan.html</loc>
-    <lastmod>2024-08-01T14:08:32.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801140711494_big.webp</image:loc>
-      <image:title>«ديففەردانج» فك ويىنشىلارى شىمكەنتكە كەلۋ ءۇشىن نەگىزگى جۇمىسىنان سۇرانعان</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/differdanj-fk-oiynshylary-shymkentke-kelu-ushin-negizgi-jumysynan-surangan.html</loc>
-    <lastmod>2024-08-01T14:08:32.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801140711494_big.webp</image:loc>
-      <image:title>«Dıfferdanj» FK oıynshylary Shymkentke kelý úshin negizgi jumysynan suranǵan</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/resmi-saud-arabiiasy-futboldan-alem-chempionatyn-otkizuge-otinish-berdi.html</loc>
-    <lastmod>2024-08-01T14:10:49.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801140959181_big.webp</image:loc>
-      <image:title>Ресми: Сауд Арабиясы футболдан әлем чемпионатын өткізуге өтініш берді</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/resmi-saud-arabiiasy-futboldan-alem-chempionatyn-otkizuge-otinish-berdi.html</loc>
-    <lastmod>2024-08-01T14:10:49.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801140959181_big.webp</image:loc>
-      <image:title>رەسمي: ساۋد ارابياسى فۋتبولدان الەم چەمپيوناتىن وتكىزۋگە ءوتىنىش بەردى</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/resmi-saud-arabiiasy-futboldan-alem-chempionatyn-otkizuge-otinish-berdi.html</loc>
-    <lastmod>2024-08-01T14:10:49.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801140959181_big.webp</image:loc>
-      <image:title>Resmı: Saýd Arabıasy fýtboldan álem chempıonatyn ótkizýge ótinish berdi</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/ordabasy-tagy-upai-jogaltty-aqtobe-qairatty-basyp-ozdy.html</loc>
-    <lastmod>2024-08-01T14:43:31.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144254219_big.webp</image:loc>
-      <image:title>«Ордабасы» тағы ұпай жоғалтты, «Ақтөбе» «Қайратты» басып озды</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/ordabasy-tagy-upai-jogaltty-aqtobe-qairatty-basyp-ozdy.html</loc>
-    <lastmod>2024-08-01T14:43:31.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144254219_big.webp</image:loc>
-      <image:title>«ورداباسى» تاعى ۇپاي جوعالتتى، «اقتوبە» «قايراتتى» باسىپ وزدى</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/ordabasy-tagy-upai-jogaltty-aqtobe-qairatty-basyp-ozdy.html</loc>
-    <lastmod>2024-08-01T14:43:31.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144254219_big.webp</image:loc>
-      <image:title>«Ordabasy» taǵy upaı joǵaltty, «Aqtóbe» «Qaıratty» basyp ozdy</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/aqtobe-bapkerinin-basyna-qara-bult-uiirildi-baq.html</loc>
-    <lastmod>2024-08-01T14:46:50.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144608587_big.webp</image:loc>
-      <image:title>«Ақтөбе» бапкерінің басына қара бұлт үйірілді – БАҚ</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/aqtobe-bapkerinin-basyna-qara-bult-uiirildi-baq.html</loc>
-    <lastmod>2024-08-01T14:46:50.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144608587_big.webp</image:loc>
-      <image:title>«اقتوبە» باپكەرىنىڭ باسىنا قارا بۇلت ءۇيىرىلدى – ب ا ق</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/aqtobe-bapkerinin-basyna-qara-bult-uiirildi-baq.html</loc>
-    <lastmod>2024-08-01T14:46:50.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144608587_big.webp</image:loc>
-      <image:title>«Aqtóbe» bapkeriniń basyna qara bult úıirildi – BAQ</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/tobyl-sankt-gallennen-oisyrai-jenildi.html</loc>
-    <lastmod>2024-08-01T14:49:09.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144834027_big.webp</image:loc>
-      <image:title>«Тобыл» «Санкт-Галленнен» ойсырай жеңілді</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/tobyl-sankt-gallennen-oisyrai-jenildi.html</loc>
-    <lastmod>2024-08-01T14:49:09.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144834027_big.webp</image:loc>
-      <image:title>«توبىل» «سانكت-گاللەننەن» ويسىراي جەڭىلدى</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/tobyl-sankt-gallennen-oisyrai-jenildi.html</loc>
-    <lastmod>2024-08-01T14:49:09.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801144834027_big.webp</image:loc>
-      <image:title>«Tobyl» «Sankt-Gallennen» oısyraı jeńildi</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/qairat-boranbaev-tagy-bir-futbol-klubyn-ashpaq.html</loc>
-    <lastmod>2024-08-01T14:59:19.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801145858365_big.webp</image:loc>
-      <image:title>Қайрат Боранбаев тағы бір футбол клубын ашпақ</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/qairat-boranbaev-tagy-bir-futbol-klubyn-ashpaq.html</loc>
-    <lastmod>2024-08-01T14:59:19.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801145858365_big.webp</image:loc>
-      <image:title>قايرات بورانبايەۆ تاعى ءبىر فۋتبول كلۋبىن اشپاق</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/qairat-boranbaev-tagy-bir-futbol-klubyn-ashpaq.html</loc>
-    <lastmod>2024-08-01T14:59:19.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801145858365_big.webp</image:loc>
-      <image:title>Qaırat Boranbaev taǵy bir fýtbol klýbyn ashpaq</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/janibek-alimhanuly-gennadii-golovkinnin-buryngy-qarsylasyn.html</loc>
-    <lastmod>2024-08-01T16:09:33.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801160121592_big.webp</image:loc>
-      <image:title>Жәнібек Әлімханұлы Геннадий Головкиннің бұрынғы қарсыласын </image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/janibek-alimhanuly-gennadii-golovkinnin-buryngy-qarsylasyn.html</loc>
-    <lastmod>2024-08-01T16:09:33.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801160121592_big.webp</image:loc>
-      <image:title>جانىبەك ءالىمحان ۇلى گەنناديي گولوۆكيننىڭ بۇرىنعى قارسىلاسىن </image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/janibek-alimhanuly-gennadii-golovkinnin-buryngy-qarsylasyn.html</loc>
-    <lastmod>2024-08-01T16:09:33.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801160121592_big.webp</image:loc>
-      <image:title>Jánibek Álimhanuly Gennadıı Golovkınniń burynǵy qarsylasyn </image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/ar-elden-qansha-boksshy-shirek-finalga-shyqty.html</loc>
-    <lastmod>2024-08-01T16:03:15.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801160238598_big.webp</image:loc>
-      <image:title>Әр елден қанша боксшы ширек финалға шықты?</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/ar-elden-qansha-boksshy-shirek-finalga-shyqty.html</loc>
-    <lastmod>2024-08-01T16:03:15.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801160238598_big.webp</image:loc>
-      <image:title>ءار ەلدەن قانشا بوكسشى شيرەك فينالعا شىقتى؟</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/ar-elden-qansha-boksshy-shirek-finalga-shyqty.html</loc>
-    <lastmod>2024-08-01T16:03:15.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801160238598_big.webp</image:loc>
-      <image:title>Ár elden qansha boksshy shırek fınalǵa shyqty?</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/nygmatulinder-ielik-etken-saryarqa-hokkei-klubynan-shu-shyqty.html</loc>
-    <lastmod>2024-08-01T16:32:32.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801163150839_big.webp</image:loc>
-      <image:title>Нығматулиндер иелік еткен «Сарыарқа» хоккей клубынан шу шықты</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/nygmatulinder-ielik-etken-saryarqa-hokkei-klubynan-shu-shyqty.html</loc>
-    <lastmod>2024-08-01T16:32:32.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801163150839_big.webp</image:loc>
-      <image:title>نىعماتۋليندەر يەلىك ەتكەن «سارىارقا» حوككەي كلۋبىنان شۋ شىقتى</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/nygmatulinder-ielik-etken-saryarqa-hokkei-klubynan-shu-shyqty.html</loc>
-    <lastmod>2024-08-01T16:32:32.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240801163150839_big.webp</image:loc>
-      <image:title>Nyǵmatýlınder ıelik etken «Saryarqa» hokeı klýbynan shý shyqty</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/silkeborg-ramazan-orazovtyn-kesirinen-eurokuboktik-turnirden-shygyp-qaldy.html</loc>
-    <lastmod>2024-08-02T10:39:53.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240802103909377_big.webp</image:loc>
-      <image:title>«Силькеборг» Рамазан Оразовтың «кесірінен» еурокубоктік турнирден шығып қалды</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/silkeborg-ramazan-orazovtyn-kesirinen-eurokuboktik-turnirden-shygyp-qaldy.html</loc>
-    <lastmod>2024-08-02T10:39:53.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240802103909377_big.webp</image:loc>
-      <image:title>«سيلكەبورگ» رامازان ورازوۆتىڭ «كەسىرىنەن» ەۋروكۋبوكتىك تۋرنيردەن شىعىپ قالدى</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/silkeborg-ramazan-orazovtyn-kesirinen-eurokuboktik-turnirden-shygyp-qaldy.html</loc>
-    <lastmod>2024-08-02T10:39:53.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240802103909377_big.webp</image:loc>
-      <image:title>«Sılkeborg» Ramazan Orazovtyń «kesirinen» eýrokýboktik týrnırden shyǵyp qaldy</image:title>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807160826075_big.webp</image:loc>
+      <image:title>Araldy sýǵa toltyrý amaly: Jaı sóz be, naqty is pe?</image:title>
     </image:image>
   </url>
 </urlset>
