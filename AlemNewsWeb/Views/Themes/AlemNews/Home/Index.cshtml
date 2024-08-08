@@ -1,6 +1,7 @@
 @{
   Layout = $"~/Views/Themes/{CurrentTheme}/_HomeLayout.cshtml";
   var latestArticleList = QarList<Article>("latestArticleList");
+  var regions = QarList<Articlecategory>("regionsTitle");
   var menuList = QarList<Articlecategory>("menuList");
   var pinnedArticle = QarModel<Article>("pinnedArticle");
   var focusArticleList = QarList<Article>("focusArticleList");
@@ -16,6 +17,18 @@
   var block4Title = (ViewData["block4Title"] ?? string.Empty) as string;
   var block4Url = (ViewData["block4Url"] ?? string.Empty) as string;
   var block4ArticleList = QarList<Article>("block4ArticleList");
+  var block5Title = (ViewData["block5Title"] ?? string.Empty) as string;
+  var block5Url = (ViewData["block5Url"] ?? string.Empty) as string;
+  var block5ArticleList = QarList<Article>("block5ArticleList");
+  var block6Title = (ViewData["block6Title"] ?? string.Empty) as string;
+  var block6Url = (ViewData["block6Url"] ?? string.Empty) as string;
+  var block6ArticleList = QarList<Article>("block6ArticleList");
+  var block7Title = (ViewData["block7Title"] ?? string.Empty) as string;
+  var block7Url = (ViewData["block7Url"] ?? string.Empty) as string;
+  var block7ArticleList = QarList<Article>("block7ArticleList");
+  var block8Title = (ViewData["block8Title"] ?? string.Empty) as string;
+  var block8Url = (ViewData["block8Url"] ?? string.Empty) as string;
+  var block8ArticleList = QarList<Article>("block8ArticleList");
 }
 
 <!--Content start-->
@@ -46,7 +59,7 @@
                 <div class="box-carousel"
                      data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "autoPlay": 5000, "pageDots": false, "imagesLoaded": true }'>
                   <!--list post-->
-                  @foreach (var focus in focusArticleList)
+                  @foreach (var focus in focusArticleList.Take(3))
                   {
                     <div class="col-12 aribudin">
                       <a class="h6 fw-normal" href="/@CurrentLanguage/article/@(focus?.LatynUrl).html">@focus?.Title</a>
@@ -59,7 +72,7 @@
           </div>
         }
         <!--last news-->
-        @if (latestArticleList.Count > 0)
+        @if (focusArticleList.Count > 0)
         {
            <div class="row featured-1 mb-5">
           <!--Start left cover-->
@@ -68,27 +81,26 @@
               <div class="nav-slider-hover nav-dots-top-right light-dots"
                 data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'>
                 <!--Item slider-->
-                @for (int i = 0; i < 4 && i < latestArticleList.Count; i++)
+                @for (int i = 0; i < focusArticleList.Count && i<3; i++)
                 {
                    <article class="col-12">
                                     <div class="card card-full text-light overflow zoom">
                                       <!--thumbnail-->
                                       <div class="height-ratio image-wrapper">
-                                        <a href="/@CurrentLanguage/article/@(latestArticleList[i].LatynUrl).html">
-                                          <img class="img-fluid lazy last-img-height" src="@GetUrl(latestArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                                            data-src="@GetUrl(latestArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@latestArticleList[i]?.Title">
+                                        <a href="/@CurrentLanguage/article/@(focusArticleList[i].LatynUrl).html">
+                                          <img class="img-fluid lazy last-img-height" src="@GetUrl(focusArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                            data-src="@GetUrl(focusArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@focusArticleList[i]?.Title">
                                         </a>
                                         <div class="position-absolute p-3 b-0 w-100 bg-lg-shadow">
                                           <!--title-->
                                           <a href="#">
                                             <h2
                                               class="h1-sm h2-md display-4-lg fw-bold text-capitalize heading-letter-spacing text-white">
-                                              @latestArticleList[i]?.Title</h2>
+                                              @focusArticleList[i]?.Title</h2>
                                           </a>
                                           <!-- meta title -->
                                           <div class="news-meta">
-                                            <time class="news-date" datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(latestArticleList[i].AddTime,
-                                                                                                                                                          CurrentLanguage)</time>
+                                            <time class="news-date" datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(focusArticleList[i].AddTime,CurrentLanguage)</time>
                                           </div>
                                         </div>
                                       </div>
@@ -101,30 +113,30 @@
           </div>
          
           <div class="col-md-6 pt-05 ps-md-05">
-            @if (latestArticleList.Count > 4)
+            @if (focusArticleList.Count > 1)
             {
               <div class="row newsbox">
-                @for (int j = 4; j < 8 && j < latestArticleList.Count; j++)
+                @for (int j = 3; j < 7 && j < focusArticleList.Count; j++)
                 {
                   <article class="col-6">
                     <div class="card card-full text-white overflow zoom">
                       <div class="height-ratio image-wrapper">
                         <!--thumbnail-->
-                        <a href="/@CurrentLanguage/article/@(latestArticleList[j].LatynUrl).html">
-                          <img class="img-fluid lazy last-left-img-height" src="@GetUrl(latestArticleList[j]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                               data-src="@GetUrl(latestArticleList[j]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@latestArticleList[j]?.Title">
+                        <a href="/@CurrentLanguage/article/@(focusArticleList[j].LatynUrl).html">
+                          <img class="img-fluid lazy last-left-img-height" src="@GetUrl(focusArticleList[j]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                               data-src="@GetUrl(focusArticleList[j]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@focusArticleList[j]?.Title">
                         </a>
                         <!-- category & title -->
                         <div class="position-absolute px-3 pb-3 pt-0 b-0 w-100 bg-shadow">
                           @foreach (var menu in menuList)
                           {
-                            if (latestArticleList[0].CategoryId == menu.Id)
+                            if (focusArticleList[j].CategoryId == menu.Id)
                             {
                               <a class="p-1 badge bg-primary text-white" href="/@CurrentLanguage/category/@(menu.LatynUrl).html">@menu?.Title</a>
                             }
                           }
                           <a href="#">
-                            <h2 class="h6 h4-sm h6-md h5-lg text-white my-1">@latestArticleList[j]?.Title
+                            <h2 class="h6 h4-sm h6-md h5-lg text-white my-1 news-title">@focusArticleList[j]?.Title
                             </h2>
                           </a>
                         </div>
@@ -145,416 +157,239 @@
        
       </div>
 
-      <!--start left column-->
-      <div class="col-md-8">
-        <!-- Block start -->
+    <!--block1ArticleList-->
+   
+       <div class="col-md-8">
+       <!-- Block start -->
+        @if (block1ArticleList.Count > 0 && block1ArticleList != null)
+           {
         <div class="block-area">
           <!--block title-->
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">Sports</span>
+              <span class="bg-primary text-white">@block1Title</span>
             </h4>
           </div>
           <!--block content-->
           <div class="row">
-            <!--post left start-->
+           
             <div class="col-lg-6">
               <article class="card card-full hover-a mb-4">
                 <!--thumbnail-->
                 <div class="ratio_360-202 image-wrapper">
-                  <a href="#">
-                    <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                      data-src="/themes/alemnews/img/360x202/img1.jpg" alt="Image description">
+                  <a href="/@CurrentLanguage/article/@(block1ArticleList[0].LatynUrl).html">
+                    <img class="img-fluid lazy" src="@GetUrl(block1ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                      data-src="@GetUrl(block1ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block1ArticleList[0]?.Title">
                   </a>
                 </div>
                 <div class="card-body">
                   <!-- title -->
                   <h2 class="card-title h1-sm h3-lg">
-                    <a href="#">GB's Bankes wins snowboard cross silver at World Champs</a>
+                    <a href="/@CurrentLanguage/article/@(block1ArticleList[0].LatynUrl).html" class="">@block1ArticleList[0]?.Title</a>
                   </h2>
                   <!-- author, date and comments -->
                   <div class="card-text mb-2 text-muted small">
-                    <span class="d-none d-sm-inline me-1">
-                      <a class="fw-bold" href="#">John Doe</a>
-                    </span>
-                    <time datetime="2019-10-22">Oct 22, 2019</time>
-                    <span title="9 comment" class="float-end">
-                      <span class="icon-comments"></span> 9
-                    </span>
+                    <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleList[0].AddTime,
+                                                                                                                    CurrentLanguage)</time>
                   </div>
                   <!--description-->
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.</p>
+                  <p class="card-text">@block1ArticleList[0]?.ShortDescription</p>
                 </div>
               </article>
             </div>
             <!--end post left-->
             <!--post right list start-->
             <div class="col-lg-6">
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_115-80 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/115x80/img1.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-lg">
-                        <a href="#">Yankees Party Like It’s 1998, at Least for a Day</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-22">Oct 22, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_160-112 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/115x80/img2.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-lg">
-                        <a href="#">Dale Earnhardt Jr. Returns to the Racetrack and an Old Hobby</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-21">Oct 21, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_160-112 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/115x80/img3.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-lg">
-                        <a href="#">Carmelo Anthony Officially Signs with the Houston Rockets</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-20">Oct 20, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_160-112 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/115x80/img4.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-lg">
-                        <a href="#">Jacob deGrom Goes the Distance as Mets Top the Phillies</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-17">Oct 17, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--End post list-->
+              <!--right list-->
+               @if (block1ArticleList.Count > 1)
+               {
+                 for (int i = 1; i < block1ArticleList.Count && i <= 4; i++)
+                 {
+                   <article class="card card-full hover-a mb-4">
+                     <div class="row">
+                       <!--thumbnail-->
+                       <div class="col-3 col-md-4 pe-2 pe-md-0">
+                         <div class="ratio_115-80 image-wrapper">
+                           <a href="/@CurrentLanguage/article/@(block1ArticleList[i].LatynUrl).html">
+                             <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block1ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                  data-src="@GetUrl(block1ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block1ArticleList[i]?.Title">
+                           </a>
+                         </div>
+                       </div>
+                       <!-- title & date -->
+                       <div class="col-9 col-md-8">
+                         <div class="card-body pt-0">
+                           <h3 class="card-title h6 h5-sm h6-lg">
+                             <a href="/@CurrentLanguage/article/@(block1ArticleList[i].LatynUrl).html" class="news-title">@block1ArticleList[i]?.Title</a>
+                           </h3>
+                           <div class="card-text small text-muted">
+                             <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleList[i].AddTime,CurrentLanguage)</time>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </article>
+                 }
+               }
+                                   
+             
             </div>
-            <!--end post right list-->
           </div>
-          <!-- end block content -->
         </div>
-        <!--End Block-->
-
-        <!--Block start-->
+}
+        <!--block2ArticleList-->
         <div class="block-area">
           <div class="row">
             <!--left post-->
-            <div class="col-lg-6">
+            @if (block2ArticleList.Count > 0)
+            {
+                <div class="col-lg-6">
               <!--block title-->
               <div class="block-title-6">
                 <h4 class="h5 border-primary">
-                  <span class="bg-primary text-white">Automotive</span>
+                  <span class="bg-primary text-white">@block2Title</span>
                 </h4>
               </div>
-              <!--post big start-->
+              
               <div class="big-post">
                 <article class="card card-full hover-a mb-4">
                   <!--thumbnail-->
                   <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img6.jpg" alt="Image description">
+                    <a href="/@CurrentLanguage/article/@(block2ArticleList[0].LatynUrl).html">
+                      <img class="img-fluid lazy " src="@GetUrl(block2ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                        data-src="@GetUrl(block2ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleList[0]?.Title">
                     </a>
                   </div>
                   <div class="card-body">
                     <!--title-->
                     <h2 class="card-title h1-sm h3-lg">
-                      <a href="#">Ferrari improves painting process so perfect</a>
+                      <a href="/@CurrentLanguage/article/@(block2ArticleList[0].LatynUrl).html">@block2ArticleList[0]?.Title</a>
                     </h2>
                     <!-- author, date & comments -->
                     <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-22">Oct 22, 2019</time>
-                      <span title="9 comment" class="float-end">
-                        <span class="icon-comments"></span> 9
-                      </span>
+                      
+                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleList[0].AddTime,CurrentLanguage)</time>
                     </div>
                     <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This content is a little bit longer.</p>
+                    <p class="card-text">@block2ArticleList[0]?.ShortDescription</p>
                   </div>
                 </article>
               </div>
-              <!--end post big-->
-              <!--post small start-->
               <div class="small-post">
                 <!--post list-->
-                <article class="card card-full hover-a mb-4">
-                  <div class="row">
-                    <!--thumbnail-->
-                    <div class="col-3 col-md-4 pe-2 pe-md-0">
-                      <div class="ratio_115-80 image-wrapper">
-                        <a href="#">
-                          <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                            data-src="/themes/alemnews/img/115x80/img21.jpg" alt="Image description">
-                        </a>
-                      </div>
-                    </div>
-                    <!-- title & date -->
-                    <div class="col-9 col-md-8">
-                      <div class="card-body pt-0">
-                        <h3 class="card-title h6 h5-sm h6-lg">
-                          <a href="#">Nissan's sports car strategy rests on the stable genius of GT-R</a>
-                        </h3>
-                        <div class="card-text small text-muted">
-                          <time datetime="2019-10-16">Oct 16, 2019</time>
+                @if (block2ArticleList.Count > 1)
+                {
+                  for (int i = 1; i < block2ArticleList.Count && i <= 4; i++)
+                  {
+                    <article class="card card-full hover-a mb-4">
+                      <div class="row">
+                        <!--thumbnail-->
+                        <div class="col-3 col-md-4 pe-2 pe-md-0">
+                          <div class="ratio_115-80 image-wrapper">
+                            <a href="/@CurrentLanguage/article/@(block2ArticleList[i].LatynUrl).htm">
+                              <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block2ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                   data-src="@GetUrl(block2ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleList[i]?.Title">
+                            </a>
+                          </div>
+                        </div>
+                        <!-- title & date -->
+                        <div class="col-9 col-md-8">
+                          <div class="card-body pt-0">
+                            <h3 class="card-title h6 h5-sm h6-lg">
+                              <a href="/@CurrentLanguage/article/@(block2ArticleList[i].LatynUrl).htm" class="news-title">@block2ArticleList[i]?.Title</a>
+                            </h3>
+                            <div class="card-text small text-muted">
+                              <time datetime="2019-10-16">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleList[i].AddTime,CurrentLanguage)</time>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </article>
-                <!--post list-->
-                <article class="card card-full hover-a mb-4">
-                  <div class="row">
-                    <!--thumbnail-->
-                    <div class="col-3 col-md-4 pe-2 pe-md-0">
-                      <div class="ratio_115-80 image-wrapper">
-                        <a href="#">
-                          <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                            data-src="/themes/alemnews/img/115x80/img22.jpg" alt="Image description">
-                        </a>
-                      </div>
-                    </div>
-                    <!-- title & date -->
-                    <div class="col-9 col-md-8">
-                      <div class="card-body pt-0">
-                        <h3 class="card-title h6 h5-sm h6-lg">
-                          <a href="#">Toyota Sienna rates marginal in passenger-side overlap crash test</a>
-                        </h3>
-                        <div class="card-text small text-muted">
-                          <time datetime="2019-10-15">Oct 15, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <!--post list-->
-                <article class="card card-full hover-a mb-4">
-                  <div class="row">
-                    <!--thumbnail-->
-                    <div class="col-3 col-md-4 pe-2 pe-md-0">
-                      <div class="ratio_115-80 image-wrapper">
-                        <a href="#">
-                          <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                            data-src="/themes/alemnews/img/115x80/img23.jpg" alt="Image description">
-                        </a>
-                      </div>
-                    </div>
-                    <!-- title & date -->
-                    <div class="col-9 col-md-8">
-                      <div class="card-body pt-0">
-                        <h3 class="card-title h6 h5-sm h6-lg">
-                          <a href="#">Ford reveals autonomous vehicle philosophies, priorities</a>
-                        </h3>
-                        <div class="card-text small text-muted">
-                          <time datetime="2019-10-14">Oct 14, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                    </article>
+                  }
+                }
+                                
               </div>
               <!--end post small-->
             </div>
+            }
+          
             <!--end left post-->
 
-            <!--right post-->
-            <div class="col-lg-6">
+            <!--block4ArticleList-->
+            @if (block4ArticleList.Count > 0)
+            {
+                <div class="col-lg-6">
               <!--block title-->
               <div class="block-title-6">
                 <h4 class="h5 border-primary">
-                  <span class="bg-primary text-white">Science</span>
+                  <span class="bg-primary text-white">@block4Title</span>
                 </h4>
               </div>
-              <!--post big start-->
               <div class="big-post">
                 <article class="card card-full hover-a mb-4">
                   <!--thumbnail-->
                   <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img7.jpg" alt="Image description">
+                    <a href="/@CurrentLanguage/article/@(block4ArticleList[0].LatynUrl).html">
+                      <img class="img-fluid lazy" src="@GetUrl(block4ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                        data-src="@GetUrl(block4ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block4ArticleList[0]?.Title">
                     </a>
                   </div>
                   <div class="card-body">
-                    <!--title-->
                     <h2 class="card-title h1-sm h3-lg">
-                      <a href="#">Settling Arguments About Hydrogen With 168 Giant Lasers</a>
+                      <a href="/@CurrentLanguage/article/@(block4ArticleList[0].LatynUrl).html">@block4ArticleList[0]?.Title</a>
                     </h2>
-                    <!-- author, date & comments -->
                     <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-22">Oct 22, 2019</time>
-                      <span title="9 comment" class="float-end">
-                        <span class="icon-comments"></span> 9
-                      </span>
+                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block4ArticleList[0].AddTime,CurrentLanguage)</time>
                     </div>
-                    <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This content is a little bit longer.</p>
+                    <p class="card-text">@block2ArticleList[0]?.ShortDescription</p>
                   </div>
                 </article>
               </div>
-              <!--end post big-->
-              <!--post small start-->
               <div class="small-post">
-                <!--post list-->
-                <article class="card card-full hover-a mb-4">
-                  <div class="row">
-                    <!--thumbnail-->
-                    <div class="col-3 col-md-4 pe-2 pe-md-0">
-                      <div class="ratio_115-80 image-wrapper">
-                        <a href="#">
-                          <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                            data-src="/themes/alemnews/img/115x80/img24.jpg" alt="Image description">
-                        </a>
-                      </div>
-                    </div>
-                    <!-- title & date -->
-                    <div class="col-9 col-md-8">
-                      <div class="card-body pt-0">
-                        <h3 class="card-title h6 h5-sm h6-lg">
-                          <a href="#">Hundreds of Reindeer Died by Lightning.</a>
-                        </h3>
-                        <div class="card-text small text-muted">
-                          <time datetime="2019-10-09">Oct 9, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <!--post list-->
-                <article class="card card-full hover-a mb-4">
-                  <div class="row">
-                    <!--thumbnail-->
-                    <div class="col-3 col-md-4 pe-2 pe-md-0">
-                      <div class="ratio_115-80 image-wrapper">
-                        <a href="#">
-                          <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                            data-src="/themes/alemnews/img/115x80/img25.jpg" alt="Image description">
-                        </a>
-                      </div>
-                    </div>
-                    <!-- title & date -->
-                    <div class="col-9 col-md-8">
-                      <div class="card-body pt-0">
-                        <h3 class="card-title h6 h5-sm h6-lg">
-                          <a href="#">Latest Attraction at French Theme Park: Crows That Pick Up Trash</a>
-                        </h3>
-                        <div class="card-text small text-muted">
-                          <time datetime="2019-10-07">Oct 7, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <!--post list-->
-                <article class="card card-full hover-a mb-4">
-                  <div class="row">
-                    <!--thumbnail-->
-                    <div class="col-3 col-md-4 pe-2 pe-md-0">
-                      <div class="ratio_115-80 image-wrapper">
-                        <a href="#">
-                          <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                            data-src="/themes/alemnews/img/115x80/img26.jpg" alt="Image description">
-                        </a>
-                      </div>
-                    </div>
-                    <!-- title & date -->
-                    <div class="col-9 col-md-8">
-                      <div class="card-body pt-0">
-                        <h3 class="card-title h6 h5-sm h6-lg">
-                          <a href="#">Offer Hints to How Dogs Became Domesticated</a>
-                        </h3>
-                        <div class="card-text small text-muted">
-                          <time datetime="2019-10-18">Oct 18, 2019</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                 @if (block4ArticleList.Count > 1)
+                 {
+                   for (int i = 1; i < block4ArticleList.Count && i <= 4; i++)
+                   {
+                     <article class="card card-full hover-a mb-4">
+                       <div class="row">
+                         <!--thumbnail-->
+                         <div class="col-3 col-md-4 pe-2 pe-md-0">
+                           <div class="ratio_115-80 image-wrapper">
+                             <a href="/@CurrentLanguage/article/@(block4ArticleList[i].LatynUrl).html">
+                               <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block4ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                    data-src="@GetUrl(block4ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block4ArticleList[i]?.Title">
+                             </a>
+                           </div>
+                         </div>
+                         <!-- title & date -->
+                         <div class="col-9 col-md-8">
+                           <div class="card-body pt-0">
+                             <h3 class="card-title h6 h5-sm h6-lg">
+                               <a href="/@CurrentLanguage/article/@(block4ArticleList[i].LatynUrl).html" class="news-title">@block4ArticleList[i]?.Title</a>
+                             </h3>
+                             <div class="card-text small text-muted">
+                               <time datetime="2019-10-09">@UnixTimeHelper.UnixTimeToLocalString(block4ArticleList[i].AddTime,CurrentLanguage)</time>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </article>
+                   }
+                 }
+                                
               </div>
-              <!--end post small-->
             </div>
-            <!--end right post-->
+            }
           </div>
         </div>
-        <!--End Block-->
-
-        <!--Block start-->
-        <div class="block-area">
+       <!--block5ArticleList-->
+       @if (block5ArticleList.Count > 0)
+       {
+      <div class="block-area">
           <!-- block title -->
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">International</span>
+              <span class="bg-primary text-white">@block5Title</span>
             </h4>
           </div>
           <!--big post start-->
@@ -564,9 +399,9 @@
                 <div class="col-lg-6">
                   <!-- thumbnail -->
                   <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img8.jpg" alt="Image description">
+                    <a href="/@CurrentLanguage/article/@(block5ArticleList[0].LatynUrl).html">
+                      <img class="img-fluid lazy" src="@GetUrl(block5ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                        data-src="@GetUrl(block5ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block5ArticleList[0]?.Title">
                     </a>
                   </div>
                 </div>
@@ -574,262 +409,98 @@
                   <div class="card-body pt-3 pt-lg-0">
                     <!--title-->
                     <h2 class="card-title h1-sm h3-lg">
-                      <a href="#">Leica D-Lux 7 compact camera with 17MP four-thirds sensor</a>
+                      <a href="/@CurrentLanguage/article/@(block5ArticleList[0].LatynUrl).html">@block5ArticleList[0]?.Title</a>
                     </h2>
                     <!-- author, date and comments -->
                     <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-21">Oct 21, 2019</time>
-                      <span title="5 comment" class="float-end">
-                        <span class="icon-comments"></span> 5
-                      </span>
+                      <time datetime="2019-10-21">@UnixTimeHelper.UnixTimeToLocalString(block5ArticleList[0].AddTime,CurrentLanguage)</time>
                     </div>
                     <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This very helpfull for generate default content..</p>
+                    <p class="card-text">@block4ArticleList[0]?.ShortDescription</p>
                   </div>
                 </div>
               </div>
             </article>
           </div>
-          <!--small post start-->
           <div class="row small-post">
-            <!-- post list -->
-            <article class="col-lg-6">
-              <div class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_115-80 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/115x80/img27.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-lg">
-                        <a href="#">The Bride Was a Dream in a Dirndl, but Putin Stole the Show</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-19">Oct 19, 2019</time>
+              @if (block5ArticleList.Count > 1)
+              {
+                for (int i = 1; i < block5ArticleList.Count && i <= 4; i++)
+                {
+                  <article class="col-lg-6">
+                    <div class="card card-full hover-a mb-4">
+                      <div class="row">
+                        <!--thumbnail-->
+                        <div class="col-3 col-md-4 pe-2 pe-md-0">
+                          <div class="ratio_115-80 image-wrapper">
+                            <a href="/@CurrentLanguage/article/@(block5ArticleList[i].LatynUrl).html">
+                              <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block5ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                   data-src="@GetUrl(block5ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block5ArticleList[i]?.Title">
+                            </a>
+                          </div>
+                        </div>
+                        <!-- title & date -->
+                        <div class="col-9 col-md-8">
+                          <div class="card-body pt-0">
+                            <h3 class="card-title h6 h5-sm h6-lg">
+                              <a href="/@CurrentLanguage/article/@(block5ArticleList[i].LatynUrl).html" class="news-title">@block5ArticleList[i]?.Title</a>
+                            </h3>
+                            <div class="card-text small text-muted">
+                              <time datetime="2019-10-19">@UnixTimeHelper.UnixTimeToLocalString(block5ArticleList[i].AddTime,CurrentLanguage)</time>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!-- post list -->
-            <article class="col-lg-6">
-              <div class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_115-80 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/115x80/img28.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-9 col-md-8">
-                    <!-- title & date -->
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-lg">
-                        <a href="#">Quebec’s ‘Trash Radio’ Host Fires Up Outrage, and Big Ratings</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-18">Oct 18, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!-- post list -->
-            <article class="col-lg-6">
-              <div class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_115-80 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/115x80/img29.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-lg">
-                        <a href="#">The West Hoped for Democracy in Turkey. Erdogan Had Other Ideas</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-17">Oct 17, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!-- post list -->
-            <article class="col-lg-6">
-              <div class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_115-80 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/115x80/img30.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-lg">
-                        <a href="#">Why Apple went to war with Facebook and Google this week</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-16">Oct 16, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!-- End post list -->
+                  </article>
+                }
+              }
+                              
           </div>
         </div>
-        <!-- End block -->
-
-        <!--Block start-->
-        <div class="block-area">
-          <!--block title-->
+         
+       }
+       <!--block3ArticleList-->
+       @if (block3ArticleList.Count > 0)
+       {
+           <div class="block-area">
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">Travel</span>
+              <span class="bg-primary text-white">@block3Title</span>
             </h4>
           </div>
-          <!-- block content -->
-          <div class="row">
-            <!--post list-->
-            <article class="col-sm-6 col-md-12 col-lg-6">
-              <div class="card card-full hover-a mb-4">
-                <!--thumbnail-->
-                <div class="ratio_360-202 image-wrapper">
-                  <a href="#">
-                    <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                      data-src="/themes/alemnews/img/360x202/img13.jpg" alt="Image description">
-                  </a>
-                </div>
-                <a class="bg-full-shadow" aria-label="overlay article" href="#"></a>
-                <div class="position-absolute px-3 top-3 w-100 z-index-5 text-center">
-                  <!--title-->
-                  <a href="#">
-                    <h5 class="card-title h3 h4-sm h3-md text-white my-1">94 Easy Chicken Recipes for Fuss-Free Family
-                      Dinners</h5>
-                  </a>
-                  <!--author-->
-                  <span class="d-inline d-sm-none d-md-inline me-1">
-                    <a class="fw-bold text-white" href="#">John Doe</a>
-                  </span>
-                  <!--date-->
-                  <time class="d-sm-none d-md-inline m-0 text-white" datetime="2019-10-21">Oct 21, 2019</time>
-                </div>
-              </div>
-            </article>
-            <!--post list-->
-            <article class="col-sm-6 col-md-12 col-lg-6">
-              <div class="card card-full hover-a mb-4">
-                <!--thumbnail-->
-                <div class="ratio_360-202 image-wrapper">
-                  <a href="#">
-                    <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                      data-src="/themes/alemnews/img/360x202/img14.jpg" alt="Image description">
-                  </a>
-                </div>
-                <a class="bg-full-shadow" aria-label="overlay article" href="#"></a>
-                <div class="position-absolute px-3 top-3 w-100 z-index-5 text-center">
-                  <!--title-->
-                  <a href="#">
-                    <h5 class="card-title h3 h4-sm h3-md text-white my-1">5 Tips to Save Money Booking Your Next Hotel
-                      Room</h5>
-                  </a>
-                  <!--author-->
-                  <span class="d-inline d-sm-none d-md-inline me-1">
-                    <a class="fw-bold text-white" href="#">John Doe</a>
-                  </span>
-                  <!--date-->
-                  <time class="d-sm-none d-md-inline m-0 text-white" datetime="2019-10-21">Oct 21, 2019</time>
-                </div>
-              </div>
-            </article>
-            <!--post list-->
-            <article class="col-sm-6 col-md-12 col-lg-6">
-              <div class="card card-full hover-a mb-4">
-                <!--thumbnail-->
-                <div class="ratio_360-202 image-wrapper">
-                  <a href="#">
-                    <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                      data-src="/themes/alemnews/img/360x202/img15.jpg" alt="Image description">
-                  </a>
-                </div>
-                <a class="bg-full-shadow" aria-label="overlay article" href="#"></a>
-                <div class="position-absolute px-3 top-3 w-100 z-index-5 text-center">
-                  <!--title-->
-                  <a href="#">
-                    <h5 class="card-title h3 h4-sm h3-md text-white my-1">The 52 Places Traveler: Summer in France, in
-                      Two Very Different Ways</h5>
-                  </a>
-                  <!--author-->
-                  <span class="d-inline d-sm-none d-md-inline me-1">
-                    <a class="fw-bold text-white" href="#">John Doe</a>
-                  </span>
-                  <!--date-->
-                  <time class="d-sm-none d-md-inline m-0 text-white" datetime="2019-10-21">Oct 21, 2019</time>
-                </div>
-              </div>
-            </article>
-            <!--post list-->
-            <article class="col-sm-6 col-md-12 col-lg-6">
-              <div class="card card-full hover-a mb-4">
-                <!--thumbnail-->
-                <div class="ratio_360-202 image-wrapper">
-                  <a href="#">
-                    <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                      data-src="/themes/alemnews/img/360x202/img16.jpg" alt="Image description">
-                  </a>
-                </div>
-                <a class="bg-full-shadow" aria-label="overlay article" href="#"></a>
-                <div class="position-absolute px-3 top-3 w-100 z-index-5 text-center">
-                  <!--title-->
-                  <a href="#">
-                    <h5 class="card-title h3 h4-sm h3-md text-white my-1">6 Simple Tips to Help Vegetarian or Vegan
-                      Travelers Eat Well, Anywhere</h5>
-                  </a>
-                  <!--author-->
-                  <span class="d-inline d-sm-none d-md-inline me-1">
-                    <a class="fw-bold text-white" href="#">John Doe</a>
-                  </span>
-                  <!--date-->
-                  <time class="d-sm-none d-md-inline m-0 text-white" datetime="2019-10-21">Oct 21, 2019</time>
-                </div>
-              </div>
-            </article>
-            <!--end post list-->
-            <div class="gap-05"></div>
-          </div>
+             <div class="row">
+               @foreach (var trvel in block3ArticleList)
+               {
+                 <article class="col-sm-6 col-md-12 col-lg-6">
+                   <div class="card card-full hover-a mb-4">
+                     <!--thumbnail-->
+                     <div class="ratio_360-202 image-wrapper">
+                       <a href="/@CurrentLanguage/article/@(trvel.LatynUrl).html">
+                         <img class="img-fluid lazy" src="@GetUrl(trvel?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                              data-src="@GetUrl(trvel?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@trvel?.Title">
+                       </a>
+                     </div>
+                     <a class="bg-full-shadow" aria-label="overlay article" href="#"></a>
+                     <div class="position-absolute px-3 top-3 w-100 z-index-5 text-center">
+                       <!--title-->
+                       <a href="/@CurrentLanguage/article/@(trvel.LatynUrl).html">
+                         <h5 class="card-title h3 h4-sm h3-md text-white my-1 news-title">@trvel?.Title</h5>
+                       </a>
+                       <time class="d-sm-none d-md-inline m-0 text-white" datetime="2019-10-21">@UnixTimeHelper.UnixTimeToLocalString(trvel.AddTime,CurrentLanguage)</time>
+                     </div>
+                   </div>
+                 </article>
+               }
+              
+               <div class="gap-05"></div>
+             </div>
           <!-- end block content -->
         </div>
-        <!--End Block-->
+       }
       </div>
+  
+     
       <!--end left column-->
 
       <!--start right column-->
@@ -840,27 +511,19 @@
             <!-- widget title -->
             <div class="block-title-4">
               <h4 class="h5 title-arrow">
-                <span>Social network</span>
+                <span>@T("ls_SocialLinks")</span>
               </h4>
             </div>
             <!-- widget content -->
             <ul class="list-unstyled social-two">
-              <li class="facebook"><a class="bg-facebook text-white" href="#" target="_blank" rel="noopener noreferrer"
+              <li class="facebook"><a class="bg-facebook text-white"  href="@SiteSetting?.Facebook" target="_blank" rel="noopener noreferrer"
                   aria-label="facebook">Facebook</a></li>
-              <li class="twitter"><a class="bg-twitter text-white" href="#" target="_blank" rel="noopener noreferrer"
-                  aria-label="twitter">Twitter</a></li>
-              <li class="instagram"><a class="bg-instagram text-white" href="#" target="_blank"
+              <li class="telegram"><a class="bg-telegram text-white" href="@SiteSetting?.Telegram" target="_blank" rel="noopener noreferrer"
+                               aria-label="Telegram">Telegram</a></li>
+              <li class="instagram"><a class="bg-instagram text-white" href="@SiteSetting?.Instagram" target="_blank"
                   rel="noopener noreferrer" aria-label="instagram">Instagram</a></li>
-              <li class="youtube"><a class="bg-youtube text-white" href="#" target="_blank" rel="noopener noreferrer"
+              <li class="youtube"><a class="bg-youtube text-white" href="@SiteSetting?.Youtube" target="_blank" rel="noopener noreferrer"
                   aria-label="youtube">Youtube</a></li>
-              <li class="linkedin"><a class="bg-linkedin text-white" href="#" target="_blank" rel="noopener noreferrer"
-                  aria-label="linkedin">Linkedin</a></li>
-              <li class="vimeo"><a class="bg-vimeo text-white" href="#" target="_blank" rel="noopener noreferrer"
-                  aria-label="Vimeo">Vimeo</a></li>
-              <li class="pinterest"><a class="bg-pinterest text-white" href="#" target="_blank"
-                  rel="noopener noreferrer" aria-label="Pinterest">Pinterest</a></li>
-              <li class="telegram"><a class="bg-telegram text-white" href="#" target="_blank" rel="noopener noreferrer"
-                  aria-label="Telegram">Telegram</a></li>
             </ul>
             <!-- end widget content -->
             <div class="gap-15"></div>
@@ -868,37 +531,15 @@
 
           <!-- post with number -->
           <aside class="widget">
-            <!--block title-->
-            <div class="block-title-4">
-              <h4 class="h5 title-arrow">
-                <span>Popular Post</span>
-              </h4>
-            </div>
-            <!-- Block content -->
-            <ul class="post-number list-unstyled border-bottom-last-0 rounded mb-3">
-              <li class="hover-a">
-                <a class="h5 h6-md h5-lg" href="#">Why the world would end without political polls</a>
-              </li>
-              <li class="hover-a">
-                <a class="h5 h6-md h5-lg" href="#">Meet The Man Who Designed The Ducati Monster</a>
-              </li>
-              <li class="hover-a">
-                <a class="h5 h6-md h5-lg" href="#">2020 Audi R8 Spyder spy shots release</a>
-              </li>
-              <li class="hover-a">
-                <a class="h5 h6-md h5-lg" href="#">Lamborghini makes Huracán GT3 racer faster for 2019</a>
-              </li>
-              <li class="hover-a">
-                <a class="h5 h6-md h5-lg" href="#">ZF plans $14 billion autonomous vehicle push, concept van</a>
-              </li>
-            </ul>
-            <!-- end block content -->
+            <img src="@GetUrl("/images/no_image.png")" alt="" class="w-100">
             <div class="gap-0"></div>
           </aside>
           <!-- end post with number -->
 
-          <!-- latest post -->
-          <aside class="widget">
+          <!-- latest news -->
+          @if (latestArticleList.Count > 0)
+          {
+              <aside class="widget">
             <!--Block title-->
             <div class="block-title-4">
               <h4 class="h5 title-arrow">
@@ -910,112 +551,66 @@
               <article class="card card-full hover-a mb-4">
                 <!--thumbnail-->
                 <div class="ratio_360-202 image-wrapper">
-                  <a href="#">
-                    <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                      data-src="/themes/alemnews/img/360x202/img55.jpg" alt="Image description">
+                  <a href="/@CurrentLanguage/article/@(latestArticleList[0].LatynUrl).html">
+                    <img class="img-fluid lazy" src="@GetUrl(latestArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                      data-src="@GetUrl(latestArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@latestArticleList[0]?.Title">
                   </a>
                 </div>
                 <div class="card-body">
                   <!--title-->
                   <h2 class="card-title h1-sm h3-md">
-                    <a href="#">MotoGP: Which team needs what in 2019?</a>
+                    <a href="/@CurrentLanguage/article/@(latestArticleList[0].LatynUrl).html">@latestArticleList[0]?.Title</a>
                   </h2>
                   <!-- author & date -->
                   <div class="card-text mb-2 text-muted small">
-                    <span class="d-none d-sm-inline me-1">
-                      <a class="fw-bold" href="#">John Doe</a>
-                    </span>
-                    <time datetime="2019-10-22">Oct 22, 2019</time>
+                    <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(latestArticleList[0].AddTime,CurrentLanguage)</time>
                   </div>
                   <!--description-->
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.</p>
+                  <p class="card-text">@latestArticleList[0]?.ShortDescription</p>
                 </div>
               </article>
             </div>
             <!--end post big-->
             <!--post small start-->
             <div class="small-post">
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_110-77 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/110x77/img5.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-md">
-                        <a href="#">Take the kids to Windermere Jetty, Lake District</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-16">Oct 16, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_110-77 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/110x77/img6.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="h6 h4-sm h6-md">
-                        <a href="#">Wave reviews: Under – Norway's new underwater restaurant</a>
-                      </h3>
-                      <div class="small text-muted">
-                        <time datetime="2019-10-15">Oct 15, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_110-77 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/110x77/img7.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="h6 h4-sm h6-md">
-                        <a href="#">This U.S. Airline Has More Legroom Than Any Other</a>
-                      </h3>
-                      <div class="small text-muted">
-                        <time datetime="2019-10-14">Oct 14, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--End post list-->
+               @if (latestArticleList.Count > 1)
+               {
+                 for (int i = 1; i < 4 && i < latestArticleList.Count; i++)
+                 {
+                   <article class="card card-full hover-a mb-4">
+                     <div class="row">
+                       <!--thumbnail-->
+                       <div class="col-3 col-md-4 pe-2 pe-md-0">
+                         <div class="ratio_110-77 image-wrapper">
+                           <a href="/@CurrentLanguage/article/@(latestArticleList[i].LatynUrl).html">
+                             <img class="img-fluid lazy" src="@GetUrl(latestArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                  data-src="@GetUrl(latestArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@latestArticleList[i]?.Title">
+                           </a>
+                         </div>
+                       </div>
+                       <!-- title & date -->
+                       <div class="col-9 col-md-8">
+                         <div class="card-body pt-0">
+                           <h3 class="card-title h6 h5-sm h6-md">
+                             <a href="/@CurrentLanguage/article/@(latestArticleList[i].LatynUrl).html" class="news-title">@latestArticleList[i]?.Title</a>
+                           </h3>
+                           <div class="card-text small text-muted">
+                             <time datetime="2019-10-16">@UnixTimeHelper.UnixTimeToLocalString(latestArticleList[i].AddTime,CurrentLanguage)</time>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </article>
+                 }
+               }
+             
+              
             </div>
             <!--end post small-->
             <div class="gap-0"></div>
           </aside>
+          }
+        
           <!-- end latest post -->
 
           <!--Advertiser-->
@@ -1037,146 +632,108 @@
       </aside>
       <!--end right column-->
 
-      <!-- start full column -->
-      <div class="col-12 mb-4">
+    <!-- block6ArticleList -->
+    @if (block6ArticleList.Count > 0)
+    {
+        <div class="col-12 mb-4">
         <!-- Block start -->
         <div class="block-area p-4 border bg-light-black">
-          <!-- Block title -->
-          <div class="block-title-13">
-            <h4 class="h5 title-box-dot">
-              <span>Interior Design</span>
-            </h4>
-            <div class="dot-line"></div>
-          </div>
-          <!-- block content -->
+         <div class="row py-2">
+                     <!--Breaking box-->
+                     <div class="col-2 col-sm-1 col-md-3 col-lg-2 py-1 pe-md-0 mb-md-1">
+                       <div class="d-inline-block d-md-block bg-primary text-white text-center breaking-caret py-1 px-2">
+                         <span class="d-none d-md-inline-block">@block6Title</span>
+                       </div>
+                     </div>
+         
+                     <!--Breaking content-->
+                     <div class="col-10 col-sm-11 col-md-9 col-lg-10 ps-1 ps-md-2">
+                       <div class="breaking-box position-relative py-2">
+                         <div class="box-carousel"
+                              data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "autoPlay": 5000, "pageDots": false, "imagesLoaded": true }'>
+                           <!--list post-->
+                           @foreach (var region in regions)
+                           {
+                             <div class="col-12 aribudin">
+                               <a class="h6 fw-normal" href="/@CurrentLanguage/article/@(region?.LatynUrl).html">@region?.Title</a>
+                             </div>
+                           }
+         
+                         </div>
+                       </div>
+                     </div>
+                   </div>
           <div class="nav-slider-hover nav-dots-top-right light-dots"
             data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'>
-            <!-- item slider -->
-            <article class="col-12 col-sm-6 col-lg-4 me-2">
-              <div class="col-12 mb-4">
-                <div class="card card-full hover-a">
-                  <div class="ratio_327-278 image-wrapper">
-                    <!-- thumbnail -->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/400x340/img1.jpg" alt="Image description">
-                    </a>
-                    <div class="position-absolute p-3 b-0 w-100 bg-shadow">
-                      <!-- post title -->
-                      <h4 class="h3 h4-sm h3-md card-title">
-                        <a class="text-white" href="#">An elegant Modern office design in California and Nevada</a>
-                      </h4>
-                      <!-- date -->
-                      <div class="small text-light">
-                        <time datetime="2019-10-18">Oct 18, 2019</time>
+            @foreach (var block6 in block6ArticleList.Take(5))
+            {
+              <article class="col-12 col-sm-6 col-lg-4 me-2">
+                <div class="col-12 mb-4">
+                  <div class="card card-full hover-a">
+                    <div class="ratio_327-278 image-wrapper">
+                      <!-- thumbnail -->
+                      <a href="#">
+                        <img class="img-fluid lazy news-block6-img" src="@GetUrl(block6?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                             data-src="@GetUrl(block6?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block6?.Title">
+                      </a>
+                      <div class="position-absolute p-3 b-0 w-100 bg-shadow">
+                        <!-- post title -->
+                        <h4 class="h3 h4-sm h3-md card-title">
+                          <a class="text-white news-title" href="/@CurrentLanguage/article/@(block6.LatynUrl).html">@block6?.Title</a>
+                        </h4>
+                        <!-- date -->
+                        <div class="small text-light">
+                          <time datetime="2019-10-18">@UnixTimeHelper.UnixTimeToLocalString(block6.AddTime,CurrentLanguage)</time>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </article>
-            <!-- item slider -->
-            <article class="col-12 col-sm-6 col-lg-4 me-2">
-              <div class="col-12 mb-4">
-                <div class="card card-full hover-a">
-                  <div class="ratio_327-278 image-wrapper">
-                    <!-- thumbnail -->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/400x340/img2.jpg" alt="Image description">
-                    </a>
-                    <div class="position-absolute p-3 b-0 w-100 bg-shadow">
-                      <!-- post title -->
-                      <h4 class="h3 h4-sm h3-md card-title">
-                        <a class="text-white" href="#">Here’s All The Property News You Missed This Week</a>
-                      </h4>
-                      <!-- date -->
-                      <div class="small text-light">
-                        <time datetime="2019-10-18">Oct 18, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!-- item slider -->
-            <article class="col-12 col-sm-6 col-lg-4 me-2">
-              <div class="col-12 mb-4">
-                <div class="card card-full hover-a">
-                  <div class="ratio_327-278 image-wrapper">
-                    <!-- thumbnail -->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/400x340/img3.jpg" alt="Image description">
-                    </a>
-                    <div class="position-absolute p-3 b-0 w-100 bg-shadow">
-                      <!-- post title -->
-                      <h4 class="h3 h4-sm h3-md card-title">
-                        <a class="text-white" href="#">Why We Love the Look of White Calacatta Marble?</a>
-                      </h4>
-                      <!-- date -->
-                      <div class="small text-light">
-                        <time datetime="2019-10-18">Oct 18, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!-- item slider -->
-            <article class="col-12 col-sm-6 col-lg-4 me-2">
-              <div class="col-12 mb-4">
-                <div class="card card-full hover-a">
-                  <div class="ratio_327-278 image-wrapper">
-                    <!-- thumbnail -->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/400x340/img4.jpg" alt="Image description">
-                    </a>
-                    <div class="position-absolute p-3 b-0 w-100 bg-shadow">
-                      <!-- post title -->
-                      <h4 class="h3 h4-sm h3-md card-title">
-                        <a class="text-white" href="#">The event showcases products like homewares and furniture</a>
-                      </h4>
-                      <!-- date -->
-                      <div class="small text-light">
-                        <time datetime="2019-10-18">Oct 18, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!-- item slider -->
-            <article class="col-12 col-sm-6 col-lg-4 me-2">
-              <div class="col-12 mb-4">
-                <div class="card card-full hover-a">
-                  <div class="ratio_327-278 image-wrapper">
-                    <!-- thumbnail -->
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/400x340/img5.jpg" alt="Image description">
-                    </a>
-                    <div class="position-absolute p-3 b-0 w-100 bg-shadow">
-                      <!-- post title -->
-                      <h4 class="h3 h4-sm h3-md card-title">
-                        <a class="text-white" href="#">The Best Street Style Looks from New York Property show</a>
-                      </h4>
-                      <!-- date -->
-                      <div class="small text-light">
-                        <time datetime="2019-10-18">Oct 18, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!-- end item slider -->
+              </article>
+            }
+           
           </div>
           <!--end block content-->
         </div>
         <!-- End block -->
       </div>
+    }
+    <div class="col-12 mb-5">
+                <div class="col-12 pb-3 px-4 bg-dark">
+                  <div class="row">
+                    <!-- PLAYLIST TITLE -->
+                    <div class="col-12">
+                      <div class="my-3">
+                        <h4 class="text-white">Hot News Video</h4>
+                      </div>
+                    </div>
+                    <!-- THE YOUTUBE PLAYER -->
+                    <div class="col-md-8 video-full pb-3">
+                      <a href="" >
+                        <span class="video-thumb"><img width="72" src="https://img.youtube.com/vi/wSA_nKSxfFE/default.jpg" alt="2019 MotoGP Winter Test Sepang"></span>
+                        <div class="video-title">2019 MotoGP Winter Test Sepang</div>
+                      </a>
+                      
+                    </div>
+                    <!-- THE PLAYLIST -->
+                    <div class="col-md-4">
+                      <div class="py-1 px-3 bg-primary">
+                        <h4 class="h5 mt-3 text-white">Playlist Video</h4>
+                        <p class="text-white">Most popular news video in the week</p>
+                      </div>
+                      <ol class="playlist-title list-unstyled">
+                        <li class="active">
+                          <a href="" >
+                            <span class="video-thumb"><img width="72" src="https://img.youtube.com/vi/wSA_nKSxfFE/default.jpg" alt="2019 MotoGP Winter Test Sepang"></span>
+                            <div class="video-title">2019 MotoGP Winter Test Sepang</div>
+                          </a>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
       <!-- end full column -->
 
       <!-- start left column -->

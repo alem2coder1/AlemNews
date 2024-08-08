@@ -25,7 +25,7 @@ public class HomeController : QarBaseController
 
     public IActionResult Index()
     {
-
+        
         ViewData["pinnedArticle"] = QarCache.GetPinnedArticleList(_memoryCache, CurrentLanguage, 1).FirstOrDefault();
         ViewData["latestArticleList"] = QarCache.GetArticleList(_memoryCache, CurrentLanguage, 25);
         ViewData["focusArticleList"] = QarCache.GetFocusArticleList(_memoryCache, CurrentLanguage, 12);
@@ -39,19 +39,20 @@ public class HomeController : QarBaseController
             {
                 case "block1":
                     {
-                        takeCount = 8;
+                        takeCount = 5;
                     }
                     break;
                 case "block2":
                     {
-                        takeCount = 6;
+                        takeCount = 4;
                     }
                     break;
             }
-
             ViewData[$"{category.BlockType}Title"] = category.Title;
             ViewData[$"{category.BlockType}Url"] = $"/{CurrentLanguage}/category/{category.LatynUrl}.html";
             ViewData[$"{category.BlockType}ArticleList"] = QarCache.GetArticleList(_memoryCache, CurrentLanguage, takeCount, category.Id);
+            ViewData["block6title"] = QarCache.GetCategoryList(_memoryCache, CurrentLanguage)
+                .Where(x => x.BlockType == "block6" && x.ParentId != 0).ToList();
         }
         if (Request.Cookies.TryGetValue("question", out string questionIdStr))
         {

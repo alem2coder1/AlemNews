@@ -3,31 +3,31 @@
 <urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://localhost:7501/kz/article/katonqaragai-audany.html</loc>
-    <lastmod>2024-08-07T16:10:01.0000000+05:00</lastmod>
+    <lastmod>2024-08-07T16:13:12.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501</image:loc>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807161301865_big.webp</image:loc>
       <image:title>Катонқарағай ауданы </image:title>
     </image:image>
   </url>
   <url>
     <loc>http://localhost:7501/latyn/article/katonqaragai-audany.html</loc>
-    <lastmod>2024-08-07T16:10:01.0000000+05:00</lastmod>
+    <lastmod>2024-08-07T16:13:12.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501</image:loc>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807161301865_big.webp</image:loc>
       <image:title>كاتونقاراعاي اۋدانى </image:title>
     </image:image>
   </url>
   <url>
     <loc>http://localhost:7501/tote/article/katonqaragai-audany.html</loc>
-    <lastmod>2024-08-07T16:10:01.0000000+05:00</lastmod>
+    <lastmod>2024-08-07T16:13:12.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>http://localhost:7501</image:loc>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807161301865_big.webp</image:loc>
       <image:title>Katonqaraǵaı aýdany </image:title>
     </image:image>
   </url>
@@ -59,6 +59,216 @@
     <image:image>
       <image:loc>http://localhost:7501/uploads/thumbnail/20240807160826075_big.webp</image:loc>
       <image:title>Araldy sýǵa toltyrý amaly: Jaı sóz be, naqty is pe?</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/kbtu-jastar-city.html</loc>
+    <lastmod>2024-08-07T16:21:47.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807162102778_big.webp</image:loc>
+      <image:title>KBTU JASTAR CITY</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/kbtu-jastar-city.html</loc>
+    <lastmod>2024-08-07T16:21:47.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807162102778_big.webp</image:loc>
+      <image:title>KBTU JASTAR CITY</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/kbtu-jastar-city.html</loc>
+    <lastmod>2024-08-07T16:21:47.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807162102778_big.webp</image:loc>
+      <image:title>KBTU JASTAR CITY</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/almaty-manyndagy-qazaqsha-stildegi-uzdik-qonaquiler.html</loc>
+    <lastmod>2024-08-07T19:33:01.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807193159117_big.webp</image:loc>
+      <image:title>Алматы маңындағы қазақша стильдегі үздік қонақүйлер</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/almaty-manyndagy-qazaqsha-stildegi-uzdik-qonaquiler.html</loc>
+    <lastmod>2024-08-07T19:33:01.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807193159117_big.webp</image:loc>
+      <image:title>الماتى ماڭىنداعى قازاقشا ستيلدەگى ۇزدىك قوناقۇيلەر</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/almaty-manyndagy-qazaqsha-stildegi-uzdik-qonaquiler.html</loc>
+    <lastmod>2024-08-07T19:33:01.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807193159117_big.webp</image:loc>
+      <image:title>Almaty mańyndaǵy qazaqsha stıldegi úzdik qonaqúıler</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/nursultan-tursynov-parij-olimpiadasynyn-shirek-finalyna-shyqty.html</loc>
+    <lastmod>2024-08-07T19:35:29.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807193448401_big.webp</image:loc>
+      <image:title>Нұрсұлтан Тұрсынов Париж Олимпиадасының ширек финалына шықты</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/nursultan-tursynov-parij-olimpiadasynyn-shirek-finalyna-shyqty.html</loc>
+    <lastmod>2024-08-07T19:35:29.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807193448401_big.webp</image:loc>
+      <image:title>نۇرسۇلتان تۇرسىنوۆ پاريج وليمپياداسىنىڭ شيرەك فينالىنا شىقتى</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/nursultan-tursynov-parij-olimpiadasynyn-shirek-finalyna-shyqty.html</loc>
+    <lastmod>2024-08-07T19:35:29.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240807193448401_big.webp</image:loc>
+      <image:title>Nursultan Tursynov Parıj Olımpıadasynyń shırek fınalyna shyqty</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/bugin-erkin-kures-sheberleri-azamat-dauletbekov-pen-meirambek-qartbai-jarysqa-shygady.html</loc>
+    <lastmod>2024-08-08T12:50:46.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808124940791_big.webp</image:loc>
+      <image:title>Бүгін еркін күрес шеберлері Азамат Дәулетбеков пен Мейрамбек Қартбай жарысқа шығады</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/bugin-erkin-kures-sheberleri-azamat-dauletbekov-pen-meirambek-qartbai-jarysqa-shygady.html</loc>
+    <lastmod>2024-08-08T12:50:46.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808124940791_big.webp</image:loc>
+      <image:title>بۇگىن ەركىن كۇرەس شەبەرلەرى ازامات داۋلەتبەكوۆ پەن مەيرامبەك قارتباي جارىسقا شىعادى</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/bugin-erkin-kures-sheberleri-azamat-dauletbekov-pen-meirambek-qartbai-jarysqa-shygady.html</loc>
+    <lastmod>2024-08-08T12:50:46.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808124940791_big.webp</image:loc>
+      <image:title>Búgin erkin kúres sheberleri Azamat Dáýletbekov pen Meırambek Qartbaı jarysqa shyǵady</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/kbtu-jastar-city-de-oryndardy-bolu-kezinde-basymdyq-beriletin-aleumettik-sanattardyn-tizimi.html</loc>
+    <lastmod>2024-08-08T13:51:12.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808135038967_big.webp</image:loc>
+      <image:title>KBTU JASTAR CITY-де орындарды бөлу кезінде басымдық берілетін әлеуметтік санаттардың тізімі:</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/kbtu-jastar-city-de-oryndardy-bolu-kezinde-basymdyq-beriletin-aleumettik-sanattardyn-tizimi.html</loc>
+    <lastmod>2024-08-08T13:51:12.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808135038967_big.webp</image:loc>
+      <image:title>KBTU JASTAR CITY-دە ورىنداردى ءبولۋ كەزىندە باسىمدىق بەرىلەتىن الەۋمەتتىك ساناتتاردىڭ ءتىزىمى:</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/kbtu-jastar-city-de-oryndardy-bolu-kezinde-basymdyq-beriletin-aleumettik-sanattardyn-tizimi.html</loc>
+    <lastmod>2024-08-08T13:51:12.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808135038967_big.webp</image:loc>
+      <image:title>KBTU JASTAR CITY-de oryndardy bólý kezinde basymdyq beriletin áleýmettik sanattardyń tizimi:</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/aral-su-qorshagan-jer-atau-su-tasqyny-kezinde-de-sudan-jogary-bolyp-turady.html</loc>
+    <lastmod>2024-08-08T14:31:39.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808143117927_big.webp</image:loc>
+      <image:title>Арал — су қоршаған жер, атау. Су тасқыны кезінде де судан жоғары болып тұрады.</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/aral-su-qorshagan-jer-atau-su-tasqyny-kezinde-de-sudan-jogary-bolyp-turady.html</loc>
+    <lastmod>2024-08-08T14:31:39.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808143117927_big.webp</image:loc>
+      <image:title>ارال — سۋ قورشاعان جەر، اتاۋ. سۋ تاسقىنى كەزىندە دە سۋدان جوعارى بولىپ تۇرادى.</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/aral-su-qorshagan-jer-atau-su-tasqyny-kezinde-de-sudan-jogary-bolyp-turady.html</loc>
+    <lastmod>2024-08-08T14:31:39.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808143117927_big.webp</image:loc>
+      <image:title>Aral — sý qorshaǵan jer, ataý. Sý tasqyny kezinde de sýdan joǵary bolyp turady.</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/ejelden-kone-ozen-qazaq-jongar-shekarasy.html</loc>
+    <lastmod>2024-08-08T16:23:25.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808162025706_big.webp</image:loc>
+      <image:title>Ежелден көне өзен, қазақ жоңғар шекарасы</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/ejelden-kone-ozen-qazaq-jongar-shekarasy.html</loc>
+    <lastmod>2024-08-08T16:23:25.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808162025706_big.webp</image:loc>
+      <image:title>ەجەلدەن كونە وزەن، قازاق جوڭعار شەكاراسى</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/ejelden-kone-ozen-qazaq-jongar-shekarasy.html</loc>
+    <lastmod>2024-08-08T16:23:25.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240808162025706_big.webp</image:loc>
+      <image:title>Ejelden kóne ózen, qazaq jońǵar shekarasy</image:title>
     </image:image>
   </url>
 </urlset>

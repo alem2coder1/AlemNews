@@ -122,7 +122,21 @@ public class CatalogController : QarBaseController
                     item.DisplayOrder += 1;
                 }
 
-                var blockType = "block" + item.DisplayOrder;
+                string blockType = null;
+
+                if (item.ParentId == 0)
+                {
+                    blockType = "block" + item.DisplayOrder;
+                }
+                else
+                {
+                    blockType = connection.Query<string>(
+                        "select blockType from articlecategory where parentId = @ParentId",
+                        new { ParentId = item.ParentId }
+                    ).FirstOrDefault() ?? " ";
+                }
+                
+               
                 res = connection.Insert(new Articlecategory
                 {
                     Title = item.Title,
@@ -151,7 +165,19 @@ public class CatalogController : QarBaseController
                     .GetList<Articlecategory>("where qStatus = 0 and id = @id", new { id = item.Id }).FirstOrDefault();
                 if (category == null)
                     return MessageHelper.RedirectAjax(T("ls_Isdeletedoridiswrong"), "error", "", "");
-                var blockType = "block" + item.DisplayOrder;
+                string blockType = null;
+
+                if (item.ParentId == 0)
+                {
+                    blockType = "block" + item.DisplayOrder;
+                }
+                else
+                {
+                    blockType = connection.Query<string>(
+                        "select blockType from articlecategory where parentId = @ParentId",
+                        new { ParentId = item.ParentId }
+                    ).FirstOrDefault() ?? " ";
+                }
                 category.Title = item.Title;
                 category.ParentId = item.ParentId;
                 category.Language = item.Language;

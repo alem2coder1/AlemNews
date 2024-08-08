@@ -538,7 +538,7 @@ public class QarCache
                 else
                 {
                     categoryIdArr = connection
-                        .Query<int>("select id from articlecategory where qStatus = 0 and language = @language",
+                        .Query<int>("select id from articlecategory where qStatus = 0 and language = @language ",
                             new { language }).ToArray();
                     querySql += " and categoryId in @categoryIdArr ";
                 }

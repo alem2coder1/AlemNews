@@ -34,5 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = url + `?keyword=${keyword}`;
         }
     });
+    const newsTitles = document.querySelectorAll('.news-title');
+
+    newsTitles.forEach(function(title) {
+        if (title.textContent.length > 40) {
+            title.textContent = title.textContent.substring(0, 40) + '...';
+        }
+    });
 
 });
