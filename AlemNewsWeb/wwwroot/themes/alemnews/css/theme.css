@@ -15963,7 +15963,6 @@ p {
 }
 
 .bg-footer {
-  background-image: url(../img/background/bg-footer.jpg);
   position: relative;
   background-repeat: no-repeat;
   background-position: center;
@@ -19135,12 +19134,11 @@ p {
 }
 
 .playlist-title li:hover {
-  background-color: var(--bs-gray-900);
+  background-color: #ef8378;
   cursor: pointer;
 }
 
 .playlist-title li.active {
-  background-color: var(--bs-gray-900);
   cursor: pointer;
 }
 

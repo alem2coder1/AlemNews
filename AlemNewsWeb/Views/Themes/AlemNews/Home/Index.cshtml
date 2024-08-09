@@ -40,11 +40,10 @@
   var block7Url = (ViewData["block7Url"] ?? string.Empty) as string;
   var block7ArticleList = QarList<Article>("block7ArticleList");
   var block7ArticleAllList = QarList<Article>("block7ArticleAllList");
-  var block8ParentTitle = (ViewData["block8ParentTitle"] ?? string.Empty) as string;
   var block8Title = (ViewData["block8Title"] ?? string.Empty) as string;
   var block8Url = (ViewData["block8Url"] ?? string.Empty) as string;
   var block8ArticleList = QarList<Article>("block8ArticleList");
-  var block8ArticleAllList = QarList<Article>("block8ArticleAllList");
+
 }
 
 <!--Content start-->
@@ -195,7 +194,7 @@
                 <div class="ratio_360-202 image-wrapper">
                   <a href="/@CurrentLanguage/article/@(block1ArticleAllList[0].LatynUrl).html">
                     <img class="img-fluid lazy" src="@GetUrl(block1ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                      data-src="@GetUrl(block1ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block1ArticleAllList[0]?.Title">
+                         data-src="@GetUrl(block1ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block1ArticleAllList[0]?.Title">
                   </a>
                 </div>
                 <div class="card-body">
@@ -717,31 +716,35 @@
     @if (block7ArticleList.Count > 0)
     {
       <div class="col-12 mb-5">
-        <div class="col-12 pb-3 px-4 bg-dark">
+        <div class="col-12 pb-3 px-4 " style="background-color: #ea3323">
           <div class="row">
             <!-- PLAYLIST TITLE -->
             <div class="col-12">
               <div class="my-3">
-                <h4 class="text-white">@block7Title</h4>
+                <a href="/@CurrentLanguage/category/@(block7Url).html">
+                   <h4 class="text-white">@block7Title</h4>
+                </a>
+               
               </div>
             </div>
             <!-- THE YOUTUBE PLAYER -->
-            <div class="col-md-8 video-full pb-3 " style="height: 401px">
+            <div class="col-md-7 video-full pb-3 " style="">
               <a href="/@CurrentLanguage/article/@(block7ArticleList[0].LatynUrl).html" style="display: block">
-                <img width="w-100" src="@GetUrl(block7ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block7ArticleList[0]?.Title"/>
+                <img class="w-100" src="@GetUrl(block7ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block7ArticleList[0]?.Title"/>
+                <div class="video-title news-title text-white py-2">@block7ArticleList[0]?.Title</div>
               </a>
                       
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
               <ol class="playlist-title list-unstyled">
-                @if (block7ArticleList.Count > 0)
+                @if (block7ArticleList.Count > 1)
                 {
                   for (int i = 1; i < block7ArticleList.Count; i++)
                   {
                     <li class="active">
                       <a href="/@CurrentLanguage/article/@(block7ArticleList[i].LatynUrl).html">
-                        <span class="video-thumb"><img width="72" src="@GetUrl(block7ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block7ArticleList[0]?.Title"></span>
-                        <div class="video-title news-title">@block7ArticleList[0]?.Title</div>
+                        <span class="video-thumb"><img width="100" src="@GetUrl(block7ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block7ArticleList[i]?.Title"></span>
+                        <div class="video-title news-title">@block7ArticleList[i]?.Title</div>
                       </a>
                     </li>
                     
@@ -755,494 +758,67 @@
         </div>
       </div>
     }
+    @if (block8ArticleList.Count > 0)
+    {
+   
       <div class="col-md-8">
         <!-- block start -->
         <div class="block-area">
           <!-- block title -->
-          <div class="block-title-6">
-            <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">Latest post</span>
+          <div class="block-title-13">
+            <h4 class="h5 title-box-dot">
+              <a href="/@CurrentLanguage/category/@(block8Url).html">
+                <span>@block8Title</span>
+              </a>
+              
             </h4>
+            <div class="dot-line"></div>
           </div>
-          <!-- block content -->
+          <div class="gap-0"></div>
           <div class="border-bottom-last-0 first-pt-0">
-            <!--post start-->
-            <article class="card card-full hover-a py-4">
-              <div class="row">
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img17.jpg" alt="Image description">
-                    </a>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <div class="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                    <!--title-->
-                    <h3 class="card-title h2 h3-sm h2-md">
-                      <a href="#">Apple's stock rout starts and ends with the iPhone</a>
-                    </h3>
-                    <!--author and date-->
-                    <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-21">Oct 21, 2019</time>
+            @foreach (var block8 in block8ArticleList.Take(4))
+            {
+              <article class="card card-full hover-a py-4">
+                <div class="row">
+                  <div class="col-sm-6 col-md-12 col-lg-6">
+                    <!--thumbnail-->
+                    <div class="ratio_360-202 image-wrapper">
+                      <a href="@CurrentLanguage/article/@(block8.LatynUrl).html">
+                        <img class="img-fluid lazy entered loaded" src="@GetUrl(block8?.ThumbnailUrl.Replace("_big.", "_middle."))" data-src="@GetUrl(block8?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block8?.Title" data-ll-status="loaded">
+                        <!-- play button -->
+                        <div class="post-type-icon hover-hide">
+                          <span class="fa-stack-sea text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                              <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"></path>
+                            </svg>
+                          </span>
+                        </div>
+                      </a>
                     </div>
-                    <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. A small river flows by their place and ...</p>
                   </div>
-                </div>
-              </div>
-            </article>
-            <!--post start-->
-            <article class="card card-full hover-a py-4">
-              <div class="row">
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img18.jpg" alt="Image description">
-                    </a>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <div class="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                    <!--title-->
-                    <h3 class="card-title h2 h3-sm h2-md">
-                      <a href="#">Want the best Black Friday deals? Head to a department store</a>
-                    </h3>
-                    <!--author and date-->
-                    <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-21">Oct 21, 2019</time>
+                  <div class="col-sm-6 col-md-12 col-lg-6">
+                    <div class="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
+                      <h3 class="card-title h2 h3-sm h2-md">
+                        <a href="@CurrentLanguage/article/@(block8.LatynUrl).html">@block8?.Title</a>
+                      </h3>
+                      <div class="card-text mb-2 text-muted small">
+                        <time datetime="2019-10-21">Oct 21, 2019</time>
+                      </div>
+                      <p class="card-text">@block8?.ShortDescription</p>
                     </div>
-                    <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. A small river flows by their place and ...</p>
                   </div>
                 </div>
-              </div>
-            </article>
-            <!--post start-->
-            <article class="card card-full hover-a py-4">
-              <div class="row">
-                <!--start thumbnail-->
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img14.jpg" alt="Image description">
-                    </a>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <div class="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                    <!--title-->
-                    <h3 class="card-title h2 h3-sm h2-md">
-                      <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                    </h3>
-                    <!--author and date-->
-                    <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-21">Oct 21, 2019</time>
-                    </div>
-                    <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. A small river flows by their place and ...</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!--post start-->
-            <article class="card card-full hover-a py-4">
-              <div class="row">
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img15.jpg" alt="Image description">
-                    </a>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <div class="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                    <!--title-->
-                    <h3 class="card-title h2 h3-sm h2-md">
-                      <a href="#">Dubai launches pilot for Middle East 'Shark Tank'</a>
-                    </h3>
-                    <!--author and date-->
-                    <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-21">Oct 21, 2019</time>
-                    </div>
-                    <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. A small river flows by their place and ...</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!--post start-->
-            <article class="card card-full hover-a py-4">
-              <div class="row">
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img16.jpg" alt="Image description">
-                    </a>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <div class="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                    <!--title-->
-                    <h3 class="card-title h2 h3-sm h2-md">
-                      <a href="#">The pioneering and popular compact Range Rover Evoque gets a major makeover</a>
-                    </h3>
-                    <!--author and date-->
-                    <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-21">Oct 21, 2019</time>
-                    </div>
-                    <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. A small river flows by their place and ...</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!--post start-->
-            <article class="card card-full hover-a py-4">
-              <div class="row">
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img19.jpg" alt="Image description">
-                    </a>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <div class="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                    <!--title-->
-                    <h3 class="card-title h2 h3-sm h2-md">
-                      <a href="#">European markets fight back to close higher; oil in focus</a>
-                    </h3>
-                    <!--author and date-->
-                    <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-21">Oct 21, 2019</time>
-                    </div>
-                    <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. A small river flows by their place and ...</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <!--post start-->
-            <article class="card card-full hover-a py-4">
-              <div class="row">
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="#">
-                      <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                        data-src="/themes/alemnews/img/360x202/img5.jpg" alt="Image description">
-                    </a>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-12 col-lg-6">
-                  <div class="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                    <!--title-->
-                    <h3 class="card-title h2 h3-sm h2-md">
-                      <a href="#">MotoGP: Which team needs what in 2019?</a>
-                    </h3>
-                    <!--author and date-->
-                    <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
-                      <time datetime="2019-10-21">Oct 21, 2019</time>
-                    </div>
-                    <!--description-->
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. A small river flows by their place and ...</p>
-                  </div>
-                </div>
-              </div>
-            </article>
+              </article>
+            }
           </div>
-          <!-- end block content -->
         </div>
-        <!--end block-->
-
-        <!--Pagination-->
-        <div class="clearfix my-4">
-          <nav class="float-start" aria-label="Page navigation example">
-            <!--page number-->
-            <ul class="pagination">
-              <li class="page-item active"><span class="page-link">1</span></li>
-              <li class="page-item"><a class="page-link" href="../category/category.html">2</a></li>
-              <li class="page-item"><a class="page-link" href="../category/category.html">3</a></li>
-              <li class="page-item"><a class="page-link" href="../category/category.html">4</a></li>
-              <li class="page-item"><span class="page-link disabled">....</span></li>
-              <li class="page-item"><a class="page-link" href="../category/category.html">12</a></li>
-              <li class="page-item">
-                <a class="page-link" href="../category/category.html" aria-label="Next" title="Next page">
-                  <span aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" fill="currentColor"
-                      viewBox="0 0 512 512">
-                      <polyline points="184 112 328 256 184 400"
-                        style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px" />
-                    </svg>
-                  </span>
-                  <span class="visually-hidden">Next</span>
-                </a>
-              </li>
-            </ul>
-            <!--end page number-->
-          </nav>
-          <span class="py-2 float-end">Page 1 of 12</span>
-        </div>
-        <!--end pagination-->
       </div>
-      <!-- end left column -->
+    }
+    <aside class="col-md-4 end-sidebar-lg">
+     <img class="w-100" src="@GetUrl("/images/no_image.png")" alt="">
+    </aside>
 
-      <!-- start right column -->
-      <aside class="col-md-4 end-sidebar-lg">
-        <!-- sidebar sticky start -->
-        <div class="sticky">
-          <!--widget start-->
-          <aside class="widget">
-            <!-- block title -->
-            <div class="block-title-4">
-              <h4 class="h5 title-arrow">
-                <span>Most read</span>
-              </h4>
-            </div>
-            <!-- block content -->
-            <div class="small-post">
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_110-77 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/110x77/img1.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-md">
-                        <a href="#">Apple's stock rout starts and ends with the iPhone</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-16">Oct 16, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_110-77 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/110x77/img2.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h5-sm h6-md">
-                        <a href="#">94 Easy Chicken Recipes for Fuss-Free Family Dinners</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-15">Oct 15, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_110-77 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/110x77/img3.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h4-sm h6-md">
-                        <a href="#">Ford reveals autonomous vehicle philosophies, priorities</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-14">Oct 14, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-4">
-                <div class="row">
-                  <!--thumbnail-->
-                  <div class="col-3 col-md-4 pe-2 pe-md-0">
-                    <div class="ratio_110-77 image-wrapper">
-                      <a href="#">
-                        <img class="img-fluid lazy" src="/themes/alemnews/img/assets/lazy-empty.png"
-                          data-src="/themes/alemnews/img/110x77/img4.jpg" alt="Image description">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- title & date -->
-                  <div class="col-9 col-md-8">
-                    <div class="card-body pt-0">
-                      <h3 class="card-title h6 h4-sm h6-md">
-                        <a href="#">Bowen's Super Bowl LIII game plans: Which defense will get stops?</a>
-                      </h3>
-                      <div class="card-text small text-muted">
-                        <time datetime="2019-10-16">Oct 16, 2019</time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <!--End post list-->
-            </div>
-            <!--end block content-->
-            <div class="gap-0"></div>
-          </aside>
-          <!--End widget-->
-
-          <!-- widget start -->
-          <aside class="widget">
-            <!-- widget content -->
-            <div class="p-4 border bg-light-dark text-center mb-4">
-              <!--title-->
-              <h4>Get Updates</h4>
-              <p class="text-dark">Subscribe our newsletter to get the last update into your inbox!</p>
-              <!--form start-->
-              <div class="mx-auto">
-                <form id="subscribe" class="needs-validation" action="#" novalidate="">
-                  <div class="input-group">
-                    <input type="email" class="form-control" name="email" required="" aria-label="email form"
-                      placeholder="Enter your email address">
-                    <button class="btn btn-primary" type="submit">Subscribe</button>
-                    <div class="invalid-feedback">
-                      Please insert email address.
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <!--end form-->
-              <p class="small text-center text-dark mt-3">hate spammers, and never spam</p>
-            </div>
-            <!-- end widget content -->
-            <div class="gap-0"></div>
-          </aside>
-
-          <!-- custom post -->
-          <aside class="widget">
-            <div class="block-title-4">
-              <h4 class="h5 title-arrow"><span>Travelling</span></h4>
-            </div>
-            <!--style 2-->
-            <div class="small-post">
-              <!--post list-->
-              <article class="card card-full hover-a mb-2">
-                <div class="card-body pt-0">
-                  <!--title-->
-                  <h3 class="card-title h5">
-                    <a href="#">Fans celebrate in Paris after side reaches World Cup final</a>
-                  </h3>
-                  <!--date-->
-                  <div class="card-text small text-muted">
-                    <time datetime="2019-06-16">Jun 16, 2019</time>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-2">
-                <div class="card-body pt-0">
-                  <!--title-->
-                  <h3 class="card-title h5">
-                    <a href="#">5 Tips to Save Money Booking Your Next Hotel Room</a>
-                  </h3>
-                  <!--date-->
-                  <div class="card-text small text-muted">
-                    <time datetime="2019-06-16">Jun 16, 2019</time>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-2">
-                <div class="card-body pt-0">
-                  <!--title-->
-                  <h3 class="card-title h5">
-                    <a href="#">The 52 Places Traveler: Summer in France, in Two Very Different Ways</a>
-                  </h3>
-                  <!--date-->
-                  <div class="card-text small text-muted">
-                    <time datetime="2019-06-16">Jun 16, 2019</time>
-                  </div>
-                </div>
-              </article>
-              <!--post list-->
-              <article class="card card-full hover-a mb-2">
-                <div class="card-body pt-0">
-                  <!--title-->
-                  <h3 class="card-title h5">
-                    <a href="#">6 Simple Tips to Help Vegetarian or Vegan Travelers Eat Well, Anywhere</a>
-                  </h3>
-                  <!--date-->
-                  <div class="card-text small text-muted">
-                    <time datetime="2019-06-16">Jun 16, 2019</time>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="gap-0"></div>
-          </aside>
-        </div>
-        <!--end Sidebar sticky-->
-      </aside>
-      <!-- end right column -->
     </div>
-  </div>
+   </div>
 </main>
 <!--End Content-->

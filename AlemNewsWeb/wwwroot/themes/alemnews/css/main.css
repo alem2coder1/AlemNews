@@ -15,6 +15,9 @@ img{
     .news-block6-img{
         height: 310px;
     }
+    .footer-img-wi{
+        height: 82px;
+    }
 
 }
 @media (min-width: 992px) and (max-width: 1024px) {
@@ -30,6 +33,9 @@ img{
     .news-block6-img{
         height: 240px;
     }
+    .footer-img-wi{
+        height: 77px;
+    }
 }
 @media (min-width: 768px) and (max-width: 992px) {
     .last-img-height{
@@ -43,6 +49,9 @@ img{
     }
     .news-block6-img{
         height: 282px;
+    }
+    .footer-img-wi{
+        height: 101px;
     }
 
 }
@@ -58,6 +67,9 @@ img{
     }
     .news-block6-img{
         height: 270px;
+    }
+    .footer-img-wi{
+        height: 77px;
     }
 
 }

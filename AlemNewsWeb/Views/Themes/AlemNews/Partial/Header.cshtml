@@ -216,8 +216,7 @@
                 <!--left main menu start-->
                 <ul id="start-main" class="navbar-nav main-nav navbar-uppercase first-start-lg-0">
                     <li class="nav-item dropdown">
-                        <a id="navbarhome" class="nav-link active" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false" href="/@CurrentLanguage">@T("ls_Home")</a>
+                        <a id="navbarhome" class="nav-link active" href="/@CurrentLanguage">@T("ls_Home")</a>
                     </li>
                    @foreach (var menu in menuList.Where(m => m.ParentId == 0).Take(6))
                    {

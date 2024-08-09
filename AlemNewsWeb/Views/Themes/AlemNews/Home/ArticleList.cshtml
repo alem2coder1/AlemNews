@@ -1,3 +1,224 @@
 @{
     Layout = $"~/Views/Themes/{CurrentTheme}/_HomeLayout.cshtml";
+  var articleList = QarList<Article>("articleList");
+  var subCategoryList = QarList<Articlecategory>("subCategoryList");
+  var menuTitle = (ViewData["menuTitle"] ?? string.Empty) as string;
+  var menuLink = (ViewData["menuLink"] ?? string.Empty) as string;
+  var topArticleList = QarList<Article>("topArticleList");
+
+  var pageIndex = Convert.ToInt32(ViewData["page"] ?? 0);
+  var total = Convert.ToInt32(ViewData["total"] ?? 0);
+  var totalPage = Convert.ToInt32(ViewData["totalPage"] ?? 0);
+
+  var categoryId = Convert.ToInt32(ViewData["categoryId"] ?? 0);
+  var tagId = Convert.ToInt32(ViewData["tagId"] ?? 0);
+  var keyword = (ViewData["keyword"] ?? string.Empty) as string;
+}
+<main id="content">
+  <div class="pb-2 mb-2 mb-md-4">
+    <!--Container-->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mt-4">
+          <div class="category-title">
+            <h1 class="h2 h1-md">@menuTitle</h1>
+            <hr class="hr-after mx-auto">
+          </div>
+          <!-- sub category -->
+          <div class="tags-area my-4">
+            <div class="mb-2">
+              @foreach (var subCategory in subCategoryList)
+              {
+                <a class="p-2 text-dark-light me-1 border" href="/@CurrentLanguage/category/@(subCategory.LatynUrl).html">@subCategory.Title</a>
+              }
+            </div>
+          </div>
+          <!-- end sub category -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="latest-post">
+          <div class="row">
+            @foreach (var article in articleList)
+            {
+              <article class="col-sm-6">
+                <div class="card card-full mb-module hover-a">
+                  <!--thumbnail & category-->
+                  <div class="ratio_360-202 image-wrapper">
+                    <a href="/@CurrentLanguage/article/@(article.LatynUrl).html">
+                      <img class="img-fluid lazy" src="@GetUrl(article.ThumbnailUrl.Replace("_big.","_middle."))" data-src="@GetUrl(article.ThumbnailUrl.Replace("_big.","_middle."))" alt="@article?.Title">
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <!--author and date-->
+                    <div class="card-text mb-2 text-muted small">
+                      <span class="me-1">
+                        <a class="p-1 badge bg-primary text-white" href="/kz/category/aral.html">Аралды-толтыру</a>
+                      </span>
+                      <time datetime="2019-10-21">Oct 21, 2019</time>
+                    </div>
+                    <h3 class="card-title h2 h3-sm h4-md h3-lg">
+                      <a href="/@CurrentLanguage/article/@(article.LatynUrl).html">@article?.Title</a>
+                    </h3>
+                    <p class="card-text">@article?.ShortDescription</p>
+                  </div>
+                </div>
+              </article>
+                   
+            }
+              
+
+          </div>
+        </div>
+        <!--end latest post-->
+
+        <!--Pagination-->
+        <div class="clearfix my-4">
+          @if (totalPage > 1)
+          {
+            <nav id="pagination" class="mt-5 mb-4 d-flex"></nav>
+          }
+             
+        </div>
+        <!--end pagination-->
+      </div>
+      <!--end left column-->
+
+      <!-- start right column -->
+      <aside class="col-md-4 end-sidebar-lg">
+        <!--sticky-->
+        <div class="sticky">
+          <!--Advertiser-->
+          <aside class="widget">
+            <div class="hover-a text-center">
+              <!--title-->
+              <div class="pb-2">
+                <span class="text-mute small">- Advertisement -</span>
+              </div>
+              <!--content-->
+              <a href="#" target="_blank">
+                <img class="img-fluid bg-light" src="../../assets/img/ads/300-demo.png" alt="ads space">
+              </a>
+            </div>
+            <div class="gap-15"></div>
+          </aside>
+          <!--end advertiser-->
+
+          <!-- Social icon -->
+          <aside class="widget">
+            <!--block title-->
+            <div class="block-title-4">
+              <h4 class="h5 title-arrow">
+                <span>@T("ls_SocialLinks")</span>
+              </h4>
+            </div>
+            <!--end block title-->
+            <!-- social content -->
+            <ul class="list-unstyled social-two">
+              <li class="facebook"><a class="bg-facebook text-white"  href="@SiteSetting?.Facebook" target="_blank" rel="noopener noreferrer"
+                                      aria-label="facebook">Facebook</a></li>
+              <li class="telegram"><a class="bg-telegram text-white" href="@SiteSetting?.Telegram" target="_blank" rel="noopener noreferrer"
+                                      aria-label="Telegram">Telegram</a></li>
+              <li class="instagram"><a class="bg-instagram text-white" href="@SiteSetting?.Instagram" target="_blank"
+                                       rel="noopener noreferrer" aria-label="instagram">Instagram</a></li>
+              <li class="youtube"><a class="bg-youtube text-white" href="@SiteSetting?.Youtube" target="_blank" rel="noopener noreferrer"
+                                     aria-label="youtube">Youtube</a></li>
+            </ul>
+            <!-- end social content -->
+            <div class="gap-1"></div>
+          </aside>
+          @if (topArticleList.Count > 0)
+          {
+            <aside class="widget">
+              <div class="block-title-4">
+                <h4 class="h5 title-arrow">
+                  <span>@T("ls_Mostviewed")</span>
+                </h4>
+              </div>
+              <div class="big-post">
+                <article class="card card-full hover-a mb-4">
+                  <div class="ratio_360-202 image-wrapper">
+                    <a href="/@CurrentLanguage/article/@(topArticleList[0].LatynUrl).html">
+                      <img class="img-fluid lazy" src="@GetUrl(topArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" data-src="@GetUrl(topArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@topArticleList[0]?.Title">
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <h2 class="card-title h1-sm h3-md">
+                      <a href="/@CurrentLanguage/article/@(topArticleList[0].LatynUrl).html" class="news-title">@topArticleList[0]?.Title</a>
+                    </h2>
+                    <div class="card-text mb-2 text-muted small">
+                      <span class="d-none d-sm-inline me-1">
+                        <a class="fw-bold" href="#">John Doe</a>
+                      </span>
+                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(topArticleList[0].AddTime,CurrentLanguage)</time>
+                    </div>
+                    <p class="card-text">@topArticleList[0]?.ShortDescription</p>
+                  </div>
+                </article>
+              </div>
+              <div class="small-post">
+                @for (int i = 1; i < topArticleList.Count && i < 4; i++)
+                {
+                  <article class="card card-full hover-a mb-4">
+                    <div class="row">
+                      <!--thumbnail-->
+                      <div class="col-3 col-md-4 pe-2 pe-md-0">
+                        <div class="ratio_110-77 image-wrapper">
+                          <a href="/@CurrentLanguage/article/@(topArticleList[i].LatynUrl).html">
+                            <img class="img-fluid lazy" src="@GetUrl(topArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" data-src="@GetUrl(topArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@topArticleList[i]?.Title">
+                          </a>
+                        </div>
+                      </div>
+                      <!-- title & date -->
+                      <div class="col-9 col-md-8">
+                        <div class="card-body pt-0">
+                          <h3 class="card-title h6 h5-sm h6-md">
+                            <a class="news-title" href="/@CurrentLanguage/article/@(topArticleList[i].LatynUrl).html">@topArticleList[i]?.Title</a>
+                          </h3>
+                          <div class="card-text small text-muted">
+                            <time datetime="2019-10-16">@UnixTimeHelper.UnixTimeToLocalString(topArticleList[i].AddTime,CurrentLanguage)</time>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                      
+                }
+                    
+              </div>
+              <div class="gap-0"></div>
+            </aside>
+                
+                
+          }
+             
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+@if (totalPage > 1)
+{
+@section Scripts {
+  <script>
+        $(function () {
+            $('#pagination').pagination({
+                items: @total,
+                itemsOnPage: 12,
+                currentPage: @pageIndex,
+                prevText: '@T("ls_Previouspage")',
+                nextText: '@T("ls_Nextpage")',
+                displayedPages: $(window).width() < 768 ? 1 : 3,
+                onPageClick: function (pageNumber, event) {
+                    window.location.href = "/@CurrentLanguage/article/list?@Html.Raw(categoryId > 0 ? $"cId={categoryId}&" : "")@Html.Raw(tagId > 0 ? $"tagId={tagId}&" : "")page=" + pageNumber + "@Html.Raw(!string.IsNullOrWhiteSpace(keyword) ? $"&keyword={keyword}" : "")";
+                }
+            })
+        })
+    </script>
+}
 }

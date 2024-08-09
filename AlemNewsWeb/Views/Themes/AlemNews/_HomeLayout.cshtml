@@ -44,8 +44,9 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="apple-touch-icon" href="~/themes/@(CurrentTheme.ToLower())/img/favicon/apple-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/simplePagination.css">
     <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/theme.css" asp-append-version="true">
-     <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/main.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/main.css" asp-append-version="true">
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
@@ -66,6 +67,7 @@
     <script src="~/themes/@(CurrentTheme.ToLower())/vendor/vanilla-lazyload/dist/lazyload.min.js"></script>
     <script src="~/themes/@(CurrentTheme.ToLower())/vendor/smoothscroll-for-websites/SmoothScroll.js"></script>
     <script src="~/themes/@(CurrentTheme.ToLower())/js/theme.js"></script>
+    <script src="~/themes/@(CurrentTheme.ToLower())/js/jquery.simplePagination.js"></script>
     <script src="~/themes/@(CurrentTheme.ToLower())/js/common.js"></script>
     <script src="~/themes/@(CurrentTheme.ToLower())/js/main.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

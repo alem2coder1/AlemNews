@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.addEventListener("submit", (e) => {
         const that = e.target;
-
         if (that.classList.contains("uly-search")) {
             e.preventDefault();
             const keyword = that.querySelector("input.uly-input-search").value,
