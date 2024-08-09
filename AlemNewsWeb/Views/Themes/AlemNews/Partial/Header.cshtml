@@ -218,10 +218,14 @@
                     <li class="nav-item dropdown">
                         <a id="navbarhome" class="nav-link active" href="/@CurrentLanguage">@T("ls_Home")</a>
                     </li>
+                     @{
+                                      int j = 1;
+                     }
+                     
                    @foreach (var menu in menuList.Where(m => m.ParentId == 0).Take(6))
                    {
                        <li class="nav-item dropdown">
-                           <a id="navbarDropdown1" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">@menu?.Title</a>
+                           <a id="navbarDropdown1" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"  href="@ViewData[$"block{j}AllUrl"]">@menu?.Title</a>
                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                @foreach (var subMenu in menuList.Where(m => m.ParentId == menu.Id))
                                {
@@ -229,6 +233,7 @@
                                }
                            </ul>
                        </li>
+                       j++;
                    }
                     
                 </ul>
@@ -295,24 +300,24 @@
       <div class="sidenav-menu">
         <nav class="navbar navbar-light navbar-inverse">
           <ul id="side-menu" class="nav navbar-nav list-group list-unstyled side-link">
-            <li class="menu-item nav-item"><a href="/@CurrentLanguage" class="nav-link active">@T("ls_Home")</a></li>
-           @foreach (var menu in menuList.Where(m => m.ParentId == 0).Take(6))
-             {
-                 <li class="menu-item menu-item-has-children dropdown mega-dropdown nav-item">
-                     <a href="#" class="dropdown-toggle nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                        id="menu-11">@menu?.Title</a>
-                     <ul class="dropdown-menu" aria-labelledby="menu-11" role="menu">
+              <li class="menu-item nav-item"><a href="/@CurrentLanguage" class="nav-link active">@T("ls_Home")</a></li>
+             
+              @foreach (var menu in menuList.Where(m => m.ParentId == 0).Take(6))
+              {
+                  <li class="menu-item menu-item-has-children dropdown mega-dropdown nav-item">
+                      <a href="#" class="dropdown-toggle nav-link" aria-expanded="false" role="button" data-bs-toggle="dropdown" 
+                         id="menu-11">@menu?.Title</a>
+                      <ul class="dropdown-menu" aria-labelledby="menu-11" role="menu">
                           @foreach (var subMenu in menuList.Where(m => m.ParentId == menu.Id))
                           {
                               <li class="menu-item nav-item">
                                   <a href="/@CurrentLanguage/category/@(subMenu.LatynUrl).html" class="dropdown-item">@subMenu.Title</a>
                               </li>
                           }
-                          
-                         
-                     </ul>
-                 </li>
-             }
+                      </ul>
+                  </li>
+                 
+              }
            
              
           </ul>

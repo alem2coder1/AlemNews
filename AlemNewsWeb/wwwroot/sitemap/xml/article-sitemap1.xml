@@ -271,4 +271,94 @@
       <image:title>Ejelden kóne ózen, qazaq jońǵar shekarasy</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/qyzyl-qagaz-almagan-futbolshylar.html</loc>
+    <lastmod>2024-08-09T12:14:49.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809121404403_big.webp</image:loc>
+      <image:title>«Қызыл қағаз» алмаған футболшылар</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/qyzyl-qagaz-almagan-futbolshylar.html</loc>
+    <lastmod>2024-08-09T12:14:49.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809121404403_big.webp</image:loc>
+      <image:title>«قىزىل قاعاز» الماعان فۋتبولشىلار</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/qyzyl-qagaz-almagan-futbolshylar.html</loc>
+    <lastmod>2024-08-09T12:14:49.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809121404403_big.webp</image:loc>
+      <image:title>«Qyzyl qaǵaz» almaǵan fýtbolshylar</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/baspen-sogylgan-erekshe-goldar.html</loc>
+    <lastmod>2024-08-09T12:28:58.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809122818237_big.webp</image:loc>
+      <image:title>Баспен соғылған ерекше голдар</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/baspen-sogylgan-erekshe-goldar.html</loc>
+    <lastmod>2024-08-09T12:28:58.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809122818237_big.webp</image:loc>
+      <image:title>باسپەن سوعىلعان ەرەكشە گولدار</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/baspen-sogylgan-erekshe-goldar.html</loc>
+    <lastmod>2024-08-09T12:28:58.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809122818237_big.webp</image:loc>
+      <image:title>Baspen soǵylǵan erekshe goldar</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
+    <lastmod>2024-08-09T15:10:37.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809140633550_big.webp</image:loc>
+      <image:title>Ғалым Жүсіпбек: Универсальность и уникальность идентичности //BK Lab</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
+    <lastmod>2024-08-09T15:10:37.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809140633550_big.webp</image:loc>
+      <image:title>عالىم جۇسىپبەك: ۋنيۆەرسالنوست ي ۋنيكالنوست يدەنتيچنوستي //BK Lab</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
+    <lastmod>2024-08-09T15:10:37.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240809140633550_big.webp</image:loc>
+      <image:title>Ǵalym Júsipbek: Ýnıversalnostı ýnıkalnostıdentıchnostı //BK Lab</image:title>
+    </image:image>
+  </url>
 </urlset>

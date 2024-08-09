@@ -7,31 +7,37 @@
   var focusArticleList = QarList<Article>("focusArticleList");
   var block1Title = (ViewData["block1Title"] ?? string.Empty) as string;
   var block1ParentTitle = (ViewData["block1ParentTitle"] ?? string.Empty) as string;
-  var block1Url = (ViewData["block1Url"] ?? string.Empty) as string;
+  var block1Url = (ViewData["block1Url"] ?? string.Empty) as string; 
+  var block1AllUrl = (ViewData["block1AllUrl"] ?? string.Empty) as string;
   var block1ArticleList = QarList<Article>("block1ArticleList");
   var block1ArticleAllList = QarList<Article>("block1ArticleAllList");
   var block2Title = (ViewData["block2Title"] ?? string.Empty) as string;
   var block2ParentTitle = (ViewData["block2ParentTitle"] ?? string.Empty) as string;
+  var block2AllUrl = (ViewData["block2AllUrl"] ?? string.Empty) as string;
   var block2Url = (ViewData["block2Url"] ?? string.Empty) as string;
   var block2ArticleList = QarList<Article>("block2ArticleList");
   var block2ArticleAllList = QarList<Article>("block2ArticleAllList");
   var block3ParentTitle = (ViewData["block3ParentTitle"] ?? string.Empty) as string;
   var block3Title = (ViewData["block3Title"] ?? string.Empty) as string;
+  var block3AllUrl = (ViewData["block3AllUrl"] ?? string.Empty) as string;
   var block3Url = (ViewData["block3Url"] ?? string.Empty) as string;
   var block3ArticleList = QarList<Article>("block3ArticleList");
   var block3ArticleAllList = QarList<Article>("block3ArticleAllList");
   var block4ParentTitle = (ViewData["block4ParentTitle"] ?? string.Empty) as string;
   var block4Title = (ViewData["block4Title"] ?? string.Empty) as string;
+  var block4AllUrl = (ViewData["block4AllUrl"] ?? string.Empty) as string;
   var block4Url = (ViewData["block4Url"] ?? string.Empty) as string;
   var block4ArticleList = QarList<Article>("block4ArticleList");
   var block4ArticleAllList = QarList<Article>("block4ArticleAllList");
   var block5ParentTitle = (ViewData["block5ParentTitle"] ?? string.Empty) as string;
   var block5Title = (ViewData["block5Title"] ?? string.Empty) as string;
   var block5Url = (ViewData["block5Url"] ?? string.Empty) as string;
+  var block5AllUrl = (ViewData["block5AllUrl"] ?? string.Empty) as string;
   var block5ArticleList = QarList<Article>("block5ArticleList");
   var block5ArticleAllList = QarList<Article>("block5ArticleAllList");
   var block6ParentTitle = (ViewData["block6ParentTitle"] ?? string.Empty) as string;
   var block6Title = (ViewData["block6Title"] ?? string.Empty) as string;
+  var block6AllUrl = (ViewData["block6AllUrl"] ?? string.Empty) as string;
   var block6Url = (ViewData["block6Url"] ?? string.Empty) as string;
   var block6ArticleList = QarList<Article>("block6ArticleList");
   var block6ArticleAllList = QarList<Article>("block6ArticleAllList");
@@ -182,7 +188,10 @@
           <!--block title-->
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">@block1ParentTitle</span>
+              <a href="@block1AllUrl">
+                <span class="bg-primary text-white">@block1ParentTitle</span>
+              </a>
+              
             </h4>
           </div>
           <!--block content-->
@@ -262,7 +271,10 @@
               <!--block title-->
               <div class="block-title-6">
                 <h4 class="h5 border-primary">
-                  <span class="bg-primary text-white">@block2ParentTitle</span>
+                  <a href="@block2AllUrl">
+                    <span class="bg-primary text-white">@block2ParentTitle</span>
+                  </a>
+                  
                 </h4>
               </div>
               
@@ -337,7 +349,10 @@
               <!--block title-->
               <div class="block-title-6">
                 <h4 class="h5 border-primary">
-                  <span class="bg-primary text-white">@block4ParentTitle</span>
+                  <a href="@block4AllUrl">
+                    <span class="bg-primary text-white">@block4ParentTitle</span>
+                  </a>
+                  
                 </h4>
               </div>
               <div class="big-post">
@@ -404,7 +419,10 @@
           <!-- block title -->
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">@block5ParentTitle</span>
+              <a href="@block5AllUrl">
+                <span class="bg-primary text-white">@block5ParentTitle</span>
+              </a>
+              
             </h4>
           </div>
           <!--big post start-->
@@ -481,7 +499,10 @@
            <div class="block-area">
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">@block3ParentTitle</span>
+              <a href="@block3AllUrl">
+                <span class="bg-primary text-white">@block3ParentTitle</span>
+              </a>
+              
             </h4>
           </div>
              <div class="row">
@@ -657,7 +678,10 @@
                      <!--Breaking box-->
                      <div class="col-2 col-sm-1 col-md-3 col-lg-2 py-1 pe-md-0 mb-md-1">
                        <div class="d-inline-block d-md-block bg-primary text-white text-center breaking-caret py-1 px-2">
-                         <span class="d-none d-md-inline-block">@block6ParentTitle</span>
+                         <a href="@block6AllUrl">
+                            <span class="d-none d-md-inline-block text-white">@block6ParentTitle</span>
+                         </a>
+                        
                        </div>
                      </div>
          
@@ -721,7 +745,7 @@
             <!-- PLAYLIST TITLE -->
             <div class="col-12">
               <div class="my-3">
-                <a href="/@CurrentLanguage/category/@(block7Url).html">
+                <a href="@block7Url">
                    <h4 class="text-white">@block7Title</h4>
                 </a>
                
@@ -767,7 +791,7 @@
           <!-- block title -->
           <div class="block-title-13">
             <h4 class="h5 title-box-dot">
-              <a href="/@CurrentLanguage/category/@(block8Url).html">
+              <a href="@block8Url">
                 <span>@block8Title</span>
               </a>
               

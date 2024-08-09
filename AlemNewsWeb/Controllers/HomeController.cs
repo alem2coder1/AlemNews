@@ -34,6 +34,7 @@ public class HomeController : QarBaseController
         foreach (var category in categoryList.Where(x => x.ParentId == 0))
         {
             ViewData[$"{category.BlockType}ParentTitle"] = category.Title;
+            ViewData[$"{category.BlockType}AllUrl"] = $"/{CurrentLanguage}/category/{category.LatynUrl}.html";
             ViewData[$"{category.BlockType}ArticleAllList"] = QarCache.GetArticleAllList(_memoryCache, CurrentLanguage, category.Id);
         }
         foreach (var category in categoryList.Where(x => !string.IsNullOrEmpty(x.BlockType)).ToList())
@@ -212,13 +213,14 @@ public class HomeController : QarBaseController
 
                     var total = isEmpty ? 0 : connection.RecordCount<Article>(querySql, queryObj);
                     var articleList = isEmpty ? new List<Article>() : connection.Query<Article>(
-                        $"select id, title, author, shortDescription, thumbnailUrl, latynUrl, addTime, viewCount {subSelectSql} from article {querySql} order by {subOrderBySql} addTime desc limit {(page - 1) * pageSize}, {pageSize} ",
+                        $"select id, title,categoryId, author, shortDescription, thumbnailUrl, latynUrl, addTime, viewCount {subSelectSql} from article {querySql} order by {subOrderBySql} addTime desc limit {(page - 1) * pageSize}, {pageSize} ",
                         queryObj).Select(x => new Article()
                         {
                             Id = x.Id,
                             Title = x.Title,
                             Author = x.Author,
                             ShortDescription = x.ShortDescription,
+                            CategoryId = x.CategoryId,
                             ThumbnailUrl = string.IsNullOrEmpty(x.ThumbnailUrl) ? NoImage : x.ThumbnailUrl,
                             LatynUrl = x.LatynUrl,
                             AddTime = x.AddTime,

@@ -557,10 +557,11 @@ public class QarCache
     }
 
     #endregion
-    
+
+    #region GetArticleAllList
+
     public static List<Article> GetArticleAllList(IMemoryCache memoryCache, string language, int parentId)
     {
-        // 处理语言
         switch (language)
         {
             case "latyn":
@@ -568,8 +569,6 @@ public class QarCache
                 language = "kz";
                 break;
         }
-
-        // 构建缓存键
         var cacheName = $"{MethodBase.GetCurrentMethod().Name}_{language}_Parent_{parentId}";
 
         if (!memoryCache.TryGetValue(cacheName, out List<Article> articleList))
@@ -608,6 +607,9 @@ public class QarCache
 
         return articleList;
     }
+
+    #endregion
+   
 
     #region Фокус мақалалар тызымын алу +GetFocusArticleList(IMemoryCache _memoryCache, string language, int takeCount)
 

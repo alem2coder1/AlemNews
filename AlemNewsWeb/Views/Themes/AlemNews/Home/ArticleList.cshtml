@@ -1,6 +1,7 @@
 @{
     Layout = $"~/Views/Themes/{CurrentTheme}/_HomeLayout.cshtml";
   var articleList = QarList<Article>("articleList");
+  var menuList = QarList<Articlecategory>("menuList");
   var subCategoryList = QarList<Articlecategory>("subCategoryList");
   var menuTitle = (ViewData["menuTitle"] ?? string.Empty) as string;
   var menuLink = (ViewData["menuLink"] ?? string.Empty) as string;
@@ -57,7 +58,13 @@
                     <!--author and date-->
                     <div class="card-text mb-2 text-muted small">
                       <span class="me-1">
-                        <a class="p-1 badge bg-primary text-white" href="/kz/category/aral.html">Аралды-толтыру</a>
+                        @foreach (var menu in menuList)
+                        {
+                          if (article.CategoryId == menu.Id)
+                          {
+                            <a class="p-1 badge bg-primary text-white" href="/@CurrentLanguage/category/@(menu.LatynUrl).html">@menu?.Title</a>
+                          }
+                        }
                       </span>
                       <time datetime="2019-10-21">Oct 21, 2019</time>
                     </div>
@@ -101,7 +108,7 @@
               </div>
               <!--content-->
               <a href="#" target="_blank">
-                <img class="img-fluid bg-light" src="../../assets/img/ads/300-demo.png" alt="ads space">
+                <img class="img-fluid bg-light" src="/themes/alemnews/img/ads/300-demo.png" alt="ads space">
               </a>
             </div>
             <div class="gap-15"></div>
