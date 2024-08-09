@@ -438,18 +438,28 @@ public class CatalogController : QarBaseController
         var currentTime = UnixTimeHelper.GetCurrentUnixTime();
         int? res = 0;
         var qStatus = (byte)(publishNow == 1 ? isAutoPublish > 0 ? 2 : 0 : 3);
-
+        int categoryParentId = 0;
+        if (item.CategoryId != 0)
+        {
+             categoryParentId = QarCache.GetCategoryList(_memoryCache, CurrentLanguage)
+                .Where(x => x.Id == item.CategoryId)
+                .Select(x => x.ParentId) 
+                .FirstOrDefault(); 
+        }
         using (var connection = Utilities.GetOpenConnection())
         using (var tran = connection.BeginTransaction())
         {
             try
             {
                 item.LatynUrl = GetDistinctLatynUrl(connection, nameof(Article), "", item.Title, item.Id, "");
+                
                 if (item.Id == 0)
                 {
+                    
                     res = connection.Insert(new Article
                     {
                         CategoryId = item.CategoryId,
+                        CategoryParentId = categoryParentId,
                         Title = item.Title,
                         LatynUrl = item.LatynUrl,
                         OldId = 0,
@@ -529,6 +539,7 @@ public class CatalogController : QarBaseController
 
                     var oldMediaPathList = HtmlAgilityPackHelper.GetMediaPathList(article.FullDescription);
                     article.ShortDescription = item.ShortDescription;
+                    article.CategoryParentId = categoryParentId;
                     article.FullDescription = item.FullDescription;
                     article.Author = item.Author;
                     article.UpdateAdminId = GetAdminId();

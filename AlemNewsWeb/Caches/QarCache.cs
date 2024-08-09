@@ -332,7 +332,8 @@ public class QarCache
                     AddTime = x.AddTime,
                     ShortDescription = x.ShortDescription,
                     ThumbnailUrl = x.ThumbnailUrl,
-                    CategoryId = x.CategoryId
+                    CategoryId = x.CategoryId,
+                    CategoryParentId = x.CategoryParentId,
                 }).ToList();
 
             memoryCache.Set(cacheName, list, TimeSpan.FromHours(1));
@@ -556,6 +557,57 @@ public class QarCache
     }
 
     #endregion
+    
+    public static List<Article> GetArticleAllList(IMemoryCache memoryCache, string language, int parentId)
+    {
+        // 处理语言
+        switch (language)
+        {
+            case "latyn":
+            case "tote":
+                language = "kz";
+                break;
+        }
+
+        // 构建缓存键
+        var cacheName = $"{MethodBase.GetCurrentMethod().Name}_{language}_Parent_{parentId}";
+
+        if (!memoryCache.TryGetValue(cacheName, out List<Article> articleList))
+        {
+            using (var connection = Utilities.GetOpenConnection())
+            {
+                var querySql = @"
+                select id, title, shortDescription, categoryId, thumbnailUrl, latynUrl, addTime, viewCount 
+                from article 
+                where qStatus = 0 and thumbnailUrl <> ''";
+                if (parentId > 0)
+                {
+                    querySql += @" and categoryId in 
+                            (select id from articlecategory where parentId = @parentId and qStatus = 0 and language = @language)";
+                }
+                else
+                {
+                    querySql += @" and categoryId in 
+                            (select id from articlecategory where parentId = 0 and qStatus = 0 and language = @language)";
+                }
+
+                querySql += " order by addTime desc";
+
+                articleList = connection.Query<Article>(querySql, new { parentId, language }).ToList();
+
+                foreach (var article in articleList)
+                {
+                    article.ShortDescription = article.ShortDescription.Length > 150
+                        ? article.ShortDescription.Substring(0, 150) + "..."
+                        : article.ShortDescription;
+                }
+
+                memoryCache.Set(cacheName, articleList, TimeSpan.FromMinutes(1));
+            }
+        }
+
+        return articleList;
+    }
 
     #region Фокус мақалалар тызымын алу +GetFocusArticleList(IMemoryCache _memoryCache, string language, int takeCount)
 

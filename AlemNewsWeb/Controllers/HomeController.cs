@@ -31,7 +31,11 @@ public class HomeController : QarBaseController
         ViewData["focusArticleList"] = QarCache.GetFocusArticleList(_memoryCache, CurrentLanguage, 12);
         ViewData["proverbList"] = QarCache.GetProverbList(_memoryCache);
         var categoryList = QarCache.GetCategoryList(_memoryCache, CurrentLanguage);
-
+        foreach (var category in categoryList.Where(x => x.ParentId == 0))
+        {
+            ViewData[$"{category.BlockType}ParentTitle"] = category.Title;
+            ViewData[$"{category.BlockType}ArticleAllList"] = QarCache.GetArticleAllList(_memoryCache, CurrentLanguage, category.Id);
+        }
         foreach (var category in categoryList.Where(x => !string.IsNullOrEmpty(x.BlockType)).ToList())
         {
             var takeCount = 4;

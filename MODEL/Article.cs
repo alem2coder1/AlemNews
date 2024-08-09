@@ -34,4 +34,5 @@ public partial class Article
     public int UpdateAdminId { get; set; }
     public int UpdateTime { get; set; }
     public int ViewCount { get; set; }
+    public int CategoryParentId { get; set; }
 }

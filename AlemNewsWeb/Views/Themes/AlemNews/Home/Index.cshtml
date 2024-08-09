@@ -1,34 +1,50 @@
 @{
   Layout = $"~/Views/Themes/{CurrentTheme}/_HomeLayout.cshtml";
   var latestArticleList = QarList<Article>("latestArticleList");
-  var regions = QarList<Articlecategory>("regionsTitle");
+  var regions = QarList<Articlecategory>("block6title");
   var menuList = QarList<Articlecategory>("menuList");
   var pinnedArticle = QarModel<Article>("pinnedArticle");
   var focusArticleList = QarList<Article>("focusArticleList");
   var block1Title = (ViewData["block1Title"] ?? string.Empty) as string;
+  var block1ParentTitle = (ViewData["block1ParentTitle"] ?? string.Empty) as string;
   var block1Url = (ViewData["block1Url"] ?? string.Empty) as string;
   var block1ArticleList = QarList<Article>("block1ArticleList");
+  var block1ArticleAllList = QarList<Article>("block1ArticleAllList");
   var block2Title = (ViewData["block2Title"] ?? string.Empty) as string;
+  var block2ParentTitle = (ViewData["block2ParentTitle"] ?? string.Empty) as string;
   var block2Url = (ViewData["block2Url"] ?? string.Empty) as string;
   var block2ArticleList = QarList<Article>("block2ArticleList");
+  var block2ArticleAllList = QarList<Article>("block2ArticleAllList");
+  var block3ParentTitle = (ViewData["block3ParentTitle"] ?? string.Empty) as string;
   var block3Title = (ViewData["block3Title"] ?? string.Empty) as string;
   var block3Url = (ViewData["block3Url"] ?? string.Empty) as string;
   var block3ArticleList = QarList<Article>("block3ArticleList");
+  var block3ArticleAllList = QarList<Article>("block3ArticleAllList");
+  var block4ParentTitle = (ViewData["block4ParentTitle"] ?? string.Empty) as string;
   var block4Title = (ViewData["block4Title"] ?? string.Empty) as string;
   var block4Url = (ViewData["block4Url"] ?? string.Empty) as string;
   var block4ArticleList = QarList<Article>("block4ArticleList");
+  var block4ArticleAllList = QarList<Article>("block4ArticleAllList");
+  var block5ParentTitle = (ViewData["block5ParentTitle"] ?? string.Empty) as string;
   var block5Title = (ViewData["block5Title"] ?? string.Empty) as string;
   var block5Url = (ViewData["block5Url"] ?? string.Empty) as string;
   var block5ArticleList = QarList<Article>("block5ArticleList");
+  var block5ArticleAllList = QarList<Article>("block5ArticleAllList");
+  var block6ParentTitle = (ViewData["block6ParentTitle"] ?? string.Empty) as string;
   var block6Title = (ViewData["block6Title"] ?? string.Empty) as string;
   var block6Url = (ViewData["block6Url"] ?? string.Empty) as string;
   var block6ArticleList = QarList<Article>("block6ArticleList");
+  var block6ArticleAllList = QarList<Article>("block6ArticleAllList");
+  var block7ParentTitle = (ViewData["block7ParentTitle"] ?? string.Empty) as string;
   var block7Title = (ViewData["block7Title"] ?? string.Empty) as string;
   var block7Url = (ViewData["block7Url"] ?? string.Empty) as string;
   var block7ArticleList = QarList<Article>("block7ArticleList");
+  var block7ArticleAllList = QarList<Article>("block7ArticleAllList");
+  var block8ParentTitle = (ViewData["block8ParentTitle"] ?? string.Empty) as string;
   var block8Title = (ViewData["block8Title"] ?? string.Empty) as string;
   var block8Url = (ViewData["block8Url"] ?? string.Empty) as string;
   var block8ArticleList = QarList<Article>("block8ArticleList");
+  var block8ArticleAllList = QarList<Article>("block8ArticleAllList");
 }
 
 <!--Content start-->
@@ -161,13 +177,13 @@
    
        <div class="col-md-8">
        <!-- Block start -->
-        @if (block1ArticleList.Count > 0 && block1ArticleList != null)
+        @if (block1ArticleAllList.Count > 0 && block1ArticleAllList != null)
            {
         <div class="block-area">
           <!--block title-->
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">@block1Title</span>
+              <span class="bg-primary text-white">@block1ParentTitle</span>
             </h4>
           </div>
           <!--block content-->
@@ -177,23 +193,23 @@
               <article class="card card-full hover-a mb-4">
                 <!--thumbnail-->
                 <div class="ratio_360-202 image-wrapper">
-                  <a href="/@CurrentLanguage/article/@(block1ArticleList[0].LatynUrl).html">
-                    <img class="img-fluid lazy" src="@GetUrl(block1ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                      data-src="@GetUrl(block1ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block1ArticleList[0]?.Title">
+                  <a href="/@CurrentLanguage/article/@(block1ArticleAllList[0].LatynUrl).html">
+                    <img class="img-fluid lazy" src="@GetUrl(block1ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                      data-src="@GetUrl(block1ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block1ArticleAllList[0]?.Title">
                   </a>
                 </div>
                 <div class="card-body">
                   <!-- title -->
                   <h2 class="card-title h1-sm h3-lg">
-                    <a href="/@CurrentLanguage/article/@(block1ArticleList[0].LatynUrl).html" class="">@block1ArticleList[0]?.Title</a>
+                    <a href="/@CurrentLanguage/article/@(block1ArticleAllList[0].LatynUrl).html" class="">@block1ArticleAllList[0]?.Title</a>
                   </h2>
                   <!-- author, date and comments -->
                   <div class="card-text mb-2 text-muted small">
-                    <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleList[0].AddTime,
+                    <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleAllList[0].AddTime,
                                                                                                                     CurrentLanguage)</time>
                   </div>
                   <!--description-->
-                  <p class="card-text">@block1ArticleList[0]?.ShortDescription</p>
+                  <p class="card-text">@block1ArticleAllList[0]?.ShortDescription</p>
                 </div>
               </article>
             </div>
@@ -201,18 +217,18 @@
             <!--post right list start-->
             <div class="col-lg-6">
               <!--right list-->
-               @if (block1ArticleList.Count > 1)
+               @if (block1ArticleAllList.Count > 1)
                {
-                 for (int i = 1; i < block1ArticleList.Count && i <= 4; i++)
+                 for (int i = 1; i < block1ArticleAllList.Count && i <= 4; i++)
                  {
                    <article class="card card-full hover-a mb-4">
                      <div class="row">
                        <!--thumbnail-->
                        <div class="col-3 col-md-4 pe-2 pe-md-0">
                          <div class="ratio_115-80 image-wrapper">
-                           <a href="/@CurrentLanguage/article/@(block1ArticleList[i].LatynUrl).html">
-                             <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block1ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                                  data-src="@GetUrl(block1ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block1ArticleList[i]?.Title">
+                           <a href="/@CurrentLanguage/article/@(block1ArticleAllList[i].LatynUrl).html">
+                             <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block1ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                  data-src="@GetUrl(block1ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block1ArticleAllList[i]?.Title">
                            </a>
                          </div>
                        </div>
@@ -220,10 +236,10 @@
                        <div class="col-9 col-md-8">
                          <div class="card-body pt-0">
                            <h3 class="card-title h6 h5-sm h6-lg">
-                             <a href="/@CurrentLanguage/article/@(block1ArticleList[i].LatynUrl).html" class="news-title">@block1ArticleList[i]?.Title</a>
+                             <a href="/@CurrentLanguage/article/@(block1ArticleAllList[i].LatynUrl).html" class="news-title">@block1ArticleAllList[i]?.Title</a>
                            </h3>
                            <div class="card-text small text-muted">
-                             <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleList[i].AddTime,CurrentLanguage)</time>
+                             <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleAllList[i].AddTime,CurrentLanguage)</time>
                            </div>
                          </div>
                        </div>
@@ -241,13 +257,13 @@
         <div class="block-area">
           <div class="row">
             <!--left post-->
-            @if (block2ArticleList.Count > 0)
+            @if (block2ArticleAllList.Count > 0)
             {
                 <div class="col-lg-6">
               <!--block title-->
               <div class="block-title-6">
                 <h4 class="h5 border-primary">
-                  <span class="bg-primary text-white">@block2Title</span>
+                  <span class="bg-primary text-white">@block2ParentTitle</span>
                 </h4>
               </div>
               
@@ -255,40 +271,40 @@
                 <article class="card card-full hover-a mb-4">
                   <!--thumbnail-->
                   <div class="ratio_360-202 image-wrapper">
-                    <a href="/@CurrentLanguage/article/@(block2ArticleList[0].LatynUrl).html">
-                      <img class="img-fluid lazy " src="@GetUrl(block2ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                        data-src="@GetUrl(block2ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleList[0]?.Title">
+                    <a href="/@CurrentLanguage/article/@(block2ArticleAllList[0].LatynUrl).html">
+                      <img class="img-fluid lazy " src="@GetUrl(block2ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                        data-src="@GetUrl(block2ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleAllList[0]?.Title">
                     </a>
                   </div>
                   <div class="card-body">
                     <!--title-->
                     <h2 class="card-title h1-sm h3-lg">
-                      <a href="/@CurrentLanguage/article/@(block2ArticleList[0].LatynUrl).html">@block2ArticleList[0]?.Title</a>
+                      <a href="/@CurrentLanguage/article/@(block2ArticleAllList[0].LatynUrl).html">@block2ArticleAllList[0]?.Title</a>
                     </h2>
                     <!-- author, date & comments -->
                     <div class="card-text mb-2 text-muted small">
                       
-                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleList[0].AddTime,CurrentLanguage)</time>
+                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleAllList[0].AddTime,CurrentLanguage)</time>
                     </div>
                     <!--description-->
-                    <p class="card-text">@block2ArticleList[0]?.ShortDescription</p>
+                    <p class="card-text">@block2ArticleAllList[0]?.ShortDescription</p>
                   </div>
                 </article>
               </div>
               <div class="small-post">
                 <!--post list-->
-                @if (block2ArticleList.Count > 1)
+                @if (block2ArticleAllList.Count > 1)
                 {
-                  for (int i = 1; i < block2ArticleList.Count && i <= 4; i++)
+                  for (int i = 1; i < block2ArticleAllList.Count && i <= 4; i++)
                   {
                     <article class="card card-full hover-a mb-4">
                       <div class="row">
                         <!--thumbnail-->
                         <div class="col-3 col-md-4 pe-2 pe-md-0">
                           <div class="ratio_115-80 image-wrapper">
-                            <a href="/@CurrentLanguage/article/@(block2ArticleList[i].LatynUrl).htm">
-                              <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block2ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                                   data-src="@GetUrl(block2ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleList[i]?.Title">
+                            <a href="/@CurrentLanguage/article/@(block2ArticleAllList[i].LatynUrl).htm">
+                              <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block2ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                   data-src="@GetUrl(block2ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleAllList[i]?.Title">
                             </a>
                           </div>
                         </div>
@@ -296,10 +312,10 @@
                         <div class="col-9 col-md-8">
                           <div class="card-body pt-0">
                             <h3 class="card-title h6 h5-sm h6-lg">
-                              <a href="/@CurrentLanguage/article/@(block2ArticleList[i].LatynUrl).htm" class="news-title">@block2ArticleList[i]?.Title</a>
+                              <a href="/@CurrentLanguage/article/@(block2ArticleAllList[i].LatynUrl).htm" class="news-title">@block2ArticleAllList[i]?.Title</a>
                             </h3>
                             <div class="card-text small text-muted">
-                              <time datetime="2019-10-16">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleList[i].AddTime,CurrentLanguage)</time>
+                              <time datetime="2019-10-16">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleAllList[i].AddTime,CurrentLanguage)</time>
                             </div>
                           </div>
                         </div>
@@ -316,48 +332,48 @@
             <!--end left post-->
 
             <!--block4ArticleList-->
-            @if (block4ArticleList.Count > 0)
+            @if (block4ArticleAllList.Count > 0)
             {
                 <div class="col-lg-6">
               <!--block title-->
               <div class="block-title-6">
                 <h4 class="h5 border-primary">
-                  <span class="bg-primary text-white">@block4Title</span>
+                  <span class="bg-primary text-white">@block4ParentTitle</span>
                 </h4>
               </div>
               <div class="big-post">
                 <article class="card card-full hover-a mb-4">
                   <!--thumbnail-->
                   <div class="ratio_360-202 image-wrapper">
-                    <a href="/@CurrentLanguage/article/@(block4ArticleList[0].LatynUrl).html">
-                      <img class="img-fluid lazy" src="@GetUrl(block4ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                        data-src="@GetUrl(block4ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block4ArticleList[0]?.Title">
+                    <a href="/@CurrentLanguage/article/@(block4ArticleAllList[0].LatynUrl).html">
+                      <img class="img-fluid lazy" src="@GetUrl(block4ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                        data-src="@GetUrl(block4ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block4ArticleAllList[0]?.Title">
                     </a>
                   </div>
                   <div class="card-body">
                     <h2 class="card-title h1-sm h3-lg">
-                      <a href="/@CurrentLanguage/article/@(block4ArticleList[0].LatynUrl).html">@block4ArticleList[0]?.Title</a>
+                      <a href="/@CurrentLanguage/article/@(block4ArticleAllList[0].LatynUrl).html">@block4ArticleAllList[0]?.Title</a>
                     </h2>
                     <div class="card-text mb-2 text-muted small">
-                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block4ArticleList[0].AddTime,CurrentLanguage)</time>
+                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block4ArticleAllList[0].AddTime,CurrentLanguage)</time>
                     </div>
-                    <p class="card-text">@block2ArticleList[0]?.ShortDescription</p>
+                    <p class="card-text">@block4ArticleAllList[0]?.ShortDescription</p>
                   </div>
                 </article>
               </div>
               <div class="small-post">
-                 @if (block4ArticleList.Count > 1)
+                 @if (block4ArticleAllList.Count > 1)
                  {
-                   for (int i = 1; i < block4ArticleList.Count && i <= 4; i++)
+                   for (int i = 1; i < block4ArticleAllList.Count && i <= 4; i++)
                    {
                      <article class="card card-full hover-a mb-4">
                        <div class="row">
                          <!--thumbnail-->
                          <div class="col-3 col-md-4 pe-2 pe-md-0">
                            <div class="ratio_115-80 image-wrapper">
-                             <a href="/@CurrentLanguage/article/@(block4ArticleList[i].LatynUrl).html">
-                               <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block4ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                                    data-src="@GetUrl(block4ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block4ArticleList[i]?.Title">
+                             <a href="/@CurrentLanguage/article/@(block4ArticleAllList[i].LatynUrl).html">
+                               <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block4ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                    data-src="@GetUrl(block4ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block4ArticleAllList[i]?.Title">
                              </a>
                            </div>
                          </div>
@@ -365,10 +381,10 @@
                          <div class="col-9 col-md-8">
                            <div class="card-body pt-0">
                              <h3 class="card-title h6 h5-sm h6-lg">
-                               <a href="/@CurrentLanguage/article/@(block4ArticleList[i].LatynUrl).html" class="news-title">@block4ArticleList[i]?.Title</a>
+                               <a href="/@CurrentLanguage/article/@(block4ArticleAllList[i].LatynUrl).html" class="news-title">@block4ArticleAllList[i]?.Title</a>
                              </h3>
                              <div class="card-text small text-muted">
-                               <time datetime="2019-10-09">@UnixTimeHelper.UnixTimeToLocalString(block4ArticleList[i].AddTime,CurrentLanguage)</time>
+                               <time datetime="2019-10-09">@UnixTimeHelper.UnixTimeToLocalString(block4ArticleAllList[i].AddTime,CurrentLanguage)</time>
                              </div>
                            </div>
                          </div>
@@ -383,13 +399,13 @@
           </div>
         </div>
        <!--block5ArticleList-->
-       @if (block5ArticleList.Count > 0)
+       @if (block5ArticleAllList.Count > 0)
        {
       <div class="block-area">
           <!-- block title -->
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">@block5Title</span>
+              <span class="bg-primary text-white">@block5ParentTitle</span>
             </h4>
           </div>
           <!--big post start-->
@@ -399,9 +415,9 @@
                 <div class="col-lg-6">
                   <!-- thumbnail -->
                   <div class="ratio_360-202 image-wrapper">
-                    <a href="/@CurrentLanguage/article/@(block5ArticleList[0].LatynUrl).html">
-                      <img class="img-fluid lazy" src="@GetUrl(block5ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                        data-src="@GetUrl(block5ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block5ArticleList[0]?.Title">
+                    <a href="/@CurrentLanguage/article/@(block5ArticleAllList[0].LatynUrl).html">
+                      <img class="img-fluid lazy" src="@GetUrl(block5ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                        data-src="@GetUrl(block5ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block5ArticleAllList[0]?.Title">
                     </a>
                   </div>
                 </div>
@@ -409,23 +425,23 @@
                   <div class="card-body pt-3 pt-lg-0">
                     <!--title-->
                     <h2 class="card-title h1-sm h3-lg">
-                      <a href="/@CurrentLanguage/article/@(block5ArticleList[0].LatynUrl).html">@block5ArticleList[0]?.Title</a>
+                      <a href="/@CurrentLanguage/article/@(block5ArticleAllList[0].LatynUrl).html">@block5ArticleAllList[0]?.Title</a>
                     </h2>
                     <!-- author, date and comments -->
                     <div class="card-text mb-2 text-muted small">
-                      <time datetime="2019-10-21">@UnixTimeHelper.UnixTimeToLocalString(block5ArticleList[0].AddTime,CurrentLanguage)</time>
+                      <time datetime="2019-10-21">@UnixTimeHelper.UnixTimeToLocalString(block5ArticleAllList[0].AddTime,CurrentLanguage)</time>
                     </div>
                     <!--description-->
-                    <p class="card-text">@block4ArticleList[0]?.ShortDescription</p>
+                    <p class="card-text">@block5ArticleAllList[0]?.ShortDescription</p>
                   </div>
                 </div>
               </div>
             </article>
           </div>
           <div class="row small-post">
-              @if (block5ArticleList.Count > 1)
+              @if (block5ArticleAllList.Count > 1)
               {
-                for (int i = 1; i < block5ArticleList.Count && i <= 4; i++)
+                for (int i = 1; i < block5ArticleAllList.Count && i <= 4; i++)
                 {
                   <article class="col-lg-6">
                     <div class="card card-full hover-a mb-4">
@@ -433,9 +449,9 @@
                         <!--thumbnail-->
                         <div class="col-3 col-md-4 pe-2 pe-md-0">
                           <div class="ratio_115-80 image-wrapper">
-                            <a href="/@CurrentLanguage/article/@(block5ArticleList[i].LatynUrl).html">
-                              <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block5ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                                   data-src="@GetUrl(block5ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block5ArticleList[i]?.Title">
+                            <a href="/@CurrentLanguage/article/@(block5ArticleAllList[i].LatynUrl).html">
+                              <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block5ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                   data-src="@GetUrl(block5ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block5ArticleAllList[i]?.Title">
                             </a>
                           </div>
                         </div>
@@ -443,10 +459,10 @@
                         <div class="col-9 col-md-8">
                           <div class="card-body pt-0">
                             <h3 class="card-title h6 h5-sm h6-lg">
-                              <a href="/@CurrentLanguage/article/@(block5ArticleList[i].LatynUrl).html" class="news-title">@block5ArticleList[i]?.Title</a>
+                              <a href="/@CurrentLanguage/article/@(block5ArticleAllList[i].LatynUrl).html" class="news-title">@block5ArticleAllList[i]?.Title</a>
                             </h3>
                             <div class="card-text small text-muted">
-                              <time datetime="2019-10-19">@UnixTimeHelper.UnixTimeToLocalString(block5ArticleList[i].AddTime,CurrentLanguage)</time>
+                              <time datetime="2019-10-19">@UnixTimeHelper.UnixTimeToLocalString(block5ArticleAllList[i].AddTime,CurrentLanguage)</time>
                             </div>
                           </div>
                         </div>
@@ -461,16 +477,16 @@
          
        }
        <!--block3ArticleList-->
-       @if (block3ArticleList.Count > 0)
+       @if (block3ArticleAllList.Count > 0)
        {
            <div class="block-area">
           <div class="block-title-6">
             <h4 class="h5 border-primary">
-              <span class="bg-primary text-white">@block3Title</span>
+              <span class="bg-primary text-white">@block3ParentTitle</span>
             </h4>
           </div>
              <div class="row">
-               @foreach (var trvel in block3ArticleList)
+               @foreach (var trvel in block3ArticleAllList)
                {
                  <article class="col-sm-6 col-md-12 col-lg-6">
                    <div class="card card-full hover-a mb-4">
@@ -543,7 +559,7 @@
             <!--Block title-->
             <div class="block-title-4">
               <h4 class="h5 title-arrow">
-                <span>Latest news</span>
+                <span>@T("ls_Latestnews")</span>
               </h4>
             </div>
             <!--post big start-->
@@ -633,7 +649,7 @@
       <!--end right column-->
 
     <!-- block6ArticleList -->
-    @if (block6ArticleList.Count > 0)
+    @if (block6ArticleAllList.Count > 0)
     {
         <div class="col-12 mb-4">
         <!-- Block start -->
@@ -642,7 +658,7 @@
                      <!--Breaking box-->
                      <div class="col-2 col-sm-1 col-md-3 col-lg-2 py-1 pe-md-0 mb-md-1">
                        <div class="d-inline-block d-md-block bg-primary text-white text-center breaking-caret py-1 px-2">
-                         <span class="d-none d-md-inline-block">@block6Title</span>
+                         <span class="d-none d-md-inline-block">@block6ParentTitle</span>
                        </div>
                      </div>
          
@@ -665,14 +681,14 @@
                    </div>
           <div class="nav-slider-hover nav-dots-top-right light-dots"
             data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'>
-            @foreach (var block6 in block6ArticleList.Take(5))
+            @foreach (var block6 in block6ArticleAllList.Take(5))
             {
               <article class="col-12 col-sm-6 col-lg-4 me-2">
                 <div class="col-12 mb-4">
                   <div class="card card-full hover-a">
                     <div class="ratio_327-278 image-wrapper">
                       <!-- thumbnail -->
-                      <a href="#">
+                      <a href="/@CurrentLanguage/article/@(block6.LatynUrl).html">
                         <img class="img-fluid lazy news-block6-img" src="@GetUrl(block6?.ThumbnailUrl.Replace("_big.", "_middle."))"
                              data-src="@GetUrl(block6?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block6?.Title">
                       </a>
@@ -698,45 +714,47 @@
         <!-- End block -->
       </div>
     }
-    <div class="col-12 mb-5">
-                <div class="col-12 pb-3 px-4 bg-dark">
-                  <div class="row">
-                    <!-- PLAYLIST TITLE -->
-                    <div class="col-12">
-                      <div class="my-3">
-                        <h4 class="text-white">Hot News Video</h4>
-                      </div>
-                    </div>
-                    <!-- THE YOUTUBE PLAYER -->
-                    <div class="col-md-8 video-full pb-3">
-                      <a href="" >
-                        <span class="video-thumb"><img width="72" src="https://img.youtube.com/vi/wSA_nKSxfFE/default.jpg" alt="2019 MotoGP Winter Test Sepang"></span>
-                        <div class="video-title">2019 MotoGP Winter Test Sepang</div>
-                      </a>
-                      
-                    </div>
-                    <!-- THE PLAYLIST -->
-                    <div class="col-md-4">
-                      <div class="py-1 px-3 bg-primary">
-                        <h4 class="h5 mt-3 text-white">Playlist Video</h4>
-                        <p class="text-white">Most popular news video in the week</p>
-                      </div>
-                      <ol class="playlist-title list-unstyled">
-                        <li class="active">
-                          <a href="" >
-                            <span class="video-thumb"><img width="72" src="https://img.youtube.com/vi/wSA_nKSxfFE/default.jpg" alt="2019 MotoGP Winter Test Sepang"></span>
-                            <div class="video-title">2019 MotoGP Winter Test Sepang</div>
-                          </a>
-                        </li>
-                      </ol>
-                    </div>
-                  </div>
-                </div>
+    @if (block7ArticleList.Count > 0)
+    {
+      <div class="col-12 mb-5">
+        <div class="col-12 pb-3 px-4 bg-dark">
+          <div class="row">
+            <!-- PLAYLIST TITLE -->
+            <div class="col-12">
+              <div class="my-3">
+                <h4 class="text-white">@block7Title</h4>
               </div>
-    
-      <!-- end full column -->
-
-      <!-- start left column -->
+            </div>
+            <!-- THE YOUTUBE PLAYER -->
+            <div class="col-md-8 video-full pb-3 " style="height: 401px">
+              <a href="/@CurrentLanguage/article/@(block7ArticleList[0].LatynUrl).html" style="display: block">
+                <img width="w-100" src="@GetUrl(block7ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block7ArticleList[0]?.Title"/>
+              </a>
+                      
+            </div>
+            <div class="col-md-4">
+              <ol class="playlist-title list-unstyled">
+                @if (block7ArticleList.Count > 0)
+                {
+                  for (int i = 1; i < block7ArticleList.Count; i++)
+                  {
+                    <li class="active">
+                      <a href="/@CurrentLanguage/article/@(block7ArticleList[i].LatynUrl).html">
+                        <span class="video-thumb"><img width="72" src="@GetUrl(block7ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block7ArticleList[0]?.Title"></span>
+                        <div class="video-title news-title">@block7ArticleList[0]?.Title</div>
+                      </a>
+                    </li>
+                    
+                  }
+                  
+                }
+               
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
       <div class="col-md-8">
         <!-- block start -->
         <div class="block-area">
