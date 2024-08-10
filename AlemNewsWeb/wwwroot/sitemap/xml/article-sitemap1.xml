@@ -212,36 +212,6 @@
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/kz/article/aral-su-qorshagan-jer-atau-su-tasqyny-kezinde-de-sudan-jogary-bolyp-turady.html</loc>
-    <lastmod>2024-08-08T14:31:39.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240808143117927_big.webp</image:loc>
-      <image:title>Арал — су қоршаған жер, атау. Су тасқыны кезінде де судан жоғары болып тұрады.</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/aral-su-qorshagan-jer-atau-su-tasqyny-kezinde-de-sudan-jogary-bolyp-turady.html</loc>
-    <lastmod>2024-08-08T14:31:39.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240808143117927_big.webp</image:loc>
-      <image:title>ارال — سۋ قورشاعان جەر، اتاۋ. سۋ تاسقىنى كەزىندە دە سۋدان جوعارى بولىپ تۇرادى.</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/aral-su-qorshagan-jer-atau-su-tasqyny-kezinde-de-sudan-jogary-bolyp-turady.html</loc>
-    <lastmod>2024-08-08T14:31:39.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240808143117927_big.webp</image:loc>
-      <image:title>Aral — sý qorshaǵan jer, ataý. Sý tasqyny kezinde de sýdan joǵary bolyp turady.</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>http://localhost:7501/kz/article/ejelden-kone-ozen-qazaq-jongar-shekarasy.html</loc>
     <lastmod>2024-08-08T16:23:25.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -329,36 +299,6 @@
     <image:image>
       <image:loc>http://localhost:7501/uploads/thumbnail/20240809122818237_big.webp</image:loc>
       <image:title>Baspen soǵylǵan erekshe goldar</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/kz/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
-    <lastmod>2024-08-09T15:10:37.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240809140633550_big.webp</image:loc>
-      <image:title>Ғалым Жүсіпбек: Универсальность и уникальность идентичности //BK Lab</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/latyn/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
-    <lastmod>2024-08-09T15:10:37.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240809140633550_big.webp</image:loc>
-      <image:title>عالىم جۇسىپبەك: ۋنيۆەرسالنوست ي ۋنيكالنوست يدەنتيچنوستي //BK Lab</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>http://localhost:7501/tote/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
-    <lastmod>2024-08-09T15:10:37.0000000+05:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>http://localhost:7501/uploads/thumbnail/20240809140633550_big.webp</image:loc>
-      <image:title>Ǵalym Júsipbek: Ýnıversalnostı ýnıkalnostıdentıchnostı //BK Lab</image:title>
     </image:image>
   </url>
 </urlset>

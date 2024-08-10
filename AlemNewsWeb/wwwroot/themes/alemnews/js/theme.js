@@ -27,17 +27,23 @@
       scrollpos = window.scrollY;
 
     var add_class_back_scroll = function add_class_back_scroll() {
-      return back_to_top.classList.add("backtop-is-visible");
+      if (back_to_top) {
+        return back_to_top.classList.add("backtop-is-visible");
+      }
     };
 
     var add_class_offset_scroll = function add_class_offset_scroll() {
-      return back_to_top.classList.add("backtop-fade-out");
+      if (back_to_top) {
+        return back_to_top.classList.add("backtop-fade-out");
+      }
     };
 
+    var back_to_top = document.getElementById('back_to_top');
     var remove_class_back_scroll = function remove_class_back_scroll() {
-      return back_to_top.classList.remove("backtop-is-visible","backtop-fade-out");
+      if (back_to_top) { 
+        return back_to_top.classList.remove("backtop-is-visible", "backtop-fade-out");
+      }
     };
-
     // back to top by es6-scroll-to
     var defaults = {
       duration: 400,

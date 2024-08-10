@@ -3,7 +3,7 @@
   var latestArticleList = QarList<Article>("latestArticleList");
   var regions = QarList<Articlecategory>("block6title");
   var menuList = QarList<Articlecategory>("menuList");
-  var pinnedArticle = QarModel<Article>("pinnedArticle");
+  var pinnedArticle = QarList<Article>("pinnedArticle");
   var focusArticleList = QarList<Article>("focusArticleList");
   var block1Title = (ViewData["block1Title"] ?? string.Empty) as string;
   var block1ParentTitle = (ViewData["block1ParentTitle"] ?? string.Empty) as string;
@@ -102,26 +102,26 @@
               <div class="nav-slider-hover nav-dots-top-right light-dots"
                 data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'>
                 <!--Item slider-->
-                @for (int i = 0; i < focusArticleList.Count && i<3; i++)
-                {
+               @foreach(var pinned in pinnedArticle)
+               {
                    <article class="col-12">
                                     <div class="card card-full text-light overflow zoom">
                                       <!--thumbnail-->
                                       <div class="height-ratio image-wrapper">
-                                        <a href="/@CurrentLanguage/article/@(focusArticleList[i].LatynUrl).html">
-                                          <img class="img-fluid lazy last-img-height" src="@GetUrl(focusArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                                            data-src="@GetUrl(focusArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@focusArticleList[i]?.Title">
+                                        <a href="/@CurrentLanguage/article/@(pinned.LatynUrl).html">
+                                          <img class="img-fluid lazy last-img-height" src="@GetUrl(pinned?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                            data-src="@GetUrl(pinned?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@pinned?.Title">
                                         </a>
                                         <div class="position-absolute p-3 b-0 w-100 bg-lg-shadow">
                                           <!--title-->
-                                          <a href="#">
+                                          <a href="/@CurrentLanguage/article/@(pinned.LatynUrl).html">
                                             <h2
                                               class="h1-sm h2-md display-4-lg fw-bold text-capitalize heading-letter-spacing text-white">
-                                              @focusArticleList[i]?.Title</h2>
+                                              @pinned?.Title</h2>
                                           </a>
                                           <!-- meta title -->
                                           <div class="news-meta">
-                                            <time class="news-date" datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(focusArticleList[i].AddTime,CurrentLanguage)</time>
+                                            <time class="news-date" datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(pinned.AddTime,CurrentLanguage)</time>
                                           </div>
                                         </div>
                                       </div>
@@ -137,7 +137,7 @@
             @if (focusArticleList.Count > 1)
             {
               <div class="row newsbox">
-                @for (int j = 3; j < 7 && j < focusArticleList.Count; j++)
+                @for (int j = 0; j < 4 && j < focusArticleList.Count; j++)
                 {
                   <article class="col-6">
                     <div class="card card-full text-white overflow zoom">
