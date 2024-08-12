@@ -152,9 +152,9 @@
             <!-- End Navbar -->
             <!--search mobile-->
             <div class="collapse navbar-collapse col-12 py-2" id="navbarTogglerDemo2">
-                <form class="form-inline uly-search" action="/@CurrentLanguage/article/list">
+                <form class="form-inline uly-search" action="/@CurrentLanguage/article/list" method="post">
                     <div class="input-group w-100">
-                        <input type="text" class="form-control border border-end-0" placeholder="@T("ls_Search")"
+                        <input type="text" class="form-control border border-end-0 uly-input-search" placeholder="@T("ls_Search")"
                             aria-label="search">
                         <button class="btn btn-primary" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor"
@@ -244,10 +244,10 @@
                     <div class="search-box">
                         <!--hide search-->
                         <div class="search-menu no-shadow border-0 py-0">
-                            <form class="form-src form-inline" action="../category/search.html">
+                            <form class="form-src form-inline uly-search" action="/@CurrentLanguage/article/list" method="post">
                                 <div class="input-group">
-                                    <input type="text" class="form-control end-0" name="keywords" value=""
-                                        placeholder="Search..." aria-label="search">
+                                    <input type="text" class="form-control end-0 uly-input-search" name="keywords" value=""
+                                        placeholder="@T("ls_Search")" aria-label="search">
                                     <span class="icones">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="ms-n4" width="1rem" height="1rem"
                                             fill="currentColor" viewBox="0 0 512 512">
