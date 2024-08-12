@@ -80,7 +80,7 @@ builder.Services.Configure<WebEncoderOptions>(options =>
 builder.Services.AddHangfire(x => x.UseMemoryStorage());
 builder.Services.AddTransient<AlemNewsWeb.Hangfire.QarJob>();
 builder.Services.AddHangfireServer();
-
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 app.UseMiddleware<RedirectMiddleware>();

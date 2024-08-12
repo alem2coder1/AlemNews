@@ -6,6 +6,8 @@ using MODEL;
 using MODEL.FormatModels;
 using System.Text;
 using AlemNewsWeb.Attributes;
+using MODEL.ViewModels;
+
 
 namespace AlemNewsWeb.Controllers;
 
@@ -14,18 +16,21 @@ public class HomeController : QarBaseController
 {
     private readonly IMemoryCache _memoryCache;
     private readonly IWebHostEnvironment _environment;
+    private readonly IHttpClientFactory _clientFactory;
 
-    public HomeController(IMemoryCache memoryCache, IWebHostEnvironment environment) : base(memoryCache, environment)
+    public HomeController(IMemoryCache memoryCache, IWebHostEnvironment environment, IHttpClientFactory clientFactory)
+        : base(memoryCache, environment)
     {
         _memoryCache = memoryCache;
         _environment = environment;
+        _clientFactory = clientFactory;
     }
 
     #region Index +Index()
 
     public IActionResult Index()
     {
-        
+
         ViewData["pinnedArticle"] = QarCache.GetPinnedArticleList(_memoryCache, CurrentLanguage, 3).ToList();
         ViewData["latestArticleList"] = QarCache.GetArticleList(_memoryCache, CurrentLanguage, 25);
         ViewData["focusArticleList"] = QarCache.GetFocusArticleList(_memoryCache, CurrentLanguage, 12);
@@ -486,6 +491,47 @@ public class HomeController : QarBaseController
 
         return Content(rss, "text/xml", Encoding.UTF8);
     }
+    #endregion
+
+    #region Text To Speech +TextToSpeech([FromBody] TextToSpeechModel request)
+    [HttpPost]
+    public async Task<IActionResult> TextToSpeech([FromBody] TextToSpeechModel request)
+    {
+        var client = _clientFactory.CreateClient();
+        var apiUrl = "https://api.tilqazyna.kz/api/tts";
+        request.Voice = "kk-er1.onnx";
+        var requestBody = new StringContent(JsonHelper.SerializeObject(request), System.Text.Encoding.UTF8, "application/json");
+        try
+        {
+            var response = await client.PostAsync(apiUrl, requestBody);
+            if (response.IsSuccessStatusCode)
+            {
+                var audioStream = await response.Content.ReadAsStreamAsync();
+                //var filePath = _environment.WebRootPath + $"/uploads/texttospeech/{System.Guid.NewGuid().ToString("N")}.wav";
+                //if(!System.IO.Directory.Exists(Path.GetDirectoryName(filePath)))
+                //{
+                //    System.IO.Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                //}
+                //using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+                //{
+                //    await audioStream.CopyToAsync(fileStream);
+                //}
+                return File(audioStream, "audio/wav");
+            }
+            else
+            {
+                // Handle non-success status codes
+                var errorContent = await response.Content.ReadAsStringAsync();
+                return BadRequest(errorContent);
+            }
+        }
+        catch (HttpRequestException e)
+        {
+            // Handle connection errors
+            return StatusCode(500, $"Error contacting Text-to-Speech service: {e.Message}");
+        }
+    }
+
     #endregion
 
 }
