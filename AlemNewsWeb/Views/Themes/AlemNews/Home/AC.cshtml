@@ -1,3 +1,24 @@
 @{
     Layout = $"~/Views/Themes/{CurrentTheme}/_HomeLayout.cshtml";
+  var ac = QarModel<Additionalcontent>("ac");
 }
+
+<main id="content">
+      <div class="container">
+        <div class="row">
+          <!--breadcrumb-->
+          <!--end breadcrumb-->
+          <!--content-->
+          <div class="col-12">
+            <div class="post-title text-center">
+              <h1 class="h1 display-4-md display-3-lg mt-2">@ac?.Title</h1>
+              <hr class="hr-after mx-auto">
+            </div>
+            <div class="entry-content post-content post-page">
+              <p>@Html.Raw(@ac?.FullDescription)</p>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
