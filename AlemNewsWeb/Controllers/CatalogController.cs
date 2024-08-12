@@ -22,8 +22,8 @@ public class CatalogController : QarBaseController
         _memoryCache = memoryCache;
         _environment = environment;
     }
-    #region Welcome +Welcome()
-    public IActionResult Welcome()
+    #region release +release()
+    public IActionResult Release()
     {
         string additionalType = ActionName;
         using (var _connection = Utilities.GetOpenConnection())
@@ -32,9 +32,7 @@ public class CatalogController : QarBaseController
         }
         ViewData["title"] = T("ls_Welcome");
         ViewData["showFieldList"] = new List<string>(){
-            nameof(Additionalcontent.BackgroundImageUrl),
-            nameof(Additionalcontent.Title),
-            nameof(Additionalcontent.ShortDescription)
+            nameof(Additionalcontent.FullDescription)
         };
         return View($"~/Views/Console/QarBase/AdditionalContent.cshtml");
     }
