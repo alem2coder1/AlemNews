@@ -10,6 +10,9 @@ blockquote{
     border-left: 4px solid #03ab02;
     border-radius: 0 5px 5px 0;
 }
+.article-view iframe{
+    width: 100%;
+}
 
 @media screen and (min-width: 1024px) {
     .last-img-height{
