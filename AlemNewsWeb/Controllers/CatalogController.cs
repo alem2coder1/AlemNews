@@ -32,6 +32,7 @@ public class CatalogController : QarBaseController
         }
         ViewData["title"] = T("ls_Welcome");
         ViewData["showFieldList"] = new List<string>(){
+            nameof(Additionalcontent.Title),
             nameof(Additionalcontent.FullDescription)
         };
         return View($"~/Views/Console/QarBase/AdditionalContent.cshtml");

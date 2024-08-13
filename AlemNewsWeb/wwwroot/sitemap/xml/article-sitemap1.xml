@@ -363,7 +363,7 @@
   </url>
   <url>
     <loc>http://localhost:7501/kz/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
-    <lastmod>2024-08-10T17:49:14.0000000+05:00</lastmod>
+    <lastmod>2024-08-13T11:09:26.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -373,7 +373,7 @@
   </url>
   <url>
     <loc>http://localhost:7501/latyn/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
-    <lastmod>2024-08-10T17:49:14.0000000+05:00</lastmod>
+    <lastmod>2024-08-13T11:09:26.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -383,7 +383,7 @@
   </url>
   <url>
     <loc>http://localhost:7501/tote/article/galym-jusipbek-universalnost-i-unikalnost-identichnosti-bk-lab.html</loc>
-    <lastmod>2024-08-10T17:49:14.0000000+05:00</lastmod>
+    <lastmod>2024-08-13T11:09:26.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -449,6 +449,36 @@
     <image:image>
       <image:loc>http://localhost:7501/uploads/thumbnail/20240810180242063_big.webp</image:loc>
       <image:title>Talǵat Jaılaýov «Barys» bapkeri atandy</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/maqtauga-turarlyq-iba-nyn-vise-prezidenti-qazaqstannyn-boks-mektebine-baga-berdi.html</loc>
+    <lastmod>2024-08-12T12:28:37.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240812122751134_big.webp</image:loc>
+      <image:title>«Мақтауға тұрарлық». IBA-ның вице-президенті Қазақстанның бокс мектебіне баға берді</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/maqtauga-turarlyq-iba-nyn-vise-prezidenti-qazaqstannyn-boks-mektebine-baga-berdi.html</loc>
+    <lastmod>2024-08-12T12:28:37.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240812122751134_big.webp</image:loc>
+      <image:title>«ماقتاۋعا تۇرارلىق». IBA-نىڭ ۆيسە-پرەزيدەنتى قازاقستاننىڭ بوكس مەكتەبىنە باعا بەردى</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/maqtauga-turarlyq-iba-nyn-vise-prezidenti-qazaqstannyn-boks-mektebine-baga-berdi.html</loc>
+    <lastmod>2024-08-12T12:28:37.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240812122751134_big.webp</image:loc>
+      <image:title>«Maqtaýǵa turarlyq». IBA-nyń vıse-prezıdenti Qazaqstannyń boks mektebine baǵa berdi</image:title>
     </image:image>
   </url>
 </urlset>
