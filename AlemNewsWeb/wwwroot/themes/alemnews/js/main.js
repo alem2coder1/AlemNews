@@ -42,61 +42,63 @@ document.addEventListener("DOMContentLoaded", function () {
             title.textContent = title.textContent.substring(0, 40) + '...';
         }
     });
-    const readbtn = document.querySelector('button.btn-play-speech');
-    if (readbtn) {
-        let datatext = readbtn.getAttribute("data-text");
-        const containerdiv = readbtn.closest("div.article-view");
-        const textElements = containerdiv.querySelectorAll(".read-text");
-        let combinedText = '';
-        textElements.forEach(element => {
-            combinedText += element.innerText + ' ';
+    $(function () {
+        // Initializing when the document is ready
+        $('button.btn-play-speech').each(function () {
+            let $btn = $(this);
+            let containerDiv = $btn.closest('div.article-view');
+            let combinedText = '';
+            containerDiv.find('.read-text').each(function () {
+                combinedText += $(this).text() + ' ';
+            });
+            combinedText = combinedText.trim();
+            $btn.attr('data-text', combinedText);
         });
-        datatext = combinedText.trim();
-    }
 
-});
-$(function () {
-    $('button.btn-play-speech ').click(function () {
-        let $btn = $(this),
-            $icon = $btn.find('i'),
-            requestData = {
-                text: $(this).attr('data-text')
-            };
-        $btn.prop("disabled", true);
-        $icon.addClass('fa-fade');
-        $.ajax({
-            type: "POST",
-            url: "/" + $qar.getCurrentLanguage() + "/Home/TextToSpeech",
-            contentType: "application/json",
-            data: JSON.stringify(requestData),
-            success: function (response, status, xhr) {
+        // Handling click event for all buttons
+        $('button.btn-play-speech').click(function () {
+            let $btn = $(this),
+                $icon = $btn.find('i'),
+                requestData = {
+                    text: $btn.attr('data-text')
+                };
 
-                var blob = new Blob([response], { type: "audio/wav" });
-                var url = window.URL.createObjectURL(blob);
-                var audio = new Audio();
-                audio.src = url;
-                audio.play()
-                    .then(() => {
-                        console.log("Audio playing...");
-                    })
-                    .catch(e => {
-                        console.error("Error playing audio: ", e);
+            $btn.prop("disabled", true);
+            $icon.addClass('fa-fade');
+
+            $.ajax({
+                type: "POST",
+                url: "/" + $qar.getCurrentLanguage() + "/Home/TextToSpeech",
+                contentType: "application/json",
+                data: JSON.stringify(requestData),
+                success: function (response, status, xhr) {
+                    var blob = new Blob([response], { type: "audio/wav" });
+                    var url = window.URL.createObjectURL(blob);
+                    var audio = new Audio();
+                    audio.src = url;
+                    audio.play()
+                        .then(() => {
+                        })
+                        .catch(e => {
+                            console.error("Error playing audio: ", e);
+                            $btn.prop("disabled", false);
+                            $icon.removeClass('fa-fade');
+                        });
+                    audio.onended = function () {
                         $btn.prop("disabled", false);
                         $icon.removeClass('fa-fade');
-                    });
-                audio.onended = function () {
+                    };
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error: " + error);
                     $btn.prop("disabled", false);
                     $icon.removeClass('fa-fade');
-                };
-            },
-            error: function (xhr, status, error) {
-                console.error("Error: " + error);
-                $btn.prop("disabled", false);
-                $icon.removeClass('fa-fade');
-            },
-            xhrFields: {
-                responseType: 'blob'
-            }
+                },
+                xhrFields: {
+                    responseType: 'blob'
+                }
+            });
         });
     });
+
 });

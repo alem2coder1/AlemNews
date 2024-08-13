@@ -499,7 +499,7 @@ public class HomeController : QarBaseController
     {
         var client = _clientFactory.CreateClient();
         var apiUrl = "https://api.tilqazyna.kz/api/tts";
-        request.Voice = "kk-er1.onnx";
+        request.Voice = "kk-ael.onnx";
         var requestBody = new StringContent(JsonHelper.SerializeObject(request), System.Text.Encoding.UTF8, "application/json");
         try
         {

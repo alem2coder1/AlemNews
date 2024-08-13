@@ -51,7 +51,7 @@
                 }
 
               </span>
-              <button class="btn btn-link btn-play-speech waves-effect waves-light" data-text=""><i
+              <button class="btn btn-link btn-play-speech waves-effect waves-light" data-language="@CurrentLanguage" data-text=""><i
                   class="fa-thin fa-volume"></i></button>
             </div>
           </div>
@@ -67,7 +67,7 @@
               alt="@article?.Title">
           </figure>
           <p class="text-black read-text"> @article?.ShortDescription</p>
-          <p class="read-text"> @Html.Raw(article?.FullDescription)</p>
+          <p class=""> @Html.Raw(article?.FullDescription)</p>
         </div>
 
         <!-- footer post -->
