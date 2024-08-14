@@ -19,7 +19,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarhome">
                                 @foreach(var weather in weatherList)
                                 {
-                                    <li>@weather?.CityName - @weather?.Temperature</li>
+                                    <li class="ps-1">@weather?.CityName - @weather?.Temperature</li>
                                 }
                                
                             </ul>
@@ -32,7 +32,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarhome">
                                  @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
                                 {
-                                    <li class="">
+                                    <li class="ps-1">
                                                                         
                                         <a href="javascaript:void(0);" data-language="@item.LanguageCulture" data-static="qar">
                                             <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
@@ -49,18 +49,27 @@
                     </ul>
                     <!--Top right menu-->
                     <ul class="navbar-nav ms-auto text-center">
+                        <li class="nav-item pe-2">
+                            <a href="" class="d-none dark-moon">
+                                <i class="fa-regular fa-moon-stars fa-xl " ></i>
+                            </a>
+                            <a href="" class="light-sun">
+                                <i class="fa-duotone fa-sun-bright fa-xl " ></i>
+                            </a>
+                            
+                        </li>
                         @foreach (var currency in currencyList.OrderBy(x => x.DisplayOrder))
-                {
-                    <li class="nav-item">
-                         <span class="vecher-rate font-small">@currency.Symbol</span>
-                        <span class="ps-1 nav-text header-text-font font-small"> @(currency.Rate * 1.0 / currency.IntRatio) </span>
-                
-                    </li>
-                    
-                       
-                }
-                       
-                       
+                        {
+                            <li class="nav-item text-black" >
+                                <span class="vecher-rate font-small">@currency.Symbol</span>
+                                <span class="ps-1 nav-text header-text-font font-small"> @(currency.Rate * 1.0 / currency.IntRatio) </span>
+
+                            </li>
+
+
+                        }
+
+
                     </ul>
                     <!--end top right menu-->
                 </div>
@@ -139,12 +148,21 @@
                     <!--end top left menu-->
                     <!--Top right menu-->
                     <ul class="navbar-nav ms-auto text-center">
-                             @foreach (var currency in currencyList.OrderBy(x => x.DisplayOrder))
-                {
-                    <li class="nav-item" style="color: #ffff; padding:0 10px">
-                         @currency.Symbol @(currency.Rate * 1.0 / currency.IntRatio)
-                    </li>
-                }
+                        <li class="nav-item">
+                            <a href="" class="d-none dark-moon" >
+                                <i class="fa-regular fa-moon-stars fa-xl " style="color: #ffffff;"></i>
+                            </a>
+                            <a href="" class="light-sun" >
+                                <i class="fa-duotone fa-sun-bright fa-2xl " style="color: #ffffff;"></i>
+                            </a>
+                        </li>
+                        
+                        @foreach (var currency in currencyList.OrderBy(x => x.DisplayOrder))
+                        {
+                            <li class="nav-item" style="color: #ffff; padding:0 10px">
+                                @currency.Symbol @(currency.Rate * 1.0 / currency.IntRatio)
+                            </li>
+                        }
                     </ul>
                     <!--end top right menu-->
                 </div>

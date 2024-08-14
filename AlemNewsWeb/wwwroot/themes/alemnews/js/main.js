@@ -23,7 +23,42 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+    const lightsunElements = document.querySelectorAll('.light-sun');
+    const darkmoonElements = document.querySelectorAll('.dark-moon');
 
+    if (lightsunElements.length && darkmoonElements.length) {
+        lightsunElements.forEach((lightsun, index) => {
+            lightsun.addEventListener("click", function (event) {
+                event.preventDefault();
+                const theme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-bs-theme', 'light');
+                }
+
+                lightsun.classList.add("d-none");
+                if (darkmoonElements[index]) {
+                    darkmoonElements[index].classList.remove("d-none");
+                }
+            });
+        });
+
+        darkmoonElements.forEach((darkmoon, index) => {
+            darkmoon.addEventListener("click", function (event) {
+                event.preventDefault();
+                const theme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (theme === 'light') {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                }
+
+                darkmoon.classList.add("d-none");
+                if (lightsunElements[index]) {
+                    lightsunElements[index].classList.remove("d-none");
+                }
+            });
+        });
+    }
     document.body.addEventListener("submit", (e) => {
         const that = e.target;
 

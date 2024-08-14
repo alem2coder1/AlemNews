@@ -261,121 +261,121 @@
           </div>
         </div>
 }
+      
         <!--block2ArticleList-->
-        <div class="block-area">
-          <div class="row">
-            <!--left post-->
-            @if (block2ArticleAllList.Count > 0)
-            {
-                <div class="col-lg-6">
-              <!--block title-->
-              <div class="block-title-6">
-                <h4 class="h5 border-primary">
-                  <a href="@block2AllUrl">
-                    <span class="bg-primary text-white">@block2ParentTitle</span>
-                  </a>
+       <div class="block-area">
+         <div class="row">
+           <!--left post-->
+           @if (block2ArticleAllList.Count > 0)
+           {
+             <div class="col-lg-6">
+               <!--block title-->
+               <div class="block-title-6">
+                 <h4 class="h5 border-primary">
+                   <a href="@block2AllUrl">
+                     <span class="bg-primary text-white">@block2ParentTitle</span>
+                   </a>
                   
-                </h4>
-              </div>
+                 </h4>
+               </div>
               
-              <div class="big-post">
-                <article class="card card-full hover-a mb-4">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="/@CurrentLanguage/article/@(block2ArticleAllList[0].LatynUrl).html">
-                      <img class="img-fluid lazy " src="@GetUrl(block2ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                        data-src="@GetUrl(block2ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleAllList[0]?.Title">
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <!--title-->
-                    <h2 class="card-title h1-sm h3-lg">
-                      <a href="/@CurrentLanguage/article/@(block2ArticleAllList[0].LatynUrl).html">@block2ArticleAllList[0]?.Title</a>
-                    </h2>
-                    <!-- author, date & comments -->
-                    <div class="card-text mb-2 text-muted small">
+               <div class="big-post">
+                 <article class="card card-full hover-a mb-4">
+                   <!--thumbnail-->
+                   <div class="ratio_360-202 image-wrapper">
+                     <a href="/@CurrentLanguage/article/@(block2ArticleAllList[0].LatynUrl).html">
+                       <img class="img-fluid lazy " src="@GetUrl(block2ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                            data-src="@GetUrl(block2ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleAllList[0]?.Title">
+                     </a>
+                   </div>
+                   <div class="card-body">
+                     <!--title-->
+                     <h2 class="card-title h1-sm h3-lg">
+                       <a href="/@CurrentLanguage/article/@(block2ArticleAllList[0].LatynUrl).html">@block2ArticleAllList[0]?.Title</a>
+                     </h2>
+                     <!-- author, date & comments -->
+                     <div class="card-text mb-2 text-muted small">
                       
-                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleAllList[0].AddTime,CurrentLanguage)</time>
-                    </div>
-                    <!--description-->
-                    <p class="card-text">@block2ArticleAllList[0]?.ShortDescription</p>
-                  </div>
-                </article>
-              </div>
-              <div class="small-post">
-                <!--post list-->
-                @if (block2ArticleAllList.Count > 1)
-                {
-                  for (int i = 1; i < block2ArticleAllList.Count && i <= 4; i++)
-                  {
-                    <article class="card card-full hover-a mb-4">
-                      <div class="row">
-                        <!--thumbnail-->
-                        <div class="col-3 col-md-4 pe-2 pe-md-0">
-                          <div class="ratio_115-80 image-wrapper">
-                            <a href="/@CurrentLanguage/article/@(block2ArticleAllList[i].LatynUrl).htm">
-                              <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block2ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                                   data-src="@GetUrl(block2ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleAllList[i]?.Title">
-                            </a>
-                          </div>
-                        </div>
-                        <!-- title & date -->
-                        <div class="col-9 col-md-8">
-                          <div class="card-body pt-0">
-                            <h3 class="card-title h6 h5-sm h6-lg">
-                              <a href="/@CurrentLanguage/article/@(block2ArticleAllList[i].LatynUrl).htm" class="news-title">@block2ArticleAllList[i]?.Title</a>
-                            </h3>
-                            <div class="card-text small text-muted">
-                              <time datetime="2019-10-16">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleAllList[i].AddTime,CurrentLanguage)</time>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  }
-                }
+                       <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleAllList[0].AddTime,CurrentLanguage)</time>
+                     </div>
+                     <!--description-->
+                     <p class="card-text">@block2ArticleAllList[0]?.ShortDescription</p>
+                   </div>
+                 </article>
+               </div>
+               <div class="small-post">
+                 <!--post list-->
+                 @if (block2ArticleAllList.Count > 1)
+                 {
+                   for (int i = 1; i < block2ArticleAllList.Count && i <= 4; i++)
+                   {
+                     <article class="card card-full hover-a mb-4">
+                       <div class="row">
+                         <!--thumbnail-->
+                         <div class="col-3 col-md-4 pe-2 pe-md-0">
+                           <div class="ratio_115-80 image-wrapper">
+                             <a href="/@CurrentLanguage/article/@(block2ArticleAllList[i].LatynUrl).htm">
+                               <img class="img-fluid lazy news-block1-left-img" src="@GetUrl(block2ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                                    data-src="@GetUrl(block2ArticleAllList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block2ArticleAllList[i]?.Title">
+                             </a>
+                           </div>
+                         </div>
+                         <!-- title & date -->
+                         <div class="col-9 col-md-8">
+                           <div class="card-body pt-0">
+                             <h3 class="card-title h6 h5-sm h6-lg">
+                               <a href="/@CurrentLanguage/article/@(block2ArticleAllList[i].LatynUrl).htm" class="news-title">@block2ArticleAllList[i]?.Title</a>
+                             </h3>
+                             <div class="card-text small text-muted">
+                               <time datetime="2019-10-16">@UnixTimeHelper.UnixTimeToLocalString(block2ArticleAllList[i].AddTime,CurrentLanguage)</time>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </article>
+                   }
+                 }
                                 
-              </div>
-              <!--end post small-->
-            </div>
-            }
-          
-            <!--end left post-->
+               </div>
+               <!--end post small-->
+             </div>
+           }
+           <!--end left post-->
 
-            <!--block4ArticleList-->
-            @if (block4ArticleAllList.Count > 0)
-            {
-                <div class="col-lg-6">
-              <!--block title-->
-              <div class="block-title-6">
-                <h4 class="h5 border-primary">
-                  <a href="@block4AllUrl">
-                    <span class="bg-primary text-white">@block4ParentTitle</span>
-                  </a>
+           <!--block4ArticleList-->
+           @if (block4ArticleAllList.Count > 0)
+           {
+             <div class="col-lg-6">
+               <!--block title-->
+               <div class="block-title-6">
+                 <h4 class="h5 border-primary">
+                   <a href="@block4AllUrl">
+                     <span class="bg-primary text-white">@block4ParentTitle</span>
+                   </a>
                   
-                </h4>
-              </div>
-              <div class="big-post">
-                <article class="card card-full hover-a mb-4">
-                  <!--thumbnail-->
-                  <div class="ratio_360-202 image-wrapper">
-                    <a href="/@CurrentLanguage/article/@(block4ArticleAllList[0].LatynUrl).html">
-                      <img class="img-fluid lazy" src="@GetUrl(block4ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
-                        data-src="@GetUrl(block4ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block4ArticleAllList[0]?.Title">
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <h2 class="card-title h1-sm h3-lg">
-                      <a href="/@CurrentLanguage/article/@(block4ArticleAllList[0].LatynUrl).html">@block4ArticleAllList[0]?.Title</a>
-                    </h2>
-                    <div class="card-text mb-2 text-muted small">
-                      <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block4ArticleAllList[0].AddTime,CurrentLanguage)</time>
-                    </div>
-                    <p class="card-text">@block4ArticleAllList[0]?.ShortDescription</p>
-                  </div>
-                </article>
-              </div>
-              <div class="small-post">
+                 </h4>
+               </div>
+               <div class="big-post">
+                 <article class="card card-full hover-a mb-4">
+                   <!--thumbnail-->
+                   <div class="ratio_360-202 image-wrapper">
+                     <a href="/@CurrentLanguage/article/@(block4ArticleAllList[0].LatynUrl).html">
+                       <img class="img-fluid lazy" src="@GetUrl(block4ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))"
+                            data-src="@GetUrl(block4ArticleAllList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block4ArticleAllList[0]?.Title">
+                     </a>
+                   </div>
+                   <div class="card-body">
+                     <h2 class="card-title h1-sm h3-lg">
+                       <a href="/@CurrentLanguage/article/@(block4ArticleAllList[0].LatynUrl).html">@block4ArticleAllList[0]?.Title</a>
+                     </h2>
+                     <div class="card-text mb-2 text-muted small">
+                       <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block4ArticleAllList[0].AddTime,CurrentLanguage)</time>
+                     </div>
+                     <p class="card-text">@block4ArticleAllList[0]?.ShortDescription</p>
+                   </div>
+                 </article>
+               </div>
+               <div class="small-post">
                  @if (block4ArticleAllList.Count > 1)
                  {
                    for (int i = 1; i < block4ArticleAllList.Count && i <= 4; i++)
@@ -407,11 +407,18 @@
                    }
                  }
                                 
-              </div>
-            </div>
-            }
-          </div>
-        </div>
+               </div>
+             </div>
+           }
+         </div>
+       </div>
+       <div class="block-area my-3">
+         <a href="#" target="_blank">
+           <img class="img-fluid bg-light w-100" src="@GetUrl("/images/no-img-big.png")"
+                alt="Advertiser space">
+         </a>
+                   
+       </div>
        <!--block5ArticleList-->
        @if (block5ArticleAllList.Count > 0)
        {
