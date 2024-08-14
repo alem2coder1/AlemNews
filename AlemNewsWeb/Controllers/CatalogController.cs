@@ -291,6 +291,7 @@ public class CatalogController : QarBaseController
                                 tran.Commit();
                                 QarCache.ClearCache(_memoryCache, nameof(QarCache.GetCategoryList));
                                 QarCache.ClearCache(_memoryCache, nameof(QarCache.GetArticleList));
+                                QarCache.ClearCache(_memoryCache, nameof(QarCache.GetArticleAllList));
                                 return MessageHelper.RedirectAjax(T("ls_Deletedsuccessfully"), "success", "", "");
                             }
                             catch (Exception ex)
@@ -854,6 +855,7 @@ public class CatalogController : QarBaseController
 
                                 tran.Commit();
                                 QarCache.ClearCache(_memoryCache, nameof(QarCache.GetArticleList));
+                                QarCache.ClearCache(_memoryCache, nameof(QarCache.GetArticleAllList));
                                 QarCache.ClearCache(_memoryCache, nameof(QarCache.GetPinnedArticleList));
                                 QarCache.ClearCache(_memoryCache, nameof(QarCache.GetFocusArticleList));
                                 QarCache.ClearCache(_memoryCache, nameof(QarCache.GetTopArticleList));

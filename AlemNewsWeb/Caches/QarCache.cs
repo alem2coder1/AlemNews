@@ -576,18 +576,14 @@ public class QarCache
             using (var connection = Utilities.GetOpenConnection())
             {
                 var querySql = @"
-                select id, title, shortDescription, categoryId, thumbnailUrl, latynUrl, addTime, viewCount 
-                from article 
-                where qStatus = 0 and thumbnailUrl <> ''";
+            select id, title, shortDescription, categoryId, thumbnailUrl, latynUrl, categoryParentId, addTime, viewCount  
+            from article 
+            where qStatus = 0 and thumbnailUrl <> ''";
+
+                // 添加对 categoryParentId 的过滤
                 if (parentId > 0)
                 {
-                    querySql += @" and categoryId in 
-                            (select id from articlecategory where parentId = @parentId and qStatus = 0 and language = @language)";
-                }
-                else
-                {
-                    querySql += @" and categoryId in 
-                            (select id from articlecategory where parentId = 0 and qStatus = 0 and language = @language)";
+                    querySql += @" and categoryParentId = @parentId";
                 }
 
                 querySql += " order by addTime desc";
@@ -609,7 +605,6 @@ public class QarCache
     }
 
     #endregion
-   
 
     #region Фокус мақалалар тызымын алу +GetFocusArticleList(IMemoryCache _memoryCache, string language, int takeCount)
 

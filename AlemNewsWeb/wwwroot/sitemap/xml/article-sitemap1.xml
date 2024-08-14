@@ -33,7 +33,7 @@
   </url>
   <url>
     <loc>http://localhost:7501/kz/article/araldy-suga-toltyru-amaly-jai-soz-be-naqty-is-pe.html</loc>
-    <lastmod>2024-08-07T16:09:14.0000000+05:00</lastmod>
+    <lastmod>2024-08-14T13:06:32.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -43,7 +43,7 @@
   </url>
   <url>
     <loc>http://localhost:7501/latyn/article/araldy-suga-toltyru-amaly-jai-soz-be-naqty-is-pe.html</loc>
-    <lastmod>2024-08-07T16:09:14.0000000+05:00</lastmod>
+    <lastmod>2024-08-14T13:06:32.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -53,7 +53,7 @@
   </url>
   <url>
     <loc>http://localhost:7501/tote/article/araldy-suga-toltyru-amaly-jai-soz-be-naqty-is-pe.html</loc>
-    <lastmod>2024-08-07T16:09:14.0000000+05:00</lastmod>
+    <lastmod>2024-08-14T13:06:32.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -272,33 +272,33 @@
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/kz/article/almaty-1921-jylga-deiin-vernyi-orta-gasyrlarda-almatu-almaly-qazaqstannyn-en-ulken-qalasy-ol-tian-shan-taularynyn-soltustiginde.html</loc>
-    <lastmod>2024-08-08T19:37:17.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/kz/article/almaty-tarihy-almanyn-otany.html</loc>
+    <lastmod>2024-08-14T10:18:44.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
       <image:loc>http://localhost:7501/uploads/thumbnail/20240808193637386_big.webp</image:loc>
-      <image:title>Алматы (1921 жылға дейін — Верный; орта ғасырларда — Алмату (Алмалы)) — Қазақстанның ең үлкен қаласы. Ол Тянь-Шань тауларының солтүстігінде, </image:title>
+      <image:title>Алматы тарихы - Алманың отаны</image:title>
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/latyn/article/almaty-1921-jylga-deiin-vernyi-orta-gasyrlarda-almatu-almaly-qazaqstannyn-en-ulken-qalasy-ol-tian-shan-taularynyn-soltustiginde.html</loc>
-    <lastmod>2024-08-08T19:37:17.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/latyn/article/almaty-tarihy-almanyn-otany.html</loc>
+    <lastmod>2024-08-14T10:18:44.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
       <image:loc>http://localhost:7501/uploads/thumbnail/20240808193637386_big.webp</image:loc>
-      <image:title>الماتى (1921 جىلعا دەيىن — ۆەرنىي؛ ورتا عاسىرلاردا — الماتۋ (المالى)) — قازاقستاننىڭ ەڭ ۇلكەن قالاسى. ول تيان-شان تاۋلارىنىڭ سولتۇستىگىندە، </image:title>
+      <image:title>الماتى تاريحى - المانىڭ وتانى</image:title>
     </image:image>
   </url>
   <url>
-    <loc>http://localhost:7501/tote/article/almaty-1921-jylga-deiin-vernyi-orta-gasyrlarda-almatu-almaly-qazaqstannyn-en-ulken-qalasy-ol-tian-shan-taularynyn-soltustiginde.html</loc>
-    <lastmod>2024-08-08T19:37:17.0000000+05:00</lastmod>
+    <loc>http://localhost:7501/tote/article/almaty-tarihy-almanyn-otany.html</loc>
+    <lastmod>2024-08-14T10:18:44.0000000+05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
       <image:loc>http://localhost:7501/uploads/thumbnail/20240808193637386_big.webp</image:loc>
-      <image:title>Almaty (1921 jylǵa deıin — Vernyı; orta ǵasyrlarda — Almatý (Almaly)) — Qazaqstannyń eń úlken qalasy. Ol Tán-SHan taýlarynyń soltústiginde, </image:title>
+      <image:title>Almaty tarıhy - Almanyń otany</image:title>
     </image:image>
   </url>
   <url>
