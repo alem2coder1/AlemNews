@@ -71,7 +71,7 @@ public abstract class QarRazorPage<TModel> : RazorPage<TModel>
     public string Query => (ViewData["query"] ?? string.Empty) as string;
     public string ControllerName => (ViewData["controllerName"] ?? string.Empty) as string;
     public string ActionName => (ViewData["actionName"] ?? string.Empty) as string;
-    public string SkinName => (ViewData["skinName"] ?? string.Empty) as string;
+    public string SkinName => (ViewData["skinName"] ?? "light") as string;
     public string Title => (ViewData["title"] ?? string.Empty) as string;
     public string ac => (ViewData["additionalContentList"] ?? string.Empty) as string;
     public List<Articlecategory> CategoryList => QarList<Articlecategory>("allCategoryList");

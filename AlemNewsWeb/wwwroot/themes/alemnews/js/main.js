@@ -25,37 +25,68 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     const lightsunElements = document.querySelectorAll('.light-sun');
     const darkmoonElements = document.querySelectorAll('.dark-moon');
+    const showbacktop = document.querySelector('#showbacktop');
+    const navmenu = showbacktop.querySelector('#main-menu');
+
+    function updateThemeClasses(theme) {
+        if (theme === 'dark') {
+            showbacktop.classList.add('bg-black');
+            showbacktop.classList.remove('bg-white');
+            navmenu.classList.add('navbar-dark');
+            navmenu.classList.remove('navbar-light');
+        } else {
+            showbacktop.classList.add('bg-white');
+            showbacktop.classList.remove('bg-black');
+            navmenu.classList.add('navbar-light');
+            navmenu.classList.remove('navbar-dark');
+        }
+    }
+
+    // Check the saved theme from localStorage and apply it
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        updateThemeClasses(savedTheme);
+
+        if (savedTheme === 'dark') {
+            lightsunElements.forEach(lightsun => lightsun.classList.remove('d-none'));
+            darkmoonElements.forEach(darkmoon => darkmoon.classList.add('d-none'));
+        } else {
+            lightsunElements.forEach(lightsun => lightsun.classList.add('d-none'));
+            darkmoonElements.forEach(darkmoon => darkmoon.classList.remove('d-none'));
+        }
+    }
 
     if (lightsunElements.length && darkmoonElements.length) {
         lightsunElements.forEach((lightsun, index) => {
             lightsun.addEventListener("click", function (event) {
                 event.preventDefault();
-                const theme = document.documentElement.getAttribute('data-bs-theme');
-
-                if (theme === 'dark') {
-                    document.documentElement.setAttribute('data-bs-theme', 'light');
-                }
+                const theme = 'light';
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
 
                 lightsun.classList.add("d-none");
                 if (darkmoonElements[index]) {
                     darkmoonElements[index].classList.remove("d-none");
                 }
+
+                updateThemeClasses(theme);
             });
         });
 
         darkmoonElements.forEach((darkmoon, index) => {
             darkmoon.addEventListener("click", function (event) {
                 event.preventDefault();
-                const theme = document.documentElement.getAttribute('data-bs-theme');
-
-                if (theme === 'light') {
-                    document.documentElement.setAttribute('data-bs-theme', 'dark');
-                }
+                const theme = 'dark';
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
 
                 darkmoon.classList.add("d-none");
                 if (lightsunElements[index]) {
                     lightsunElements[index].classList.remove("d-none");
                 }
+
+                updateThemeClasses(theme);
             });
         });
     }

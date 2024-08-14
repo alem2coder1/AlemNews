@@ -6,8 +6,8 @@ img{
 }
 blockquote{
     padding: 16px 24px 1px;
-    background: #f2fbf2;
-    border-left: 4px solid #03ab02;
+    background: #ff00001a;
+    border-left: 4px solid #ff0000;
     border-radius: 0 5px 5px 0;
 }
 .article-view iframe{

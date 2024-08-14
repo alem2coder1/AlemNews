@@ -806,7 +806,6 @@ public class AdminController : QarBaseController
                             }
                             break;
                     }
-
             if (string.IsNullOrEmpty(orderSql)) orderSql = " addTime desc ";
 
             var total = connection.Query<int>("select count(1) " + querySql, queryObj).FirstOrDefault();
