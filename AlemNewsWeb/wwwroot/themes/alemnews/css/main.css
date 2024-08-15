@@ -13,6 +13,9 @@ blockquote{
 .article-view iframe{
     width: 100%;
 }
+.read-text{
+    font-weight: 700;
+}
 
 @media screen and (min-width: 1024px) {
     .last-img-height{
@@ -29,6 +32,9 @@ blockquote{
     }
     .footer-img-wi{
         height: 82px;
+    }
+    .view-focus-img{
+        height: 252px;
     }
 
 }
@@ -48,6 +54,9 @@ blockquote{
     .footer-img-wi{
         height: 77px;
     }
+    .view-focus-img{
+        height: 207px;
+    }
 }
 @media (min-width: 768px) and (max-width: 992px) {
     .last-img-height{
@@ -64,6 +73,9 @@ blockquote{
     }
     .footer-img-wi{
         height: 101px;
+    }
+    .view-focus-img{
+        height: 158px;
     }
 
 }
@@ -82,6 +94,9 @@ blockquote{
     }
     .footer-img-wi{
         height: 77px;
+    }
+    .view-focus-img{
+        height: 370px;
     }
 
 }

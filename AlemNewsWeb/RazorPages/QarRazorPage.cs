@@ -75,6 +75,7 @@ public abstract class QarRazorPage<TModel> : RazorPage<TModel>
     public string Title => (ViewData["title"] ?? string.Empty) as string;
     public string ac => (ViewData["additionalContentList"] ?? string.Empty) as string;
     public List<Articlecategory> CategoryList => QarList<Articlecategory>("allCategoryList");
+    public List<Articlecategory> GetCategoryChildren => QarList<Articlecategory>("categoriesChildren");
     public List<Language> LanguageList => (ViewData["languageList"] ?? new List<Language>()) as List<Language>;
 
     public List<Multilanguage> MultiLanguageList =>

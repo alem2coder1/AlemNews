@@ -213,8 +213,7 @@
                   </h2>
                   <!-- author, date and comments -->
                   <div class="card-text mb-2 text-muted small">
-                    <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleAllList[0].AddTime,
-                                                                                                                    CurrentLanguage)</time>
+                    <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(block1ArticleAllList[0].AddTime,CurrentLanguage)</time>
                   </div>
                   <!--description-->
                   <p class="card-text">@block1ArticleAllList[0]?.ShortDescription</p>
@@ -757,37 +756,54 @@
                
               </div>
             </div>
-            <!-- THE YOUTUBE PLAYER -->
-            <div class="col-md-7 video-full pb-3 " style="">
-              <a href="/@CurrentLanguage/article/@(block7ArticleList[0].LatynUrl).html" style="display: block">
-                <img class="w-100" src="@GetUrl(block7ArticleList[0]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block7ArticleList[0]?.Title"/>
-                <div class="video-title news-title text-white py-2">@block7ArticleList[0]?.Title</div>
-              </a>
-                      
-            </div>
-            <div class="col-md-5">
-              <ol class="playlist-title list-unstyled">
-                @if (block7ArticleList.Count > 1)
-                {
-                  for (int i = 1; i < block7ArticleList.Count; i++)
-                  {
-                    <li class="active">
-                      <a href="/@CurrentLanguage/article/@(block7ArticleList[i].LatynUrl).html">
-                        <span class="video-thumb"><img width="100" src="@GetUrl(block7ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@block7ArticleList[i]?.Title"></span>
-                        <div class="video-title news-title">@block7ArticleList[i]?.Title</div>
-                      </a>
-                    </li>
-                    
-                  }
-                  
-                }
-               
-              </ol>
-            </div>
+           @{
+               var fullDescription = block7ArticleList[0]?.FullDescription ?? "";
+               var iframePattern = @"<iframe[^>]+src=\""([^\""]+)\"".*?>";
+               var iframeMatch = System.Text.RegularExpressions.Regex.Match(fullDescription, iframePattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+               string iframeSrc = iframeMatch.Success ? iframeMatch.Groups[1].Value : null;
+           }
+           
+           <div class="col-md-8 video-full pb-3">
+             @if (!string.IsNullOrEmpty(iframeSrc))
+             {
+               <iframe id="vid_frame" width="560" height="315" src="@iframeSrc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+             }
+           </div>
+           
+           <div class="col-md-4">
+             <ol class="playlist-title list-unstyled">
+               @{
+                 if (block7ArticleList != null && block7ArticleList.Count > 0)
+                 {
+                   for (int i = 1; i < block7ArticleList.Count; i++)
+                   {
+                     var fullDescriptionlist = block7ArticleList[i]?.FullDescription ?? "";
+                     var iframePatternlist = @"<iframe[^>]+src=\""([^\""]+)\"".*?>";
+                     var iframeMatchlist = System.Text.RegularExpressions.Regex.Match(fullDescriptionlist, iframePatternlist, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                     string iframeSrclist = iframeMatchlist.Success ? iframeMatchlist.Groups[1].Value : null;
+                     
+                     @if (!string.IsNullOrEmpty(iframeSrclist))
+                     {
+                       <li class="active">
+                         <a href="#" onClick="document.getElementById('vid_frame').src='@iframeSrclist'; return false;">
+                           <span class="video-thumb">
+                            <img width="72" src="@(!string.IsNullOrEmpty(block7ArticleList[i]?.ThumbnailUrl) ? GetUrl(block7ArticleList[i]?.ThumbnailUrl.Replace("_big.", "_middle.")) : "/images/no_image.png")" alt="@block7ArticleList[i]?.Title">
+                           </span>
+                           <div class="video-title news-title">@block7ArticleList[i]?.Title</div>
+                         </a>
+                       </li>
+                     }
+                   }
+                 }
+               }
+             </ol>
+           </div>
+            
           </div>
         </div>
       </div>
     }
+    
     @if (block8ArticleList.Count > 0)
     {
    
@@ -851,4 +867,10 @@
     </div>
    </div>
 </main>
+<a class="back-top btn btn-light border position-fixed r-1 b-1 backtop-is-visible backtop-fade-out" href="#">
+    <svg class="bi bi-arrow-up" width="1rem" height="1rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
+      <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L8 3.707 5.354 6.354a.5.5 0 11-.708-.708l3-3z" clip-rule="evenodd"></path>
+    </svg>
+  </a>
 <!--End Content-->

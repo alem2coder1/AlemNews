@@ -1,4 +1,7 @@
-﻿<footer>
+﻿@{
+    var menuList = QarList<Articlecategory>("menuList");
+}
+<footer>
     <!--Footer content-->
     <div id="footer" class="footer-dark bg-dark bg-footer py-5 px-3">
         <div class="container">
@@ -46,7 +49,14 @@
                                 <li class="nav-item"><a class="nav-link" href="/@CurrentLanguage/ac/aboutus.html">@T("ls_About")</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/@CurrentLanguage/ac/contactus.html">@T("ls_Contacts")</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/@CurrentLanguage/ac/advertise.html">@T("ls_Aboutadvertise")</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/@CurrentLanguage/ac/release.html">@T("ls_Pressrelease")</a></li>
+                                @foreach (var item in menuList)
+                                {
+                                    if (item.Title == "Пресс релиз")
+                                    {
+                                        <li class="nav-item"><a class="nav-link" href="/@CurrentLanguage/category/@(item.LatynUrl).html">@item.Title</a></li> 
+                                    }
+                                }
+                                
                             </ul>
                         </nav>
                     </div>

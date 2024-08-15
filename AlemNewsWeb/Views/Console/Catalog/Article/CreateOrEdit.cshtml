@@ -86,9 +86,23 @@
                                 {
                                     <option value="0">@T("ls_Pleaseselectthecategory")</option>
 
-                                    foreach (var item in CategoryList.Where(x=>x.ParentId != 0))
+                                    foreach (var item in CategoryList)
                                     {
-                                        <option value="@item.Id">@item.Title</option>
+                                        if (item.ParentId == 0)
+                                        {
+                                            foreach (var chaild in GetCategoryChildren)
+                                            {
+                                                if (item.ParentId == 0 && item.Id == chaild.Id)
+                                                {
+                                                    <option value="@item.Id">@item.Title</option>
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.Id">@item.Title</option>
+                                        }
+                                       
                                     }
                                 }
                             </select>

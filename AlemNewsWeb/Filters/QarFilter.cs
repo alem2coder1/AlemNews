@@ -25,7 +25,9 @@ public class QarFilter : IActionFilter
             controller.ViewData["additionalContentList"] = QarCache.GetAdditionalContentList(memoryCache, language);
             controller.ViewData["uniqueSeoCode"] = languageList.FirstOrDefault(x => x.LanguageCulture.Equals(language))?.UniqueSeoCode ?? "kk";
             controller.ViewData["menuList"] = QarCache.GetCategoryList(memoryCache, language).Where(x => x.IsHidden == 0).ToList();
+            controller.ViewData["focusArticleList"] = QarCache.GetFocusArticleList(memoryCache, language, 12);
             controller.ViewData["allCategoryList"] = QarCache.GetCategoryList(memoryCache, language);
+            controller.ViewData["categoriesChildren"] = QarCache.GetCategoryChildren(memoryCache, language);
             controller.ViewData["adminList"] = QarCache.GetAllAdminList(memoryCache);
             controller.ViewData["partnerList"] = QarCache.GetPartnerList(memoryCache);
             controller.ViewData["weatherList"] = QarCache.GetWeatherList(memoryCache);

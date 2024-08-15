@@ -228,6 +228,41 @@ public class QarCache
 
     #endregion
 
+    #region GetCategoryChildren
+
+    public static List<Articlecategory> GetCategoryChildren(IMemoryCache memoryCache, string language = "")
+    {
+        switch (language)
+        {
+            case "latyn":
+            case "tote":
+            {
+                language = "kz";
+            }
+                break;
+        }
+
+        var cacheName =
+            $"{MethodBase.GetCurrentMethod()!.Name}{(string.IsNullOrEmpty(language) ? "" : $"_{language}")}";
+        if (memoryCache.TryGetValue(cacheName, out List<Articlecategory> list)) return list;
+    
+        using var connection = Utilities.GetOpenConnection();
+        var querySql = "where qStatus = 0 ";
+
+        if (!string.IsNullOrEmpty(language)) querySql += " and language = @language ";
+
+        querySql += " order by displayOrder asc";
+        var allCategories = connection.GetList<Articlecategory>(querySql, new { language }).ToList();
+        var parentCategories = allCategories.Where(c => c.ParentId == 0).ToList();
+        var categoriesChildren = parentCategories
+            .Where(parent => !allCategories.Any(child => child.ParentId == parent.Id))
+            .ToList();
+        memoryCache.Set(cacheName, categoriesChildren, TimeSpan.FromMinutes(1));
+        return categoriesChildren;
+    }
+
+    #endregion
+    
     #region Get Site Setting +GetSiteSetting(IMemoryCache _memoryCache)
 
     public static Sitesetting GetSiteSetting(IMemoryCache memoryCache)
@@ -530,7 +565,7 @@ public class QarCache
             {
                 int[] categoryIdArr = new int[0];
                 var querySql =
-                    " select id, title, shortDescription, categoryId, thumbnailUrl, latynUrl, addTime, viewCount from article where qStatus = 0 and thumbnailUrl <> '' ";
+                    " select id, title, shortDescription, categoryId, thumbnailUrl, fullDescription, latynUrl, addTime, viewCount from article where qStatus = 0 and thumbnailUrl <> '' ";
 
                 if (categoryId > 0)
                 {
