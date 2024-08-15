@@ -184,7 +184,7 @@
        <!-- Block start -->
         @if (block1ArticleAllList.Count > 0 && block1ArticleAllList != null)
            {
-        <div class="block-area">
+        <div class="block-area post-content">
           <!--block title-->
           <div class="block-title-6">
             <h4 class="h5 border-primary">
@@ -858,11 +858,39 @@
             }
           </div>
         </div>
+        <div class="suggestion-box bg-themes">
+          <h4 class="text-center">@T("ls_SocialLinks")</h4>
+          <div id="close-suggestion" class="close-suggestion">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
+            </svg>
+          </div>
+                        
+          <div class="card card-full u-hover hover-a mb-2">
+            <ul class="list-unstyled social-two">
+              <li class="facebook py-1"><a class="bg-facebook text-white"  href="@SiteSetting?.Facebook" target="_blank" rel="noopener noreferrer"
+                                           aria-label="facebook">Facebook</a></li>
+              <li class="telegram py-1"><a class="bg-telegram text-white" href="@SiteSetting?.Telegram" target="_blank" rel="noopener noreferrer"
+                                           aria-label="Telegram">Telegram</a></li>
+              <li class="instagram py-1"><a class="bg-instagram text-white" href="@SiteSetting?.Instagram" target="_blank"
+                                            rel="noopener noreferrer" aria-label="instagram">Instagram</a></li>
+              <li class="youtube py-1"><a class="bg-youtube text-white" href="@SiteSetting?.Youtube" target="_blank" rel="noopener noreferrer"
+                                          aria-label="youtube">Youtube</a></li>
+              <li class="twitter py-1"><a class="bg-twitter text-white" href="@SiteSetting?.Twitter" target="_blank" rel="noopener noreferrer" aria-label="twitter">Twitter</a></li>
+              <li class="whatsapp py-1">
+                <a class="bg-whatsapp text-white " href="@SiteSetting?.Whatsapp" target="_blank" rel="noopener noreferrer" aria-label="whatsapp">Whatsapp</a>
+              </li>
+            </ul>
+                          
+          </div>
+        </div>
+        
       </div>
     }
     <aside class="col-md-4 end-sidebar-lg">
-     <img class="w-100" src="@GetUrl("/images/no_image.png")" alt="">
+      <img class="w-100" src="@GetUrl("/images/no_image.png")" alt="">
     </aside>
+     
 
     </div>
    </div>
