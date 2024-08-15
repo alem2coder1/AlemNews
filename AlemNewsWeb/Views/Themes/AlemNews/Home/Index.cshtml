@@ -763,14 +763,14 @@
                string iframeSrc = iframeMatch.Success ? iframeMatch.Groups[1].Value : null;
            }
            
-           <div class="col-md-8 video-full pb-3">
+           <div class="col-md-7 video-full pb-3">
              @if (!string.IsNullOrEmpty(iframeSrc))
              {
                <iframe id="vid_frame" width="560" height="315" src="@iframeSrc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
              }
            </div>
            
-           <div class="col-md-4">
+           <div class="col-md-5">
              <ol class="playlist-title list-unstyled">
                @{
                  if (block7ArticleList != null && block7ArticleList.Count > 0)

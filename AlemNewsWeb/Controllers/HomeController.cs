@@ -57,6 +57,12 @@ public class HomeController : QarBaseController
                         takeCount = 4;
                     }
                     break;
+                case "block7":
+                {
+                    takeCount = 10;
+                }
+                    break;
+                
             }
             ViewData[$"{category.BlockType}Title"] = category.Title;
             ViewData[$"{category.BlockType}Url"] = $"/{CurrentLanguage}/category/{category.LatynUrl}.html";
