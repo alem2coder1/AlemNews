@@ -153,9 +153,6 @@
                       <a href="/@CurrentLanguage/article/@(topArticleList[0].LatynUrl).html" class="news-title">@topArticleList[0]?.Title</a>
                     </h2>
                     <div class="card-text mb-2 text-muted small">
-                      <span class="d-none d-sm-inline me-1">
-                        <a class="fw-bold" href="#">John Doe</a>
-                      </span>
                       <time datetime="2019-10-22">@UnixTimeHelper.UnixTimeToLocalString(topArticleList[0].AddTime,CurrentLanguage)</time>
                     </div>
                     <p class="card-text">@topArticleList[0]?.ShortDescription</p>
