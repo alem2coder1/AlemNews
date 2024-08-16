@@ -2,6 +2,7 @@
      var currencyList = QarList<Currency>("currencyList");
      var weatherList = QarList<Weather>("weatherList");
     var menuList = QarList<Articlecategory>("menuList");
+    var latynUrl = (ViewData["latynUrl"] ?? string.Empty) as string;
 }
 <header class="header">
     <!--top mobile menu start-->
@@ -234,7 +235,7 @@
                 <!--left main menu start-->
                 <ul id="start-main" class="navbar-nav main-nav navbar-uppercase first-start-lg-0">
                     <li class="nav-item dropdown">
-                        <a id="navbarhome" class="nav-link active" href="/@CurrentLanguage">@T("ls_Home")</a>
+                        <a id="navbarhome" class="nav-link @(string.IsNullOrEmpty(latynUrl) ? "active" : "") " href="/@CurrentLanguage">@T("ls_Home")</a>
                     </li>
                      @{
                                       int j = 1;
@@ -243,11 +244,11 @@
                    @foreach (var menu in menuList.Where(m => m.ParentId == 0).Take(6))
                    {
                        <li class="nav-item dropdown">
-                           <a id="navbarDropdown1" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"  href="@ViewData[$"block{j}AllUrl"]">@menu?.Title</a>
+                           <a id="navbarDropdown1" class="nav-link dropdown-toggle @(menu.LatynUrl.Equals(latynUrl) ? "active" : "")"  data-bs-toggle="dropdown"  href="@ViewData[$"block{j}AllUrl"]">@menu?.Title</a>
                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                @foreach (var subMenu in menuList.Where(m => m.ParentId == menu.Id))
                                {
-                                   <li><a class="dropdown-item" href="/@CurrentLanguage/category/@(subMenu.LatynUrl).html">@subMenu.Title</a></li>
+                                   <li><a class="dropdown-item @(subMenu.LatynUrl.Equals(latynUrl) ? "active" : "")" href="/@CurrentLanguage/category/@(subMenu.LatynUrl).html">@subMenu.Title</a></li>
                                }
                            </ul>
                        </li>
@@ -255,7 +256,6 @@
                    }
                     
                 </ul>
-                <!--end left main menu-->
 
                 <!--Search form-->
                 <div class="navbar-nav ms-auto d-none d-lg-block">
