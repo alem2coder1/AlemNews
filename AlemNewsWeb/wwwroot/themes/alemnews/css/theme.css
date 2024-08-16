@@ -16922,7 +16922,6 @@ p {
 .block-area, .widget {
   position: relative;
   clear: both;
-  margin-bottom: 1.5rem;
 }
 
 .block-area .btn {
@@ -17600,11 +17599,6 @@ p {
   color: var(--bs-post-color);
 }
 
-.post-content .align-start, .post-content img.align-start, .post-content .alignleft {
-  float: left;
-  margin-right: 1.2rem;
-  margin-top: 4px;
-}
 
 .post-content .align-end, .post-content img.align-end, .post-content .alignright {
   float: right;
@@ -17650,9 +17644,6 @@ p {
   margin-bottom: 3rem;
 }
 
-.post-content figure {
-  margin-bottom: 1rem;
-}
 
 .post-content figure .b-lazy {
   width: inherit;

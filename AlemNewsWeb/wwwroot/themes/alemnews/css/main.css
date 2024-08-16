@@ -10,12 +10,11 @@ blockquote{
     border-left: 4px solid #ff0000;
     border-radius: 0 5px 5px 0;
 }
-.article-view iframe{
-    width: 100%;
-}
+
 .read-text{
     font-weight: 700;
 }
+
 
 @media screen and (min-width: 1024px) {
     .last-img-height{
@@ -35,6 +34,26 @@ blockquote{
     }
     .view-focus-img{
         height: 252px;
+    }
+    .float-icon{
+        width: 33px;
+        margin: 10px 0;
+        height: 33px;
+    }
+    .share-position{
+        position: sticky;
+        top: 0;
+        float: left;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
 
 }
@@ -57,6 +76,26 @@ blockquote{
     .view-focus-img{
         height: 207px;
     }
+    .share-position{
+        position: sticky;
+        top: 0;
+        float: left;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .float-icon{
+        width: 33px;
+        margin: 10px 0;
+        height: 33px;
+    }
 }
 @media (min-width: 768px) and (max-width: 992px) {
     .last-img-height{
@@ -76,6 +115,26 @@ blockquote{
     }
     .view-focus-img{
         height: 158px;
+    }
+    .share-position{
+        position: sticky;
+        top: 0;
+        float: left;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .float-icon{
+        width: 33px;
+        margin: 10px 0;
+        height: 33px;
     }
 
 }
@@ -97,6 +156,14 @@ blockquote{
     }
     .view-focus-img{
         height: 370px;
+    }
+    .article-view iframe{
+        width: 100%;
+    }
+    .float-icon{
+        width: 33px;
+        margin: 0 10px;
+        height: 33px;
     }
 
 }
