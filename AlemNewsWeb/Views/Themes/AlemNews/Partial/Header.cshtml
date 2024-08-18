@@ -50,7 +50,7 @@
                     </ul>
                     <!--Top right menu-->
                     <ul class="navbar-nav ms-auto text-center">
-                        <li class="nav-item pe-2">
+                        <li class="nav-item pe-2 sm-display">
                             <a href="" class=" dark-moon">
                                 <i class="fa-regular fa-moon-stars fa-xl " ></i>
                             </a>
@@ -149,7 +149,7 @@
                     <!--end top left menu-->
                     <!--Top right menu-->
                     <ul class="navbar-nav ms-auto text-center">
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a href="" class="dark-moon" data-skin="@SkinName">
                                 <i class="fa-regular fa-moon-stars fa-xl " style="color: #ffffff;"></i>
                             </a>
@@ -318,18 +318,18 @@
       <div class="sidenav-menu">
         <nav class="navbar navbar-light navbar-inverse">
           <ul id="side-menu" class="nav navbar-nav list-group list-unstyled side-link">
-              <li class="menu-item nav-item"><a href="/@CurrentLanguage" class="nav-link active">@T("ls_Home")</a></li>
+              <li class="menu-item nav-item"><a href="/@CurrentLanguage" class="nav-link @(string.IsNullOrEmpty(latynUrl) ? "active" : "")">@T("ls_Home")</a></li>
              
               @foreach (var menu in menuList.Where(m => m.ParentId == 0).Take(6))
               {
                   <li class="menu-item menu-item-has-children dropdown mega-dropdown nav-item">
-                      <a href="#" class="dropdown-toggle nav-link" aria-expanded="false" role="button" data-bs-toggle="dropdown" 
+                      <a href="#" class="dropdown-toggle nav-link @(menu.LatynUrl.Equals(latynUrl) ? "active" : "") " aria-expanded="false" role="button" data-bs-toggle="dropdown" 
                          id="menu-11">@menu?.Title</a>
                       <ul class="dropdown-menu" aria-labelledby="menu-11" role="menu">
                           @foreach (var subMenu in menuList.Where(m => m.ParentId == menu.Id))
                           {
-                              <li class="menu-item nav-item">
-                                  <a href="/@CurrentLanguage/category/@(subMenu.LatynUrl).html" class="dropdown-item">@subMenu.Title</a>
+                              <li class="menu-item nav-item ">
+                                  <a href="/@CurrentLanguage/category/@(subMenu.LatynUrl).html" class="dropdown-item @(subMenu.LatynUrl.Equals(latynUrl) ? "active" : "")">@subMenu.Title</a>
                               </li>
                           }
                       </ul>

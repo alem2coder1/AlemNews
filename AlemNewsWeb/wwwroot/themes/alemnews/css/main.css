@@ -165,5 +165,12 @@ blockquote{
         margin: 0 10px;
         height: 33px;
     }
+    .sm-display{
+        display: flex;
+        align-items: center;
+    }
+    .spider-sm-text{
+        font-size: 10px;
+    }
 
 }
