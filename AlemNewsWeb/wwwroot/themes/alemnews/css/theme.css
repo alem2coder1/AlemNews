@@ -16098,25 +16098,21 @@ p {
 .featured-1 .newsbox > article:nth-child(1) {
   padding-top: 0;
   padding-bottom: 0.125rem;
-  padding-right: 0.125rem;
 }
 
 .featured-1 .newsbox > article:nth-child(2) {
   padding-top: 0;
   padding-bottom: 0.125rem;
-  padding-left: 0.125rem;
 }
 
 .featured-1 .newsbox > article:nth-child(3) {
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
-  padding-right: 0.125rem;
 }
 
 .featured-1 .newsbox > article:nth-child(4) {
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
-  padding-left: 0.125rem;
 }
 
 .featured-2 .height-ratio {

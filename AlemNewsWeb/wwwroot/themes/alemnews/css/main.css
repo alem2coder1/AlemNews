@@ -14,7 +14,24 @@ blockquote{
 .read-text{
     font-weight: 700;
 }
+#box {
+    margin: 0 auto;
+    color: #6d0ee9;
+    overflow: hidden;
+    padding: 10px;
+    white-space: nowrap;
+}
 
+#box ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+#box li {
+    list-style: none;
+    margin-right: 20px;
+}
 
 @media screen and (min-width: 1024px) {
     .last-img-height{
@@ -171,6 +188,10 @@ blockquote{
     }
     .spider-sm-text{
         font-size: 10px;
+    }
+    .focus-sm-font{
+        font-size: 10px !important;
+        line-height: 1rem !important;
     }
 
 }

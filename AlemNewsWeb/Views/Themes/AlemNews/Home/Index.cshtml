@@ -57,38 +57,42 @@
   <div class="container">
     <div class="row">
       <!-- top section -->
-      <div class="col-12 mt-05">
+      <div class="col-12 col-md-8 mt-05">
         <!--focusarticle-->
         @if (focusArticleList != null && focusArticleList.Count > 0)
         {
           <div class="row py-2">
             <!--Breaking box-->
-            <div class="col-2 col-sm-1 col-md-3 col-lg-2 py-1 pe-md-0 mb-md-1">
+            <div class="col-12 col-md-4 col-lg-3 py-1 pe-md-0 mb-md-1">
               <div class="d-inline-block d-md-block bg-primary text-white text-center breaking-caret py-1 px-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor"
                      class="bi bi-lightning-fill" viewBox="0 0 16 16">
                   <path
                     d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
                 </svg>
-                <span class="d-none d-md-inline-block">@T("ls_Focusnews")</span>
+                <span class="">@T("ls_Focusnews")</span>
               </div>
             </div>
 
             <!--Breaking content-->
-            <div class="col-10 col-sm-11 col-md-9 col-lg-10 ps-1 ps-md-2">
-              <div class="breaking-box position-relative py-2">
-                <div class="box-carousel"
-                     data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "autoPlay": 5000, "pageDots": false, "imagesLoaded": true }'>
-                  <!--list post-->
-                  @foreach (var focus in focusArticleList.Take(3))
-                  {
-                    <div class="col-12 aribudin">
-                      <a class="h6 fw-normal" href="/@CurrentLanguage/article/@(focus?.LatynUrl).html">@focus?.Title</a>
-                    </div>
-                  }
-
-                </div><!--end breaking news-->
+            <div class="col-12 col-md-8 col-lg-9 ps-md-2">
+              <div id="box">
+                <ul id="box1">
+                   @foreach (var focus in focusArticleList.Take(3))
+                    {
+                      <li>  
+                        <div class="col-12 aribudin">
+                          <a class="h6 fw-normal" href="/@CurrentLanguage/article/@(focus?.LatynUrl).html">@focus?.Title</a>
+                        </div>
+                        
+                      </li>
+                     
+                    }
+                   
+                </ul>
               </div>
+
+               
             </div>
           </div>
         }
@@ -97,7 +101,7 @@
         {
            <div class="row featured-1 mb-5">
           <!--Start left cover-->
-          <div class="col-md-6 pb-05 pt-05 pe-md-05">
+          <div class="col-md-12 pb-05 pt-05">
             <div class="position-relative overflow-hidden">
               <div class="nav-slider-hover nav-dots-top-right light-dots"
                 data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'>
@@ -107,7 +111,7 @@
                    <article class="col-12">
                                     <div class="card card-full text-light overflow zoom">
                                       <!--thumbnail-->
-                                      <div class="height-ratio image-wrapper">
+                                      <div class=" image-wrapper">
                                         <a href="/@CurrentLanguage/article/@(pinned.LatynUrl).html">
                                           <img class="img-fluid lazy last-img-height" src="@GetUrl(pinned?.ThumbnailUrl.Replace("_big.", "_middle."))"
                                             data-src="@GetUrl(pinned?.ThumbnailUrl.Replace("_big.", "_middle."))" alt="@pinned?.Title">
@@ -133,15 +137,15 @@
             </div>
           </div>
          
-          <div class="col-md-6 pt-05 ps-md-05">
+          <div class="col-md-12 pt-05 ">
             @if (focusArticleList.Count > 1)
             {
               <div class="row newsbox">
-                @for (int j = 0; j < 4 && j < focusArticleList.Count; j++)
+                @for (int j = 0; j < 6 && j < focusArticleList.Count; j++)
                 {
-                  <article class="col-6">
+                  <article class="col-6 mt-3 mt-md-4">
                     <div class="card card-full text-white overflow zoom">
-                      <div class="height-ratio image-wrapper">
+                      <div class=" image-wrapper">
                         <!--thumbnail-->
                         <a href="/@CurrentLanguage/article/@(focusArticleList[j].LatynUrl).html">
                           <img class="img-fluid lazy last-left-img-height" src="@GetUrl(focusArticleList[j]?.ThumbnailUrl.Replace("_big.", "_middle."))"
@@ -153,11 +157,11 @@
                           {
                             if (focusArticleList[j].CategoryId == menu.Id)
                             {
-                              <a class="p-1 badge bg-primary text-white" href="/@CurrentLanguage/category/@(menu.LatynUrl).html">@menu?.Title</a>
+                              <a class="p-1 badge bg-primary text-white focus-sm-font" href="/@CurrentLanguage/category/@(menu.LatynUrl).html">@menu?.Title</a>
                             }
                           }
                           <a href="#">
-                            <h2 class="h6 h4-sm h6-md h5-lg text-white my-1 news-title">@focusArticleList[j]?.Title
+                            <h2 class="h6 h4-sm h6-md h5-lg text-white my-1 news-title focus-sm-font">@focusArticleList[j]?.Title
                             </h2>
                           </a>
                         </div>
@@ -174,13 +178,10 @@
           <!--End box news-->
         </div>
         }
-       
-       
-      </div>
 
     <!--block1ArticleList-->
    
-       <div class="col-md-8">
+      
        <!-- Block start -->
         @if (block1ArticleAllList.Count > 0 && block1ArticleAllList != null)
            {
@@ -618,7 +619,7 @@
       <!--end left column-->
 
       <!--start right column-->
-      <aside class="col-md-4 end-sidebar-lg">
+      <aside class="col-12 col-md-4 end-sidebar-lg">
         <div class="sticky">
           <!--Social network 2-->
           <aside class="widget">
@@ -693,7 +694,7 @@
             <div class="small-post">
                @if (latestArticleList.Count > 1)
                {
-                 for (int i = 1; i < 4 && i < latestArticleList.Count; i++)
+                 for (int i = 1; i < 6 && i < latestArticleList.Count; i++)
                  {
                    <article class="card card-full hover-a mb-4">
                      <div class="row">

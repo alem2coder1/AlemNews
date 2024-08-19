@@ -166,5 +166,25 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+    var box = document.getElementById("box");
+    var box1 = document.getElementById("box1");
+    function myScroll() {
+        if (box.scrollLeft - box1.scrollWidth <= 0) {
+            box.scrollLeft++;
+        } else {
+            box.scrollLeft = 0;
+        }
+    }
+
+    var speed = 30; 
+    var MyMar = setInterval(myScroll, speed);
+
+    box.onmouseover = function () {
+        clearInterval(MyMar);
+    };
+
+    box.onmouseout = function () {
+        MyMar = setInterval(myScroll, speed);
+    };
 
 });

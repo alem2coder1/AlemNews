@@ -61,13 +61,11 @@
                         </li>
                         @foreach (var currency in currencyList.OrderBy(x => x.DisplayOrder))
                         {
-                            <li class="nav-item text-black" >
+                            <li class="nav-item text-black d-none d-md-block" >
                                 <span class="vecher-rate font-small">@currency.Symbol</span>
                                 <span class="ps-1 nav-text header-text-font font-small"> @(currency.Rate * 1.0 / currency.IntRatio) </span>
 
                             </li>
-
-
                         }
 
 
@@ -316,34 +314,45 @@
 
       <!--navigation-->
       <div class="sidenav-menu">
-        <nav class="navbar navbar-light navbar-inverse">
-          <ul id="side-menu" class="nav navbar-nav list-group list-unstyled side-link">
-              <li class="menu-item nav-item"><a href="/@CurrentLanguage" class="nav-link @(string.IsNullOrEmpty(latynUrl) ? "active" : "")">@T("ls_Home")</a></li>
+          <nav class="navbar navbar-light navbar-inverse">
+              <ul id="side-menu" class="nav navbar-nav list-group list-unstyled side-link">
+                  <li class="menu-item nav-item"><a href="/@CurrentLanguage" class="nav-link @(string.IsNullOrEmpty(latynUrl) ? "active" : "")">@T("ls_Home")</a></li>
              
-              @foreach (var menu in menuList.Where(m => m.ParentId == 0).Take(6))
-              {
-                  <li class="menu-item menu-item-has-children dropdown mega-dropdown nav-item">
-                      <a href="#" class="dropdown-toggle nav-link @(menu.LatynUrl.Equals(latynUrl) ? "active" : "") " aria-expanded="false" role="button" data-bs-toggle="dropdown" 
-                         id="menu-11">@menu?.Title</a>
-                      <ul class="dropdown-menu" aria-labelledby="menu-11" role="menu">
-                          @foreach (var subMenu in menuList.Where(m => m.ParentId == menu.Id))
-                          {
-                              <li class="menu-item nav-item ">
-                                  <a href="/@CurrentLanguage/category/@(subMenu.LatynUrl).html" class="dropdown-item @(subMenu.LatynUrl.Equals(latynUrl) ? "active" : "")">@subMenu.Title</a>
-                              </li>
-                          }
-                      </ul>
-                  </li>
+                  @foreach (var menu in menuList.Where(m => m.ParentId == 0).Take(6))
+                  {
+                      <li class="menu-item menu-item-has-children dropdown mega-dropdown nav-item">
+                          <a href="#" class="dropdown-toggle nav-link @(menu.LatynUrl.Equals(latynUrl) ? "active" : "") " aria-expanded="false" role="button" data-bs-toggle="dropdown" 
+                             id="menu-11">@menu?.Title</a>
+                          <ul class="dropdown-menu" aria-labelledby="menu-11" role="menu">
+                              @foreach (var subMenu in menuList.Where(m => m.ParentId == menu.Id))
+                              {
+                                  <li class="menu-item nav-item ">
+                                      <a href="/@CurrentLanguage/category/@(subMenu.LatynUrl).html" class="dropdown-item @(subMenu.LatynUrl.Equals(latynUrl) ? "active" : "")">@subMenu.Title</a>
+                                  </li>
+                              }
+                          </ul>
+                      </li>
                  
-              }
-           
-             
-          </ul>
-        </nav>
+                  }
+              </ul>
+          </nav>
       </div>
     </div>
-    <div class="mobile-copyright mt-5 px-4 text-center">
-      <p>@SiteSetting?.Copyright</p>
+    <div class="mobile-copyright mt-3 px-4 text-center">
+        <div class="">
+                  <ul class="d-flex" style="list-style: none">
+                      @foreach (var currency in currencyList.OrderBy(x => x.DisplayOrder))
+                                   {
+                                       <li class="menu-item nav-item pe-2" >
+                                           <span class="vecher-rate font-small">@currency.Symbol</span>
+                                           <span class="ps-1 nav-text header-text-font font-small"> @(currency.Rate * 1.0 / currency.IntRatio) </span>
+                      
+                                       </li>
+                                   }
+                      
+                  </ul>
+              </div>
+        <p>@SiteSetting?.Copyright</p>
     </div>
   </nav>
 </div>
