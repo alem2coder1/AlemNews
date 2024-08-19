@@ -166,25 +166,64 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
-    var box = document.getElementById("box");
-    var box1 = document.getElementById("box1");
-    function myScroll() {
-        if (box.scrollLeft - box1.scrollWidth <= 0) {
-            box.scrollLeft++;
+    var boxes = document.querySelectorAll(".box");
+    var boxes1 = document.querySelectorAll(".box1");
+
+    function myScroll(box, box1) {
+        if (box.scrollLeft >= box1.scrollWidth / 2) {
+            box.scrollLeft = 0; 
         } else {
-            box.scrollLeft = 0;
+            box.scrollLeft++;
         }
     }
 
-    var speed = 30; 
-    var MyMar = setInterval(myScroll, speed);
+    var speed = 30;
+    var intervals = [];
+    function ensureScrollable(box1) {
+        var totalWidth = 0;
+        var boxChildren = box1.children;
+        for (let i = 0; i < boxChildren.length; i++) {
+            totalWidth += boxChildren[i].offsetWidth;
+        }
+        if (totalWidth < box1.offsetWidth) {
+            let cloneTimes = Math.ceil(box1.offsetWidth / totalWidth);
+            for (let i = 0; i < cloneTimes; i++) {
+                let clone = box1.cloneNode(true);
+                box1.appendChild(clone);
+            }
+        } else {
+            let clone = box1.cloneNode(true);
+            box1.appendChild(clone);
+        }
+    }
+    boxes.forEach((box, index) => {
+        var box1 = boxes1[index];
+        ensureScrollable(box1);
 
-    box.onmouseover = function () {
-        clearInterval(MyMar);
-    };
+        var MyMar = setInterval(() => myScroll(box, box1), speed);
+        intervals.push(MyMar);
 
-    box.onmouseout = function () {
-        MyMar = setInterval(myScroll, speed);
-    };
+        box.onmouseover = function () {
+            clearInterval(MyMar);
+        };
+
+        box.onmouseout = function () {
+            MyMar = setInterval(() => myScroll(box, box1), speed);
+        };
+    });
+    let oldScrollTopPosition = 0,
+        adfoxbranding = document.querySelector('.adfox-banner-background'),
+        maxTopPosition = 208;
+    window.onscroll = () => {
+        let scrollTopPosition = document.documentElement.scrollTop;
+        //console.log('scrolltop'+scrollTopPosition);
+        if (scrollTopPosition < maxTopPosition) {
+            adfoxbranding.style.position = "absolute";
+            adfoxbranding.style.top = "208px";
+        } else {
+            adfoxbranding.style.position = "fixed";
+            adfoxbranding.style.top = "0px";
+        }
+    }
 
 });

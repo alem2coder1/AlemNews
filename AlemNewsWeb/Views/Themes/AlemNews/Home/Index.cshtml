@@ -51,9 +51,12 @@
   var block8ArticleList = QarList<Article>("block8ArticleList");
 
 }
+<div class="adfox-banner-background">
+  <a href="" target="_blank" class="advertise-news" style="background-image: url(@GetUrl("/images/optimize.webp"))">
+  </a>
+</div>
+<main id="content" class="mt-3 mt-md-5">
 
-<!--Content start-->
-<main id="content" class="mt-5">
   <div class="container">
     <div class="row">
       <!-- top section -->
@@ -76,8 +79,8 @@
 
             <!--Breaking content-->
             <div class="col-12 col-md-8 col-lg-9 ps-md-2">
-              <div id="box">
-                <ul id="box1">
+              <div class="box">
+                <ul class="box1">
                    @foreach (var focus in focusArticleList.Take(3))
                     {
                       <li>  
@@ -765,18 +768,20 @@
          
                      <!--Breaking content-->
                      <div class="col-10 col-sm-11 col-md-9 col-lg-10 ps-1 ps-md-2">
-                       <div class="breaking-box position-relative py-2">
-                         <div class="box-carousel"
-                              data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "autoPlay": 5000, "pageDots": false, "imagesLoaded": true }'>
-                           <!--list post-->
+                       <div class="box">
+                         <ul class="box1">
                            @foreach (var region in regions)
                            {
-                             <div class="col-12 aribudin">
-                               <a class="h6 fw-normal" href="/@CurrentLanguage/article/@(region?.LatynUrl).html">@region?.Title</a>
-                             </div>
+                             <li>
+                               <div class="col-12 aribudin">
+                                 <a class="h6 fw-normal" href="/@CurrentLanguage/article/@(region?.LatynUrl).html">@region?.Title</a>
+                               </div>
+                               
+                             </li>
+                            
                            }
          
-                         </div>
+                         </ul>
                        </div>
                      </div>
                    </div>
