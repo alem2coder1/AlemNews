@@ -211,25 +211,24 @@ document.addEventListener("DOMContentLoaded", function () {
             MyMar = setInterval(() => myScroll(box, box1), speed);
         };
     });
-    let oldScrollTopPosition = 0,
-        adfoxbranding = document.querySelector('.adfox-banner-background'),
-        maxTopPosition = 208,
-        footer = document.querySelector('footer'); // Assuming your footer is selected by 'footer'
-
-    window.onscroll = () => {
+    let adfoxbranding = document.querySelector('.adfox-banner-background'),
+        maxTopPosition = 344, 
+        footer = document.querySelector('footer');
+    window.addEventListener('scroll', () => {
         let scrollTopPosition = document.documentElement.scrollTop;
-        let footerTopPosition = footer.getBoundingClientRect().top + window.scrollY; // Get footer's top position relative to the document
-
+        let footerTopPosition = footer.getBoundingClientRect().top + window.scrollY;
         if (scrollTopPosition < maxTopPosition) {
             adfoxbranding.style.position = "absolute";
-            adfoxbranding.style.top = "208px";
-        } else if (scrollTopPosition >= maxTopPosition && scrollTopPosition < footerTopPosition - window.innerHeight) {
+            adfoxbranding.style.top = "344px";
+            adfoxbranding.classList.remove("mt-3 mt-md-5");
+        }
+        else if (scrollTopPosition >= maxTopPosition && scrollTopPosition < footerTopPosition - adfoxbranding.offsetHeight) {
             adfoxbranding.style.position = "fixed";
             adfoxbranding.style.top = "0px";
-        } else {
-            adfoxbranding.style.position = "absolute";
-            adfoxbranding.style.top = `${footerTopPosition - adfoxbranding.offsetHeight}px`; // Set adfoxbranding position near footer
         }
-    };
-
+        else if (scrollTopPosition >= footerTopPosition - adfoxbranding.offsetHeight) {
+            adfoxbranding.style.position = "absolute";
+            adfoxbranding.style.top = `${footerTopPosition - adfoxbranding.offsetHeight}px`;
+        }
+    });
 });

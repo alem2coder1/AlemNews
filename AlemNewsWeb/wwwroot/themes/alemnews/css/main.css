@@ -13,10 +13,10 @@ blockquote{
 .share-left-title{
     padding: 10px 0 10px 10px;
 }
-
-.read-text{
-    font-weight: 700;
+.header {
+    z-index: 1000;
 }
+
 .box {
     margin: 0 auto;
     color: #6d0ee9;
