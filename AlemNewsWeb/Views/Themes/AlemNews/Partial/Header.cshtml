@@ -20,7 +20,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarhome">
                                 @foreach(var weather in weatherList)
                                 {
-                                    <li class="ps-1">@weather?.CityName - @weather?.Temperature</li>
+                                    <li class="ps-1 jucstin-strart">@weather?.CityName - @weather?.Temperature</li>
                                 }
                                
                             </ul>
@@ -33,7 +33,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarhome">
                                  @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
                                 {
-                                    <li class="ps-1">
+                                    <li class="ps-1 jucstin-strart">
                                                                         
                                         <a href="javascaript:void(0);" data-language="@item.LanguageCulture" data-static="qar">
                                             <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
@@ -119,7 +119,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarhome">
                                  @foreach(var weather in weatherList)
                                  {
-                                <li><a class="dropdown-item" href="#">@weather?.CityName - @weather?.Temperature</a></li>
+                                <li class="tote-text-left"><a class="dropdown-item" href="#">@weather?.CityName - @weather?.Temperature</a></li>
                                  }
                             </ul>
                             <!-- end link -->
@@ -131,7 +131,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarhome">
                                  @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
                                 {
-                                    <li class="">
+                                    <li class="tote-text-left">
                                                                         
                                         <a href="javascaript:void(0);" class="dropdown-item" data-language="@item.LanguageCulture" data-static="qar">
                                             <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
