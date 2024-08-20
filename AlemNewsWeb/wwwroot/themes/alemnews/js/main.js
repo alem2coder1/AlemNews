@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Check the saved theme from localStorage and apply it
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.documentElement.setAttribute('data-bs-theme', savedTheme);
@@ -166,14 +165,23 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+
     var boxes = document.querySelectorAll(".box");
     var boxes1 = document.querySelectorAll(".box1");
+    const direction = document.body.getAttribute("data-pc-direction");
+    console.log(direction);
 
     function myScroll(box, box1) {
         if (box.scrollLeft >= box1.scrollWidth / 2) {
-            box.scrollLeft = 0; 
+            box.scrollLeft = 0;
         } else {
-            box.scrollLeft++;
+            if (direction == "rtl") {
+                box.scrollLeft--;
+            }
+            if (direction == "ltr") {
+                box.scrollLeft++;
+            }
+
         }
     }
 
@@ -211,8 +219,13 @@ document.addEventListener("DOMContentLoaded", function () {
             MyMar = setInterval(() => myScroll(box, box1), speed);
         };
     });
+
+
+
+
+
     let adfoxbranding = document.querySelector('.adfox-banner-background'),
-        maxTopPosition = 344, 
+        maxTopPosition = 344,
         footer = document.querySelector('footer');
     window.addEventListener('scroll', () => {
         let scrollTopPosition = document.documentElement.scrollTop;

@@ -248,7 +248,6 @@ public class CatalogController : QarBaseController
                 Language = languageList
                     .FirstOrDefault(l => l.LanguageCulture.Equals(x.Language, StringComparison.OrdinalIgnoreCase))
                     ?.FullName,
-                x.DisplayOrder,
                 x.LatynUrl,
                 AddTime = UnixTimeHelper.UnixTimeToDateTime(x.AddTime).ToString("dd/MM/yyyy HH:mm")
             }).ToList();
@@ -944,8 +943,7 @@ public class CatalogController : QarBaseController
     }
 
     #endregion
-
-
+    
     #region Partner +Partner(string query)
     public IActionResult Partner(string query)
     {

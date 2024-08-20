@@ -13,7 +13,7 @@ using Hangfire.MemoryStorage;
 using AlemNewsWeb;
 using DBHelper;
 
-var defaultTheme = "alemnews";
+var defaultTheme = "AlemNews";
 var redirectUrl = string.Empty;
 string domain = null;
 
@@ -83,7 +83,6 @@ builder.Services.AddHangfireServer();
 builder.Services.AddHttpClient();
 
 var app = builder.Build();
-app.UseMiddleware<RedirectMiddleware>();
 var provider = new FileExtensionContentTypeProvider();
 provider.Mappings.Remove(".xml");
 provider.Mappings.Add(".xml", "application/xml");
@@ -110,19 +109,19 @@ app.MapControllerRoute(
     name: "culture_action",
     pattern: "{culture=kz}/{action=Index}/{query?}",
     defaults: new { controller = "Home" },
-    constraints: new { culture = "kz|ru|en|zh-cn|tr|ky" }
+    constraints: new { culture = "kz|ru|en|zh-cn|tote|latyn|tr" }
 );
 
 app.MapControllerRoute(
     name: "language_default",
     pattern: "{culture=kz}/{Home}/{action=Index}/{query?}",
-    constraints: new { culture = "kz|ru|en|zh-cn|tr|ky" }
+    constraints: new { culture = "kz|ru|en|zh-cn|tote|latyn|tr" }
 );
 
 app.MapControllerRoute(
     name: "admin_default",
     pattern: "{culture=kz}/{controller=Admin}/{action=Login}/{query?}",
-    constraints: new { culture = "kz|ru|en|zh-cn|tr|ky" }
+    constraints: new { culture = "kz|ru|en|zh-cn|tr|ky|tote|latyn" }
 );
 
 

@@ -49,10 +49,15 @@
     <link rel="stylesheet" href="~/themes/wibfont/css/all.min.css">
     <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/theme.css" asp-append-version="true">
     <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/main.css" asp-append-version="true">
+    @if (CurrentLanguage.Equals("tote", StringComparison.OrdinalIgnoreCase))
+    {
+        <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/kaznet.css">
+        <link rel="stylesheet" href="~/themes/@(CurrentTheme.ToLower())/css/main.rtl.css" asp-append-version="true">
+    }
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
-<body>
+<body data-pc-direction="@(CurrentLanguage.Equals("tote", StringComparison.OrdinalIgnoreCase) ? "rtl" : "ltr")">
     @{
         var header = $"~/Views/Themes/{CurrentTheme}/Partial/Header.cshtml";
         var footer = $"~/Views/Themes/{CurrentTheme}/Partial/Footer.cshtml";

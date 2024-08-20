@@ -16,7 +16,9 @@ blockquote{
 .header {
     z-index: 1000;
 }
-
+[data-pc-direction="rtl"] .share-btn-rtl{
+    text-align: left !important;
+}
 .box {
     margin: 0 auto;
     color: #6d0ee9;

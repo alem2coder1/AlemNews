@@ -811,4 +811,34 @@
       <image:title>«Chıstoe nebo»: masshtabnýıý operasıý po borbe s narkoprestýpnostú provelı v aeroportý Taldykorgana</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>http://localhost:7501/kz/article/baige-turlerinen-almaty-qalasy-kubogy.html</loc>
+    <lastmod>2024-08-16T08:45:57.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240816084546589_big.webp</image:loc>
+      <image:title> БӘЙГЕ ТҮРЛЕРІНЕН АЛМАТЫ ҚАЛАСЫ КУБОГЫ</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/latyn/article/baige-turlerinen-almaty-qalasy-kubogy.html</loc>
+    <lastmod>2024-08-16T08:45:57.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240816084546589_big.webp</image:loc>
+      <image:title> بايگە تۇرلەرىنەن الماتى قالاسى كۋبوگى</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>http://localhost:7501/tote/article/baige-turlerinen-almaty-qalasy-kubogy.html</loc>
+    <lastmod>2024-08-16T08:45:57.0000000+05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>http://localhost:7501/uploads/thumbnail/20240816084546589_big.webp</image:loc>
+      <image:title> BÁIGE TÚRLERİNEN ALMATY QALASY KÝBOGY</image:title>
+    </image:image>
+  </url>
 </urlset>

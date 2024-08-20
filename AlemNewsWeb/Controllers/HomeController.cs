@@ -30,7 +30,6 @@ public class HomeController : QarBaseController
 
     public IActionResult Index()
     {
-
         ViewData["pinnedArticle"] = QarCache.GetPinnedArticleList(_memoryCache, CurrentLanguage, 3).ToList();
         ViewData["latestArticleList"] = QarCache.GetArticleList(_memoryCache, CurrentLanguage, 25);
         ViewData["focusArticleList"] = QarCache.GetFocusArticleList(_memoryCache, CurrentLanguage, 12);
