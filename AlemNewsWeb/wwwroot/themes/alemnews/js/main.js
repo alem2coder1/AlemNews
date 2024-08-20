@@ -213,17 +213,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     let oldScrollTopPosition = 0,
         adfoxbranding = document.querySelector('.adfox-banner-background'),
-        maxTopPosition = 208;
+        maxTopPosition = 208,
+        footer = document.querySelector('footer'); // Assuming your footer is selected by 'footer'
+
     window.onscroll = () => {
         let scrollTopPosition = document.documentElement.scrollTop;
-        //console.log('scrolltop'+scrollTopPosition);
+        let footerTopPosition = footer.getBoundingClientRect().top + window.scrollY; // Get footer's top position relative to the document
+
         if (scrollTopPosition < maxTopPosition) {
             adfoxbranding.style.position = "absolute";
             adfoxbranding.style.top = "208px";
-        } else {
+        } else if (scrollTopPosition >= maxTopPosition && scrollTopPosition < footerTopPosition - window.innerHeight) {
             adfoxbranding.style.position = "fixed";
             adfoxbranding.style.top = "0px";
+        } else {
+            adfoxbranding.style.position = "absolute";
+            adfoxbranding.style.top = `${footerTopPosition - adfoxbranding.offsetHeight}px`; // Set adfoxbranding position near footer
         }
-    }
+    };
 
 });
