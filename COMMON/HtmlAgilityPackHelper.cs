@@ -777,8 +777,7 @@ public class HtmlAgilityPackHelper
 
     }
     #endregion
-
-
+    
     #region golos-naroda тен қазіргі Weather оқу +GetgolosWeatherRateList(List<Weather> weatherList)
     public static List<Weather> GetgolosWeatherRateList(List<Weather> weatherList)
     {
@@ -838,4 +837,65 @@ public class HtmlAgilityPackHelper
     }
     #endregion
 
+      
+    #region golos-naroda тен қазіргі Weather оқу +GetgolosAstanaWeatherList(List<Weather> weatherList)
+   public static List<Astanaweather> GetgolosAstanaWeatherList(List<Astanaweather> weatherList)
+{
+    if (weatherList == null) return new List<Astanaweather>();
+    
+    try
+    {
+        string html = GetHtmlWebAsync("https://baq.kz/").Result;
+        HtmlDocument document = new HtmlDocument();
+        document.LoadHtml(html);
+        
+        var divNodes = document.DocumentNode.SelectNodes("//div[contains(@class, 'custom_wdt')]");
+        if (divNodes != null)
+        {
+            foreach (var divNode in divNodes)
+            {
+                var nameNode = divNode.SelectSingleNode(".//span[contains(@class, 'custom_wdt__state')]");
+                var temperatureNode = divNode.SelectSingleNode(".//span[contains(@class, 'custom_wdt__temp')]");
+                var thumbnailUrlNode = divNode.SelectSingleNode(".//div[contains(@id, 'cache_weather')]//img");
+
+                if (nameNode != null && temperatureNode != null && thumbnailUrlNode != null)
+                {
+                    string cityName = nameNode.InnerText.Trim().Split(',')[0]; 
+                    string temperature = temperatureNode.InnerText.Trim();
+                    string thumbnailUrl = thumbnailUrlNode.GetAttributeValue("src", "");
+
+                    if (!string.IsNullOrEmpty(cityName))
+                    {
+                        cityName = cityName.Replace("\n", "").Replace(" ", "");
+
+                        var currentWeather = weatherList.FirstOrDefault(x => x.Name.Equals(cityName, StringComparison.OrdinalIgnoreCase));
+                        if (currentWeather != null)
+                        {
+                            currentWeather.Temperature = temperature;
+                            currentWeather.ThumbnailUrl = thumbnailUrl;
+                        }
+                        else
+                        {
+                            var newWeather = new Astanaweather
+                            {
+                                Name = cityName,
+                                Temperature = temperature,
+                                ThumbnailUrl = thumbnailUrl
+                            };
+                            weatherList.Add(newWeather);
+                        }
+                    }
+                }
+            }
+        }
+        
+        return weatherList;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error: " + ex.Message);
+        return weatherList;
+    }
+}
+    #endregion
 }

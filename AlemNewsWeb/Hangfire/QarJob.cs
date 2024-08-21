@@ -457,7 +457,7 @@ UNIX_TIMESTAMP(created_at) as addTime from categories order by id;";
 
     #endregion
 
-    #region Курс мәнін сақтау +JobSaveCurrencyRate()
+    #region  мәнін сақтау +JobSaveWeatherRate()
 
     public void JobSaveWeatherRate()
     {
@@ -493,6 +493,42 @@ UNIX_TIMESTAMP(created_at) as addTime from categories order by id;";
 
     #endregion
 
+    #region  мәнін сақтау +JobSaveWeatherRate()
+
+    public void JobSaveAstanaWeatherRate()
+    {
+        var key = MethodBase.GetCurrentMethod().Name;
+        if (QarSingleton.GetInstance().GetRunStatus(key)) return;
+        QarSingleton.GetInstance().SetRunStatus(key, true);
+        try
+        {
+            using (var connection = Utilities.GetOpenConnection())
+            {
+                var weatherList = connection.GetList<Astanaweather>("where qStatus = 0").ToList();
+                var currentTime = UnixTimeHelper.GetCurrentUnixTime();
+                weatherList = HtmlAgilityPackHelper.GetgolosAstanaWeatherList(weatherList);
+                foreach (var weather in weatherList)
+                {
+                    weather.UpdateTime = currentTime;
+                    weather.QStatus = 0;
+                    connection.Update(weather);
+                }
+            }
+
+            QarCache.ClearCache(_memoryCache, nameof(QarCache.GetAstanaWeatherList));
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, key);
+        }
+        finally
+        {
+            QarSingleton.GetInstance().SetRunStatus(key, false);
+        }
+    }
+
+    #endregion
+    
     #region Job Generate Tag LatynUrl +JobGenerateTagLatynUrl()
 
     public void JobGenerateTagLatynUrl()

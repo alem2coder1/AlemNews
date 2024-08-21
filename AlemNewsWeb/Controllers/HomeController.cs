@@ -34,6 +34,7 @@ public class HomeController : QarBaseController
         ViewData["latestArticleList"] = QarCache.GetArticleList(_memoryCache, CurrentLanguage, 25);
         ViewData["focusArticleList"] = QarCache.GetFocusArticleList(_memoryCache, CurrentLanguage, 12);
         ViewData["proverbList"] = QarCache.GetProverbList(_memoryCache);
+        ViewData["astanaWeather"] = QarCache.GetAstanaWeatherList(_memoryCache);
         var categoryList = QarCache.GetCategoryList(_memoryCache, CurrentLanguage);
         foreach (var category in categoryList.Where(x => x.ParentId == 0))
         {

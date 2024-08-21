@@ -12,39 +12,41 @@
             <nav class="navbar navbar-expand d-lg-none navbar-light px-0">
                 <div id="navbar-mobile" class="collapse navbar-collapse nav-top-mobile">
                     <!--Top left menu-->
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a id="navbarhome" class="nav-link active dropdown-toggle" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Weather")</a>
-                            <!--link-->
-                            <ul class="dropdown-menu" aria-labelledby="navbarhome">
-                                @foreach(var weather in weatherList)
-                                {
-                                    <li class="ps-1 jucstin-strart">@weather?.CityName - @weather?.Temperature</li>
-                                }
-                               
-                            </ul>
-                            <!-- end link -->
+                    <ul class="navbar-nav py-1 text-white" >
+                        <li class="nav-item text-white" style="font-size: 16px">
+                            @T("ls_ContactUs") 
+                            <a href="@SiteSetting?.Whatsapp" target="_blank" class="text-white">Tel:@SiteSetting?.Phone</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarhome" class="nav-link active dropdown-toggle" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Selectlanguage")</a>
-                            <!--link-->
-                            <ul class="dropdown-menu" aria-labelledby="navbarhome">
-                                 @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
-                                {
-                                    <li class="ps-1 jucstin-strart">
-                                                                        
-                                        <a href="javascaript:void(0);" rel="qar-static-text" data-language="@item.LanguageCulture" data-static="qar">
-                                            <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
-                                            @item.FullName
-                                        </a>
-                                    </li>
-                                }
-                               
-                            </ul>
-                            <!-- end link -->
-                        </li>
+                        
+                        @* <li class="nav-item dropdown"> *@
+                        @*     <a id="navbarhome" class="nav-link active dropdown-toggle" role="button" *@
+                        @*         data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Weather")</a> *@
+                        @*     *@
+                        @*     <ul class="dropdown-menu" aria-labelledby="navbarhome"> *@
+                        @*         @foreach(var weather in weatherList) *@
+                        @*         { *@
+                        @*             <li class="ps-1 jucstin-strart">@weather?.CityName - @weather?.Temperature</li> *@
+                        @*         } *@
+                        @*     </ul> *@
+                        @*      *@
+                        @* </li> *@
+                        @* <li class="nav-item dropdown"> *@
+                        @*     <a id="navbarhome" class="nav-link active dropdown-toggle" role="button" *@
+                        @*         data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Selectlanguage")</a> *@
+                        @*     <ul class="dropdown-menu" aria-labelledby="navbarhome"> *@
+                        @*          @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList()) *@
+                        @*         { *@
+                        @*             <li class="ps-1 jucstin-strart"> *@
+                        @*                                                  *@
+                        @*                 <a href="javascaript:void(0);" rel="qar-static-text" data-language="@item.LanguageCulture" data-static="qar"> *@
+                        @*                     <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp; *@
+                        @*                     @item.FullName *@
+                        @*                 </a> *@
+                        @*             </li> *@
+                        @*         } *@
+                        @*         *@
+                        @*     </ul> *@
+                        @* </li> *@
 
 
                     </ul>
@@ -52,7 +54,7 @@
                     <ul class="navbar-nav ms-auto text-center">
                         <li class="nav-item pe-2 sm-display">
                             <a href="" class=" dark-moon">
-                                <i class="fa-regular fa-moon-stars fa-xl " ></i>
+                               <i class="fa-solid fa-lightbulb-on"></i>
                             </a>
                             <a href="" class="light-sun d-none">
                                 <i class="fa-duotone fa-sun-bright fa-xl " ></i>
@@ -111,45 +113,47 @@
                 <!--Top Navbar-->
                 <div id="navbarTogglerDemo" class="collapse navbar-collapse">
                     <!--Top left menu-->
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a id="navbarhome" class="nav-link active dropdown-toggle" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Weather")</a>
-                            <!--link-->
-                            <ul class="dropdown-menu" aria-labelledby="navbarhome">
-                                 @foreach(var weather in weatherList)
-                                 {
-                                <li class="tote-text-left"><a class="dropdown-item" href="#">@weather?.CityName - @weather?.Temperature</a></li>
-                                 }
-                            </ul>
-                            <!-- end link -->
+                    <ul class="navbar-nav py-2">
+                        <li class="nav-item text-white" style="font-size: 16px">
+                            @T("ls_ContactUs") 
+                            <a href="@SiteSetting?.Whatsapp" target="_blank" class="text-white">Tel:@SiteSetting?.Phone</a>
                         </li>
-                         <li class="nav-item dropdown">
-                            <a id="navbarhome" class="nav-link active dropdown-toggle" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Selectlanguage")</a>
-                            <!--link-->
-                            <ul class="dropdown-menu" aria-labelledby="navbarhome">
-                                 @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
-                                {
-                                    <li class="tote-text-left">
-                                                                        
-                                        <a href="javascaript:void(0);" class="dropdown-item" rel="qar-static-text" data-language="@item.LanguageCulture" data-static="qar">
-                                            <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
-                                            @item.FullName
-                                        </a>
-                                    </li>
-                                }
-                               
-                            </ul>
-                            <!-- end link -->
-                        </li>
+                        
+                        @* <li class="nav-item dropdown"> *@
+                        @*     <a id="navbarhome" class="nav-link active dropdown-toggle" role="button" *@
+                        @*         data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Weather")</a> *@
+                        @*     <ul class="dropdown-menu" aria-labelledby="navbarhome"> *@
+                        @*          @foreach(var weather in weatherList) *@
+                        @*          { *@
+                        @*         <li class="tote-text-left"><a class="dropdown-item" href="#">@weather?.CityName - @weather?.Temperature</a></li> *@
+                        @*          } *@
+                        @*     </ul> *@
+                        @* </li> *@
+                        @*  <li class="nav-item dropdown"> *@
+                        @*     <a id="navbarhome" class="nav-link active dropdown-toggle" role="button" *@
+                        @*         data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Selectlanguage")</a> *@
+                        @*     <!--link--> *@
+                        @*     <ul class="dropdown-menu" aria-labelledby="navbarhome"> *@
+                        @*          @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList()) *@
+                        @*         { *@
+                        @*             <li class="tote-text-left"> *@
+                        @*                                                  *@
+                        @*                 <a href="javascaript:void(0);" class="dropdown-item" rel="qar-static-text" data-language="@item.LanguageCulture" data-static="qar"> *@
+                        @*                     <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp; *@
+                        @*                     @item.FullName *@
+                        @*                 </a> *@
+                        @*             </li> *@
+                        @*         } *@
+                        @*         *@
+                        @*     </ul> *@
+                        @* </li> *@
                     </ul>
                     <!--end top left menu-->
                     <!--Top right menu-->
                     <ul class="navbar-nav ms-auto text-center">
                         <li class="nav-item ">
                             <a href="" class="dark-moon" data-skin="@SkinName">
-                                <i class="fa-regular fa-moon-stars fa-xl " style="color: #ffffff;"></i>
+                                <i class="fa-solid fa-lightbulb-on fa-xl" style="color: #ffffff;"></i>
                             </a>
                             <a href="" class="light-sun d-none" data-skin="@SkinName" >
                                 <i class="fa-duotone fa-sun-bright fa-2xl " style="color: #ffffff;"></i>

@@ -140,7 +140,7 @@ SimpleCRUD.SetTableNameResolver(new QarTableNameResolver());
 //     int maxId = _connection.Query<int>("select max(id) from article where qStatus <> 1").FirstOrDefault();
 //     QarSingleton.GetInstance().SetIntValue("maxArticleId", maxId);
 // }
-// BackgroundJob.Schedule<AlemNewsWeb.Hangfire.QarJob>(q => q.JobSaveWeatherRate(), TimeSpan.FromSeconds(1));
+ // BackgroundJob.Schedule<AlemNewsWeb.Hangfire.QarJob>(q => q.JobSaveAstanaWeatherRate(), TimeSpan.FromSeconds(1));
 if (app.Environment.IsDevelopment())
 {
     app.Run();
@@ -153,6 +153,7 @@ else
     // BackgroundJob.Schedule<AlemNewsWeb.Hangfire.QarJob>(q => q.JobSyncCollectOldServerArticleMedia(), TimeSpan.FromSeconds(10));
     BackgroundJob.Schedule<AlemNewsWeb.Hangfire.QarJob>(q => q.JobSaveReloginAdminIds(), TimeSpan.FromMinutes(1));
     BackgroundJob.Schedule<AlemNewsWeb.Hangfire.QarJob>(q => q.JobSaveWeatherRate(), TimeSpan.FromMinutes(5));
+    BackgroundJob.Schedule<AlemNewsWeb.Hangfire.QarJob>(q => q.JobSaveAstanaWeatherRate(), TimeSpan.FromMinutes(5));
     RecurringJob.AddOrUpdate<AlemNewsWeb.Hangfire.QarJob>("jobSaveCurrencyRate", q => q.JobSaveCurrencyRate(), "*/3 * * * *");//3 Min
     RecurringJob.AddOrUpdate<AlemNewsWeb.Hangfire.QarJob>("jobDeleteOldLogFiles", q => q.JobDeleteOldLogFiles(), Cron.Daily); //1 day
     RecurringJob.AddOrUpdate<AlemNewsWeb.Hangfire.QarJob>("jobPublishAutoPublishArticle", q => q.JobPublishAutoPublishArticle(), Cron.Minutely); //1 Minx`
