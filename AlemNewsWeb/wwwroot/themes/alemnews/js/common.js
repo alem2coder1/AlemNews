@@ -257,6 +257,9 @@ window.$qar = {
         language: language,
         rtl_ui: isRtlUI,
         relative_urls: true,
+        valid_elements: '*[*]',
+        invalid_elements: 'class',
+        valid_classes: '',
         remove_script_host: true,
         // Note: `rtl_ui` and `imeEnabled` are not standard TinyMCE options.
         // You might need to implement custom functionality to support these features.
