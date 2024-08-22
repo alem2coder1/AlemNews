@@ -1,5 +1,6 @@
 @{
   Layout = $"~/Views/Themes/{CurrentTheme}/_HomeLayout.cshtml";
+  var astanaWeather = QarList<Astanaweather>("astanaWeather");
   var articleList = QarList<Article>("articleList");
   var menuList = QarList<Articlecategory>("menuList");
   var subCategoryList = QarList<Articlecategory>("subCategoryList");
@@ -148,33 +149,46 @@
           <!--end advertiser-->
 
           <!-- Social icon -->
-          <aside class="widget">
-            <!--block title-->
-            <div class="block-title-4">
-              <h4 class="h5 title-arrow">
-                <span>@T("ls_SocialLinks")</span>
-              </h4>
-            </div>
-            <!--end block title-->
-            <!-- social content -->
-            <ul class="list-unstyled social-two">
-              <li class="facebook"><a class="bg-facebook text-white share-btn-rtl" href="@SiteSetting?.Facebook"
-                  target="_blank" rel="noopener noreferrer" aria-label="facebook">Facebook</a></li>
-              <li class="telegram"><a class="bg-telegram text-white share-btn-rtl" href="@SiteSetting?.Telegram"
-                  target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a></li>
-              <li class="instagram"><a class="bg-instagram text-white share-btn-rtl" href="@SiteSetting?.Instagram"
-                  target="_blank" rel="noopener noreferrer" aria-label="instagram">Instagram</a></li>
-              <li class="youtube"><a class="bg-youtube text-white share-btn-rtl" href="@SiteSetting?.Youtube"
-                  target="_blank" rel="noopener noreferrer" aria-label="youtube">Youtube</a></li>
-            </ul>
-            <!-- end social content -->
-            <div class="gap-1"></div>
-          </aside>
+           <aside class="widget">
+                     @foreach (var astana in astanaWeather)
+                     {
+                       <div class="weather-container">
+                         <div class="weather-details d-flex justify-content-between w-100 weather-img">
+                           <div class=" d-flex align-center">
+                             <div class="p-1">
+                                <img src="@astana?.ThumbnailUrl" alt="@astana?.Name">
+                                <div class="text-white ps-1">@astana?.Temperature</div>
+                             </div>
+                             <div class="text-white px-2">
+                                <span class="d-block news-hourse">@astana?.Name</span>
+                               <span class="d-block news-moon">Қазақстан</span>
+                             </div>
+                           </div>
+                          
+                           <div class="weather-time text-white">
+                             @{
+                               var time = UnixTimeHelper.GetCurrentUnixTime();
+                               var currentTime12Hour = DateTime.Now.ToString("hh:mm");
+                             }
+                             <div class="news-hourse">@currentTime12Hour</div>
+                             <div class="d-flex news-moon">
+                               <div class="pe-2">@UnixTimeHelper.UnixTimeToLocalMootString(time, CurrentLanguage)</div>
+                               <div>@UnixTimeHelper.UnixTimeToWeekLocalString(time)</div>
+         
+                             </div>
+         
+                           </div>
+                         </div>
+                           <div class="gap-15"></div>
+                       </div>
+                     }
+                   
+                   </aside>
           @if (topArticleList.Count > 0)
           {
             <aside class="widget post-content">
               <div class="block-title-4">
-                <h4 class="h5 title-arrow">
+                <h4 class="h5 title-arrow title-new-arrow" style="top: 2.25rem;">
                   <span>@T("ls_Mostviewed")</span>
                 </h4>
               </div>

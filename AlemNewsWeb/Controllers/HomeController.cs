@@ -265,7 +265,7 @@ public class HomeController : QarBaseController
                     ViewData["og_title"] = ogTitle;
                     ViewData["menuTitle"] = ogTitle;
                     ViewData["keyword"] = keyword;
-                    // ViewData["topArticleList"] = QarCache.GetTopArticleList(_memoryCache, CurrentLanguage, 30, 25);
+                     ViewData["topArticleList"] = QarCache.GetTopArticleList(_memoryCache, CurrentLanguage, 30, 25);
                     return View($"~/Views/Themes/{CurrentTheme}/Home/ArticleList.cshtml");
                 }
 

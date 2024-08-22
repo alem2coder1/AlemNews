@@ -84,6 +84,21 @@ public class UnixTimeHelper
         var dateString = astanaTime.ToString("o");
         return dateString;
     }
+    public static string UnixTimeToWeekLocalString(int unixTime)
+    {
+        var dateTime = UnixTimeToDateTime(unixTime);
+        return dateTime.DayOfWeek switch
+        {
+            DayOfWeek.Monday => "Дүйсенбі",
+            DayOfWeek.Tuesday => "Сейсенбі",
+            DayOfWeek.Wednesday => "Сәрсенбі",
+            DayOfWeek.Thursday => "Бейсенбі",
+            DayOfWeek.Friday => "Жұма",
+            DayOfWeek.Saturday => "Сенбі",
+            DayOfWeek.Sunday => "Жексенбі",
+            _ => ""
+        };
+    }
 
     public static string UnixTimeToLocalString(int unixtime, string language)
     {
@@ -127,6 +142,52 @@ public class UnixTimeHelper
                 {
                     return datetime.ToString("HH:mm, dd MMMM yyyy", new System.Globalization.CultureInfo("en-US"));
                 }
+        }
+
+    }
+    
+    public static string UnixTimeToLocalMootString(int unixtime, string language)
+    {
+        var datetime = UnixTimeToDateTime(unixtime);
+        switch (language)
+        {
+            case "kz":
+            case "tote":
+            case "latyn":
+            {
+                var month = datetime.ToString("dd MMMM", new System.Globalization.CultureInfo("kk-KZ"));
+                switch (language)
+                {
+                    case "tote":
+                    {
+                        return Cyrl2ToteHelper.Cyrl2Tote(month);
+                    }
+                    case "latyn":
+                    {
+                        return Cyrl2LatynHelper.Cyrl2Latyn(month);
+                    }
+                    default:
+                    {
+                        return month;
+                    }
+                }
+            }
+            case "ru":
+            {
+                return datetime.ToString("dd MMMM", new System.Globalization.CultureInfo("ru-RU"));
+            }
+            case "zh-cn":
+            {
+                return datetime.ToString("dd MMMM", new System.Globalization.CultureInfo("zh-CN"));
+            }
+            case "tr":
+            {
+                return datetime.ToString("dd MMMM", new System.Globalization.CultureInfo("tr-TR"));
+            }
+            default:
+            {
+                return datetime.ToString("dd MMMM", new System.Globalization.CultureInfo("en-US"));
+            }
         }
 
     }

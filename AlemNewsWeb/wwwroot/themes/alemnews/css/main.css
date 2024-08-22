@@ -5,6 +5,21 @@ img {
 .bg-whatsapp {
     background-color: #1baa1b;
 }
+.weather-img {
+    -webkit-box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.2);
+    background-color: #ff0000;
+    padding: 2px;
+    border-radius: 6px;
+}
+
+.weather-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    border-radius: 8px; 
+}
 
 blockquote {
     padding: 16px 24px 1px;
@@ -12,7 +27,64 @@ blockquote {
     border-left: 4px solid #ff0000;
     border-radius: 0 5px 5px 0;
 }
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
+.weather-header {
+    margin-bottom: 10px; 
+}
+
+.weather-details {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+.d-flex{
+    display: flex;
+}
+.justify-content-between{
+    justify-content: space-between;
+}
+.news-hourse{
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+.block-title-4 .title-new-arrow:before{
+    content: "";
+    width: 2.5rem;
+    height: 2px;
+    position: absolute;
+    top: 2.25rem;
+    background: #4f46e5;
+}
+.align-center{
+    align-items: center;
+}
+.w-100{
+    width: 100%;
+}
+.news-moon{
+    font-size: 12px;
+}
+
+.weather-img img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.weather-time {
+    padding: 10px; 
+}
+
+.gap-15 {
+    margin-bottom: 15px;
+}
 .share-left-title {
     padding: 10px 0 10px 10px;
 }
