@@ -13,10 +13,6 @@
                 <div id="navbar-mobile" class="collapse navbar-collapse nav-top-mobile">
                     <!--Top left menu-->
                     <ul class="navbar-nav py-1 text-white" >
-                        <li class="nav-item" >
-                            <a href="@SiteSetting?.Whatsapp" target="_blank" style="font-size: 12px;color: #1b1b1b" class="">Tel:@SiteSetting?.Phone</a>
-                        </li>
-                        
                         @* <li class="nav-item dropdown"> *@
                         @*     <a id="navbarhome" class="nav-link active dropdown-toggle" role="button" *@
                         @*         data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Weather")</a> *@
@@ -29,23 +25,34 @@
                         @*     </ul> *@
                         @*      *@
                         @* </li> *@
-                        @* <li class="nav-item dropdown"> *@
-                        @*     <a id="navbarhome" class="nav-link active dropdown-toggle" role="button" *@
-                        @*         data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Selectlanguage")</a> *@
-                        @*     <ul class="dropdown-menu" aria-labelledby="navbarhome"> *@
-                        @*          @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList()) *@
-                        @*         { *@
-                        @*             <li class="ps-1 jucstin-strart"> *@
-                        @*                                                  *@
-                        @*                 <a href="javascaript:void(0);" rel="qar-static-text" data-language="@item.LanguageCulture" data-static="qar"> *@
-                        @*                     <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp; *@
-                        @*                     @item.FullName *@
-                        @*                 </a> *@
-                        @*             </li> *@
-                        @*         } *@
-                        @*         *@
-                        @*     </ul> *@
-                        @* </li> *@
+                        <li class="nav-item dropdown">
+                            @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
+                            {
+                                if (CurrentLanguage == item.LanguageCulture)
+                                {
+                                    <a id="navbarhome" class="nav-link active dropdown-toggle" role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false" href="#">@item.FullName</a>
+                                }
+                            }
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarhome">
+                                @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
+                                {
+                                    <li class="ps-1 jucstin-strart">
+
+                                        <a href="javascaript:void(0);" rel="qar-static-text" data-language="@item.LanguageCulture" data-static="qar">
+                                            <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
+                                            @item.FullName
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </li>
+                        <li class="nav-item d-flex align-center" >
+                            <a href="@SiteSetting?.Whatsapp" target="_blank" style="font-size: 12px;color: #1b1b1b" class="">Tel:@SiteSetting?.Phone</a>
+                        </li>
+                        
 
 
                     </ul>
@@ -113,11 +120,6 @@
                 <div id="navbarTogglerDemo" class="collapse navbar-collapse">
                     <!--Top left menu-->
                     <ul class="navbar-nav py-2">
-                        <li class="nav-item text-white" style="font-size: 16px">
-                            @T("ls_ContactUs") 
-                            <a href="@SiteSetting?.Whatsapp" target="_blank" class="text-white">Tel:@SiteSetting?.Phone</a>
-                        </li>
-                        
                         @* <li class="nav-item dropdown"> *@
                         @*     <a id="navbarhome" class="nav-link active dropdown-toggle" role="button" *@
                         @*         data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Weather")</a> *@
@@ -128,24 +130,36 @@
                         @*          } *@
                         @*     </ul> *@
                         @* </li> *@
-                        @*  <li class="nav-item dropdown"> *@
-                        @*     <a id="navbarhome" class="nav-link active dropdown-toggle" role="button" *@
-                        @*         data-bs-toggle="dropdown" aria-expanded="false" href="#">@T("ls_Selectlanguage")</a> *@
-                        @*     <!--link--> *@
-                        @*     <ul class="dropdown-menu" aria-labelledby="navbarhome"> *@
-                        @*          @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList()) *@
-                        @*         { *@
-                        @*             <li class="tote-text-left"> *@
-                        @*                                                  *@
-                        @*                 <a href="javascaript:void(0);" class="dropdown-item" rel="qar-static-text" data-language="@item.LanguageCulture" data-static="qar"> *@
-                        @*                     <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp; *@
-                        @*                     @item.FullName *@
-                        @*                 </a> *@
-                        @*             </li> *@
-                        @*         } *@
-                        @*         *@
-                        @*     </ul> *@
-                        @* </li> *@
+                        <li class="nav-item dropdown">
+                            @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
+                            {
+                                if (CurrentLanguage == item.LanguageCulture)
+                                {
+                                    <a id="navbarhome" class="nav-link active dropdown-toggle" role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false" rel="qar-static-text"  href="javascaript:void(0);"> @item.FullName</a>
+                                }
+                                
+                            }
+                           
+                            <ul class="dropdown-menu" aria-labelledby="navbarhome">
+                                @foreach (var item in LanguageList.Where(x => x.FrontendDisplay == 1).ToList())
+                                {
+                                    <li class="tote-text-left">
+
+                                        <a href="javascaript:void(0);" class="dropdown-item" rel="qar-static-text" data-language="@item.LanguageCulture" data-static="qar">
+                                            <img src="@item.LanguageFlagImageUrl" alt=""/> &nbsp;
+                                            @item.FullName
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </li>
+                        <li class="nav-item text-white d-flex align-center" style="font-size: 14px">
+                            @T("ls_ContactUs")  
+                            <a href="@SiteSetting?.Whatsapp" target="_blank" class="text-white ps-1">Tel:@SiteSetting?.Phone</a>
+                        </li>
+                        
                     </ul>
                     <!--end top left menu-->
                     <!--Top right menu-->
@@ -232,17 +246,17 @@
                                     <div class="col-12 col-md-8 col-lg-10 ps-md-2">
                                       <div class="box">
                                         <ul class="box1 list-unstyled social-two">
-                                            <li class="facebook"><a class="bg-facebook text-white scrol-with share-btn-rtl"  href="@SiteSetting?.Facebook" target="_blank" rel="noopener noreferrer"
+                                            <li class="facebook"><a class="bg-facebook text-white scrol-with share-btn-rtl remove-hover"  href="@SiteSetting?.Facebook" target="_blank" rel="noopener noreferrer"
                                                              aria-label="facebook">Facebook</a></li>
-                                            <li class="telegram"><a class="bg-telegram text-white scrol-with share-btn-rtl" href="@SiteSetting?.Telegram" target="_blank" rel="noopener noreferrer"
+                                            <li class="telegram"><a class="bg-telegram text-white scrol-with share-btn-rtl remove-hover" href="@SiteSetting?.Telegram" target="_blank" rel="noopener noreferrer"
                                                                     aria-label="Telegram">Telegram</a></li>
-                                            <li class="instagram"><a class="bg-instagram text-white scrol-with share-btn-rtl" href="@SiteSetting?.Instagram" target="_blank"
+                                            <li class="instagram"><a class="bg-instagram text-white scrol-with share-btn-rtl remove-hover" href="@SiteSetting?.Instagram" target="_blank"
                                                                      rel="noopener noreferrer" aria-label="instagram">Instagram</a></li>
-                                            <li class="youtube"><a class="bg-youtube text-white scrol-with share-btn-rtl" href="@SiteSetting?.Youtube" target="_blank" rel="noopener noreferrer"
+                                            <li class="youtube"><a class="bg-youtube text-white scrol-with share-btn-rtl remove-hover" href="@SiteSetting?.Youtube" target="_blank" rel="noopener noreferrer"
                                                                    aria-label="youtube">Youtube</a></li>
-                                            <li class="twitter"><a class="bg-twitter text-white scrol-with share-btn-rtl" href="@SiteSetting?.Twitter" target="_blank" rel="noopener noreferrer" aria-label="twitter">Twitter</a></li>
+                                            <li class="twitter"><a class="bg-twitter text-white scrol-with share-btn-rtl remove-hover" href="@SiteSetting?.Twitter" target="_blank" rel="noopener noreferrer" aria-label="twitter">Twitter</a></li>
                                             <li class="whatsapp">
-                                                <a class="bg-whatsapp text-white scrol-with share-btn-rtl" href="@SiteSetting?.Whatsapp" target="_blank" rel="noopener noreferrer" aria-label="whatsapp">Whatsapp</a>
+                                                <a class="bg-whatsapp text-white scrol-with share-btn-rtl remove-hover" href="@SiteSetting?.Whatsapp" target="_blank" rel="noopener noreferrer" aria-label="whatsapp">Whatsapp</a>
                                             </li>
                                            
                                         </ul>
